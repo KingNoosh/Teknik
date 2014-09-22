@@ -110,7 +110,7 @@ function linkKeyDelete(selector)
       prev_split.splice(index, 1);
       $("#update_public_key").val(prev_split.toString());
     }
-    $(".public_key_"+key).remove();
+    $(".public_key_"+key_index.toString()).remove();
     return false;
   });
 }
