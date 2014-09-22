@@ -282,6 +282,7 @@ class GitRepo {
 			$env = NULL;
 			foreach($this->envopts as $k => $v) {
 				putenv(sprintf("%s=%s",$k,$v));
+        echo $k.": ".$v;
 			}
 		} else {
 			$env = array_merge($_ENV, $this->envopts);
