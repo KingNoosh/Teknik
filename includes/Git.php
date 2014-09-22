@@ -286,7 +286,7 @@ class GitRepo {
 		} else {
 			$env = array_merge($_ENV, $this->envopts);
 		}
-    foreach($env as $val) {
+    foreach($_ENV as $val) {
       echo $val;
     }
 		$cwd = $this->repo_path;
