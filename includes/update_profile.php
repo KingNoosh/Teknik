@@ -137,7 +137,7 @@ if(isset($_POST))
           }
           $Git = new Git();
           $Git->windows_mode();
-          $repo = $Git->clone_remote('C:\\inetpub\\wwwroot\\teknik\\cache\\gitolite-admin\\', 'git@localhost:gitolite-admin');
+          $repo = $Git->clone_remote('/cygdrive/c/inetpub/wwwroot/teknik/cache/gitolite-admin/', 'git@localhost:gitolite-admin');
           
           if (is_dir("../cache/gitolite-admin/keydir/u/".$user->username))
           {
