@@ -131,13 +131,13 @@ if(isset($_POST))
         // Add the user's keys to his git account
         if ($public_key != $user->public_key)
         {            
-          if (is_dir('../cache/gitolite-admin'))
+          if (!is_dir('../cache/gitolite-admin'))
           {
-            unlink('../cache/gitolite-admin');
+            mkdir('../cache/gitolite-admin', 0777, true);
           }
           $Git = new Git();
           $Git->windows_mode();
-          $repo = $Git->clone_remote('C:\\inetpub\\wwwroot\\teknik\\cache\\gitolite-admin', 'ssh://git@localhost:gitolite-admin');
+          $repo = $Git->clone_remote('C:\\inetpub\\wwwroot\\teknik\\cache\\gitolite-admin\\', 'git@localhost:gitolite-admin');
           
           if (is_dir("../cache/gitolite-admin/keydir/u/".$user->username))
           {
