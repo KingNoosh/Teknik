@@ -134,7 +134,7 @@ if(isset($_POST))
           $Git = new Git();
           $Git->windows_mode();
           $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
-          $repo->setenv("HOME", "/home/git");
+          $repo->setenv("HOME", "/home/Administrator");
           $repo->pull('origin', 'master');
           
           if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
