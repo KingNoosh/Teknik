@@ -56,7 +56,7 @@ $(document).ready(function() {
         }
         else
         {
-          bootbox.alert("The key '"+result+"' is already added.", function() { });
+          bootbox.alert("That key is already in the list.", function() { });
         }
       }
     });

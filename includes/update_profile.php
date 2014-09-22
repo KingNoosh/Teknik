@@ -1,5 +1,6 @@
 <?php
 require_once('config.php');
+require_once('Git.php');
  
 //initialize php variables used in the form
 $current_password = "";
@@ -24,7 +25,6 @@ if(isset($_POST))
       array(
               'website'                        =>    array('filter' => FILTER_SANITIZE_STRING, 'flags' => FILTER_FLAG_STRIP_LOW),
               'quote'                            =>    array('filter' => FILTER_SANITIZE_STRING, 'flags' => FILTER_FLAG_STRIP_LOW),
-              'public_key'                            =>    array('filter' => FILTER_SANITIZE_STRING, 'flags' => FILTER_FLAG_STRIP_LOW),
               'about'                            =>    array('filter' => FILTER_SANITIZE_STRING, 'flags' => !FILTER_FLAG_STRIP_LOW),
               'blog_title'                            =>    array('filter' => FILTER_SANITIZE_STRING, 'flags' => FILTER_FLAG_STRIP_LOW),
               'blog_desc'                            =>    array('filter' => FILTER_SANITIZE_STRING, 'flags' => !FILTER_FLAG_STRIP_LOW)
@@ -37,7 +37,7 @@ if(isset($_POST))
     $password = rawurldecode($_POST['password']);
     $password_confirm = rawurldecode($_POST['password_confirm']);
     $theme = rawurldecode($_POST['theme']);
-    $public_key = rawurldecode($revised_post_array['public_key']);
+    $public_key = rawurldecode($_POST['public_key']);
     //$minecraft = rawurldecode($revised_post_array['minecraft']);
     $website = rawurldecode($revised_post_array['website']);
     $quote = rawurldecode($revised_post_array['quote']);
@@ -108,11 +108,16 @@ if(isset($_POST))
       $success = false;
     }
     
-    $pattern = "/^(ssh-rsa)\s([0-9A-Za-z\/\+]+)([=]*)((\s.*)|())$/";
-    if($success && $public_key && !preg_match($pattern, $public_key))
+    $keys = explode(",", $public_key);
+    foreach ($keys as $key)
     {
-      $error = "Invalid Public Key.<br />Please make sure it follows this format.<br /><b>ssh-rsa [0-9A-Za-z/+ ]</b>";
-      $success = false;
+      $pattern = "/^(ssh-rsa)\s([0-9A-Za-z\/\+]+)([=]*)((\s.*)|())$/";
+      if($success && $key && !preg_match($pattern, $key))
+      {
+        $error = "Invalid Public Key.<br />Please make sure it follows this format.<br /><b>ssh-rsa [0-9A-Za-z/+ ]</b>";
+        $success = false;
+        break;
+      }
     }
  
     if($success)
@@ -123,10 +128,50 @@ if(isset($_POST))
           $user->hashedPassword = hashPassword($password, $CONF); //encrypt the password for storage
         }
         
+        // Add the user's keys to his git account
         if ($public_key != $user->public_key)
-        {
-          preg_match($pattern, $public_key, $matches);
-          $public_key = "ssh-rsa " . $matches[2];
+        {            
+          if (is_dir('../cache/gitolite-admin'))
+          {
+            unlink('../cache/gitolite-admin');
+          }
+          $Git = new Git();
+          $Git->windows_mode();
+          $repo = $Git->clone_remote('../cache/gitolite-admin', 'git@localhost:gitolite-admin');
+          
+          if (is_dir("../cache/gitolite-admin/keydir/u/".$user->username))
+          {
+            $files = glob("../cache/gitolite-admin/keydir/u/".$user->username."/*");
+            foreach($files as $file){ // iterate files
+              if(is_file($file))
+                unlink($file); // delete file
+            }
+          }
+          else
+          {
+            mkdir("../cache/gitolite-admin/keydir/u/".$user->username, 0777, true);
+          }
+          $index = 0;
+          $keys = explode(",", $public_key);
+          foreach ($keys as $key)
+          {
+            preg_match($pattern, $key, $matches);
+            $key = "ssh-rsa " . $matches[2];
+            
+            $keyFileName = "../cache/gitolite-admin/keydir/u/".$user->username."/".$user->username."@Key".$index.".pub";
+            $fileHandle = fopen($keyFileName, 'w');
+            fwrite($fileHandle, $key);
+            fclose($fileHandle);
+            $index++;
+          }            
+          $repo->add('.');
+          $repo->commit('Modified keys for '.$user->username);
+          $repo->push('origin', 'master');
+          
+          if (is_dir('../cache/gitolite-admin'))
+          {
+            unlink('../cache/gitolite-admin');
+          }
         }
         /*
         if ($minecraft != $user->minecraft_user)
