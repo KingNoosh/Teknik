@@ -181,9 +181,27 @@ if (isset($_GET['id']))
                     </div>
                     <hr>
                     <div class="row">
-                      <div class="form-group col-sm-12">
-                          <label for="update_public_key"><h4>Public Key</h4></label>
-                          <input class="form-control" id="update_public_key" name="update_public_key" placeholder="ssh-rsa mypublickeytothegreatestgitintheworld" title="enter your public key" type="text" value="<?php echo $Profile_User->public_key; ?>" />
+                      <div class="col-sm-12">
+                          <h4>Public Key(s)</h4>
+                          <input id="update_public_key" name="update_public_key" type="hidden" value="<?php echo $Profile_User->public_key; ?>" />
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12" id="public_key_list">
+                      <?php
+                        $keyList = explode(",", $Profile_User->public_key);
+                        foreach ($keyList as $key)
+                        {
+                        ?>
+                          <div class="alert alert-success public_key_<?php echo $key; ?>"><button type="button" class="close public_key_delete" id="<?php echo $key; ?>">&times;</button><?php echo $key; ?></div>
+                        <?php
+                        }
+                      ?>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                        <button class="btn btn-md btn-primary" id="add_public_key"><i class="glyphicon glyphicon-plus"></i> Add Key</button>
                       </div>
                     </div>
                     <!-- Blog Settings -->

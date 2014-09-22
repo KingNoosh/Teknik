@@ -1,4 +1,7 @@
 $(document).ready(function() {      
+
+  linkKeyDelete('.public_key_delete');
+  
   $('#delete_account').click(function() {
     bootbox.confirm("Are you sure you want to delete your account?", function(result) 
     {
@@ -12,8 +15,6 @@ $(document).ready(function() {
             if(html=='true')
             {
               window.location.href = "../../../";
-              $("#top_msg").css('display', 'inline', 'important');
-              $("#top_msg").html('<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>Your account has been successfully deleted.</div>');
             }
             else
             {
@@ -24,6 +25,40 @@ $(document).ready(function() {
         });
       }
     });
+  });
+  
+  $("#add_public_key").click(function() {
+    bootbox.prompt("Enter your Public Key (including ssh-rsa)", function(result) {                
+      if (result)
+      {
+        prev_keys = $("#update_public_key").val();
+        var prev_split = prev_keys.split(",");
+        var key_used = false;
+        var index = fileList.indexOf(podFile);
+        if (index != -1)
+        {
+          key_used = true;
+        }
+        if (!key_used)
+        {
+          if (prev_split)
+          {
+            $("#update_public_key").val(prev_keys + ',' + result);
+          }
+          else
+          {
+            $("#update_public_key").val(result);
+          }
+          $("#public_key_list").append('<div class="alert alert-success public_key_'+result+'"><button type="button" class="close public_key_delete" id="'+result+'">&times;</button>'+result+'</div>');
+          linkKeyDelete('.public_key_delete');
+        }
+        else
+        {
+          bootbox.alert("The key '"+result+"' is already added.", function() { });
+        }
+      }
+    });
+    return false;
   });
   
   $("#update_submit").click(function(){  
@@ -58,3 +93,21 @@ $(document).ready(function() {
     return false;
   });  
 });
+
+function linkKeyDelete(selector)
+{  
+  $(selector).click(function(){
+    var object = $(this);
+    key=encodeURIComponent(object.attr('id'));    
+    prev_keys = $("#update_public_key").val();
+    var prev_split = prev_keys.split(",");    
+    var index = prev_split.indexOf(key);
+    if (index != -1)
+    {
+      prev_split.splice(index, 1);
+      $("#update_public_key").val(prev_split.toString());
+    }
+    $(".public_key_"+key).remove();
+    return false;
+  });
+}
