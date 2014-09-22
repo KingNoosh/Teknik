@@ -286,8 +286,8 @@ class GitRepo {
 		} else {
 			$env = array_merge($_ENV, $this->envopts);
 		}
-    foreach($env as $k => $v) {
-      echo $k.": ".$v;
+    foreach($env as $val) {
+      echo $val;
     }
 		$cwd = $this->repo_path;
 		$resource = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
