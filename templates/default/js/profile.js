@@ -100,9 +100,10 @@ function linkKeyDelete(selector)
 {  
   $(selector).click(function(){
     var object = $(this);
-    key=encodeURIComponent(object.attr('id'));    
+    key_index=object.attr('id');
+    key=$('#public_key_input_'+key_index.toString()).val();
     prev_keys = $("#update_public_key").val();
-    var prev_split = prev_keys.split(",");    
+    var prev_split = prev_keys.split(",");
     var index = prev_split.indexOf(key);
     if (index != -1)
     {
