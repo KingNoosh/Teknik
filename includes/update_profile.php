@@ -129,6 +129,7 @@ if(isset($_POST))
         }
         
         // Add the user's keys to his git account
+        /*
         if ($public_key != $user->public_key)
         {            
           $Git = new Git();
@@ -166,6 +167,7 @@ if(isset($_POST))
           $repo->commit('Modified keys for '.$user->username);
           $repo->push('origin', 'master');
         }
+        */
         /*
         if ($minecraft != $user->minecraft_user)
         {
