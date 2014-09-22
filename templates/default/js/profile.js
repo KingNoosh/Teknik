@@ -51,7 +51,7 @@ $(document).ready(function() {
             $("#update_public_key").val(result);
           }
           var key_index = num_keys + 1;
-          $("#public_key_list").append('<div class="input-group public_key_'+key_index.toString()+'"><input type="text" class="form-control" id="public_key_input_'+key_index.toString()+'" value="'+result+'" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="'+key_index.toString()+'">Remove</button></span></div><br />');
+          $("#public_key_list").append('<div class="public_key_'+key_index.toString()+'"><div class="input-group"><input type="text" class="form-control" id="public_key_input_'+key_index.toString()+'" value="'+result+'" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="'+key_index.toString()+'">Remove</button></span></div><br /></div>');
           linkKeyDelete('.public_key_delete');
         }
         else

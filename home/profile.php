@@ -194,7 +194,7 @@ if (isset($_GET['id']))
                         foreach ($keyList as $key)
                         {
                         ?>
-                          <div class="input-group public_key_<?php echo $index; ?>"><input type="text" class="form-control" id="public_key_input_<?php echo $index; ?>" value="<?php echo $key; ?>" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="<?php echo $index; ?>">Remove</button></span></div><br />
+                          <div class="public_key_<?php echo $index; ?>"><div class="input-group"><input type="text" class="form-control" id="public_key_input_<?php echo $index; ?>" value="<?php echo $key; ?>" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="<?php echo $index; ?>">Remove</button></span></div><br /></div>
                         <?php
                           $index++;
                         }
