@@ -48,7 +48,6 @@ class MainController implements ControllerProviderInterface
         })->assert('repo', $app['util.routing']->getRepositoryRegex())
           ->assert('branch', $app['util.routing']->getBranchRegex())
           ->value('branch', null)
-          ->convert('branch', 'escaper.argument:escape')
           ->bind('stats');
 
         $route->get('{repo}/{branch}/rss/', function($repo, $branch) use ($app) {
@@ -70,7 +69,6 @@ class MainController implements ControllerProviderInterface
         })->assert('repo', $app['util.routing']->getRepositoryRegex())
           ->assert('branch', $app['util.routing']->getBranchRegex())
           ->value('branch', null)
-          ->convert('branch', 'escaper.argument:escape')
           ->bind('rss');
 
         return $route;
