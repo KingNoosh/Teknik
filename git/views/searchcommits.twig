@@ -1,0 +1,9 @@
+{% extends 'layout_page.twig' %}
+
+{% set page = 'searchcommits' %}
+
+{% block content %}
+    {% include 'breadcrumb.twig' with {breadcrumbs: [{dir: 'Commits search results for: ' ~ query, path:''}]} %}
+
+    {% include 'commits_list.twig' %}
+{% endblock %}

@@ -1,0 +1,381 @@
+<?php
+// Require HTTPS //
+if($_SERVER["HTTPS"] != "on") {
+   header("HTTP/1.1 301 Moved Permanently");
+   header("Location: https://" . $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"]);
+   exit();
+}
+
+ini_set('session.cookie_domain', substr($_SERVER['SERVER_NAME'],strpos($_SERVER['SERVER_NAME'],"."),100));
+//require_once('classes/rcon.class.php');
+require_once('classes/resize.class.php');
+require_once('classes/Cryptography.class.php');
+require_once('classes/Tokenizer.class.php');
+require_once('common.php');
+require_once('classes/User.class.php');
+require_once('classes/UserTools.class.php');
+require_once('classes/DB.class.php');
+require_once('Minifier.php');
+
+$CONF=array();
+
+// Database Information
+$CONF['db_name'] = 'name';
+$CONF['db_user'] = 'user';
+$CONF['db_pass'] = 'pass';
+$CONF['db_host'] = 'localhost';
+$CONF['db_software'] = 'mysql';
+
+$CONF['mail_admin_user'] = 'user';
+$CONF['mail_admin_pass'] = 'password';
+
+// Site Title
+$CONF['sitetitle'] = 'Example Site';
+
+// Site Description
+$CONF['sitedescription'] = 'The best example site ever.';
+
+// Site Owner
+$CONF['siteowner'] = "Example Owner";
+
+// Site Host
+$CONF['host'] = 'example.com';
+
+$CONF['https'] = $_SERVER['HTTPS'];
+
+// What is the name of the template you want to use for the frontend (the folder name as displayed in /templates/)
+$CONF['template'] = 'default';
+
+// The default theme for users
+$CONF['theme'] = 'default';
+
+// The available themes for users to choose from (Bootstrap CSS files)
+$CONF['themes']=array(
+	'default'=>'Default',
+	'darkly'=>'Darkly',
+	'flatly'=>'Flatly',
+	'lumen'=>'Lumen',
+	'paper'=>'Paper',
+	'sandstone'=>'Sandstone',
+	'simplex'=>'Simplex',
+	'superhero'=>'Superhero'
+);
+  
+// Current Subdomain
+$CONF['sub'] = get_subdomain();
+
+$CONF['salt'] = "aaaaaaaaaaaa";
+$CONF['salt_2'] = hash("sha256","bbbbbbbb");
+
+$CONF['mod_rewrite'] = true;
+
+$CONF['key'] = "cccccccccc";
+
+$CONF['cipher'] = 'AES';
+
+// Donation Info
+$CONF['bitcoin_address'] = "myaddress";
+
+$CONF['dogecoin_address'] = "myaddress";
+
+// Upload Info
+$CONF['upload_dir'] = 'C:\\Upload\\Dir\\';
+
+$CONF['max_upload_size'] = 100; // In MB
+
+// Git Info
+$CONF['git_path'] = 'C:\\Git\\bin\\git.exe';
+
+$CONF['git_repo_path'] = array('C:\\Repositories\\Dir\\');
+
+$CONF['git_user'] = "gituser";
+
+$CONF['git_pass'] = "password";
+
+$CONF['ssh_pub_keys'] = "C:\\Users\\user\\.ssh\\authorized_keys";
+
+$CONF['forced_commands'] = "no-port-forwarding,no-agent-forwarding,command=\"./gitserv\"";
+
+// IRC Info
+$CONF['irc_network'] = "irc.server.net";
+
+$CONF['irc_port'] = 6667;
+
+$CONF['irc_nick'] = "Bot";
+
+$CONF['irc_realname'] = "IRC Bot Name";
+
+$CONF['irc_pass'] = "password";
+
+$CONF['irc_channel'] = "#channel";
+
+// SMTP Info
+$CONF['smpt_host'] = "mail.example.com";
+
+$CONF['smpt_user'] = "no-reply";
+
+$CONF['smpt_pass'] = "password";
+
+// Minecraft Info
+$CONF['minecraft_server'] = "minecraft.".$CONF['host'];
+
+$CONF['rcon_port'] = 25575;
+
+$CONF['rcon_pass'] = "password";
+
+// Blog Info
+$CONF['blog_author'] = "Example";
+
+$CONF['blog_title'] = "Example Blog";
+
+$CONF['blog_desc'] = "Example Description";
+
+$CONF['blog_posts_per_page'] = 10;
+
+// Podcast Info
+
+$CONF['podcast_author'] = "Example";
+
+$CONF['podcast_title'] = "Example Podcast";
+
+$CONF['podcast_desc'] = "";
+
+$CONF['podcasts_per_page'] = 10;
+
+$CONF['podcast_dir'] = 'C:\\Podcasts\\';
+
+/* 
+* 
+* Paste Configuration Options
+* 
+*/
+$CONF['pid_format'] = '%d';
+
+// Default expiry time - d (day), m (month), and f (forever).
+$CONF['default_expiry'] = 'f';
+
+// The maximum number of posts you want to keep. Keep this as-is if you want no limits.
+$CONF['max_posts'] = 0;
+
+// Default syntax highlight for pastes.
+$CONF['default_highlighter'] = 'text';
+
+// Available formats (All GeSHi formats are here)
+$CONF['geshiformats']=array(
+	'abap'=>'ABAP',
+	'actionscript'=>'ActionScript',
+	'actionscript3'=>'ActionScript 3',
+	'ada'=>'Ada',
+	'apache'=>'Apache',
+	'applescript'=>'AppleScript',
+	'apt_sources'=>'Apt sources.list',
+	'asm'=>'ASM',
+	'asp'=>'ASP',
+	'autoit'=>'AutoIt',
+	'avisynth'=>'AviSynth',
+	'bash'=>'BASH',
+	'basic4gl'=>'Basic4GL',
+	'bf'=>'Brainfuck',
+	'bibtex'=>'BibTeX',
+	'blitzbasic'=>'BlitzBasic',
+	'bnf'=>'BNF',
+	'boo'=>'Boo',
+	'c'=>'C',
+	'c_mac'=>'C for Macs',
+	'caddcl'=>'CADDCL',
+	'cadlisp'=>'CADLisp',
+	'cfdg'=>'CFDG',
+	'cfm'=>'ColdFusion',
+	'cil'=>'CIL',
+	'cmake'=>'CMake',
+	'cobol'=>'COBOL',
+	'cpp-qt'=>'C++ (with QT extensions)',
+	'cpp'=>'C++',
+	'csharp'=>'C#',
+	'css'=>'CSS',
+	'd'=>'D',
+	'dcs'=>'DCS',
+	'delphi'=>'Delphi',
+	'diff'=>'Diff-output',
+	'div'=>'DIV',
+	'dos'=>'DOS',
+	'dot'=>'dot',
+	'eiffel'=>'Eiffel',
+	'email'=>'E-mail (mbox\eml\RFC format)',
+	'erlang'=>'Erlang',
+	'fo'=>'FO',
+	'fortran'=>'Fortran',
+	'freebasic'=>'FreeBasic',
+	'genero'=>'Genero',
+	'gettext'=>'GNU Gettext .po/.pot',
+	'glsl'=>'glSlang',
+	'gml'=>'GML',
+	'gnuplot'=>'GNUPlot',
+	'groovy'=>'Groovy',
+	'haskell'=>'Haskell',
+	'hq9plus'=>'HQ9+',
+	'html4strict'=>'HTML 4.01 strict',
+	'idl'=>'Unoidl',
+	'ini'=>'INI',
+	'inno'=>'Inno Script',
+	'intercal'=>'INTERCAL',
+	'io'=>'IO',
+	'java'=>'Java',
+	'java5'=>'Java 5',
+	'javascript'=>'JavaScript',
+	'kixtart'=>'KiXtart',
+	'klonec'=>'KLone with C',
+	'klonecpp'=>'KLone with C++',
+	'latex'=>'LaTeX',
+	'lisp'=>'Generic Lisp',
+	'locobasic'=>'Locomotive Basic',
+	'lolcode'=>'LOLcode',
+	'lotusformulas'=>'@Formula/@Command',
+	'lotusscript'=>'LotusScript',
+	'lscript'=>'Lightwave Script',
+	'lsl2'=>'Linden Script',
+	'lua'=>'LUA',
+	'm68k'=>'Motorola 68000 Assembler',
+	'make'=>'GNU make',
+	'matlab'=>'Matlab',
+	'mirc'=>'mIRC',
+	'modula3'=>'Modula-3',
+	'mpasm'=>'Microchip Assembler',
+	'mxml'=>'MXML',
+	'mysql'=>'MySQL',
+	'nsis'=>'NSIS',
+	'oberon2'=>'Oberon-2',
+	'objc'=>'Objective-C',
+	'ocaml-brief'=>'Objective Caml',
+	'oobas'=>'OOo Basic',
+	'oracle11'=>'Oracle 11i',
+	'oracle8'=>'Oracle 8',
+	'pascal'=>'Pascal',
+	'per'=>'Per (forms)',
+	'perl'=>'Perl',
+	'php-brief'=>'PHP (Brief version)',
+	'php'=>'PHP',
+	'pic16'=>'PIC16 Assembler',
+	'pixelbender'=>'Pixel Bender',
+	'text'=>'Plain text',
+	'plsql'=>'Oracle 9.2 PL/SQL',
+	'povray'=>'Povray',
+	'powershell'=>'PowerShell',
+	'progress'=>'Progress',
+	'prolog'=>'Prolog',
+	'properties'=>'Property',
+	'providex'=>'ProvideX',
+	'python'=>'Python',
+	'qbasic'=>'QuickBASIC',
+	'rails'=>'Ruby on Rails',
+	'rebol'=>'Rebol',
+	'reg'=>'Microsoft REGEDIT',
+	'robots'=>'Robots.txt',
+	'ruby'=>'Ruby',
+	'sas'=>'SAS',
+	'scala'=>'Scala',
+	'scheme'=>'Scheme',
+	'scilab'=>'SciLab',
+	'sdlbasic'=>'sdlBasic',
+	'smalltalk'=>'Smalltalk',
+	'smarty'=>'Smarty',
+	'sql'=>'SQL',
+	'tcl'=>'TCL',
+	'teraterm'=>'Tera Term Macro',
+	'thinbasic'=>'thinBasic',
+	'tsql'=>'T-SQL',
+	'typoscript'=>'TypoScript',
+	'vb'=>'Visual Basic',
+	'vbnet'=>'Visual Basic .NET',
+	'verilog'=>'Verilog',
+	'vhdl'=>'VHDL',
+	'vim'=>'Vim',
+	'visualfoxpro'=>'Visual FoxPro',
+	'visualprolog'=>'Visual Prolog',
+	'whitespace'=>'Whitespace',
+	'whois'=>'WHOIS (RPSL format)',
+	'winbatch'=>'WinBatch',
+	'xml'=>'XML',
+	'xorg_conf'=>'xorg.conf',
+	'xpp'=>'Axapta/Dynamics Ax X++',
+	'z80'=>'ZiLOG Z80 Assembler',
+);
+
+// The formats that are listed first.
+$CONF['popular_formats'] = array(
+	'text','bash','html4strict', 'css', 'javascript', 'php',
+	'perl','python','sql','ruby', 'rails', 'tcl', 'xml',
+	'whois','xorg_conf','java','apt_sources','mirc','c','cpp',
+);
+
+$CONF['highlight_prefix'] = '!highlight!';
+
+$CONF['errors'] = array(
+  'NoErr' => array('code' => 0, 'message' => 'No Error'),
+  'InvRequest' => array('code' => 1, 'message' => 'Invalid Request'),
+  'InvFile' => array('code' => 10, 'message' => 'Invalid File'),
+  'NoFile' => array('code' => 11, 'message' => 'No File Provided'),
+  'InvPaste' => array('code' => 20, 'message' => 'Invalid Paste Information'),
+  'NoPaste' => array('code' => 21, 'message' => 'No Paste Information Provided'),
+  'NoImages' => array('code' => 31, 'message' => 'No Image Results'),
+  'NoUser' => array('code' => 40, 'message' => 'No Username Specified'),
+  'NoPass' => array('code' => 41, 'message' => 'No Password Specified'),
+  'InvCred' => array('code' => 42, 'message' => 'Invalid Username/Password'),
+  'NoLogin' => array('code' => 43, 'message' => 'Must be Logged In'),
+  'NoAuth' => array('code' => 44, 'message' => 'Not Authorized')
+);
+
+/*
+Class initilization
+*/
+
+$db = new DB();
+$db->connect($CONF);
+ 
+//initialize UserTools object
+$userTools = new UserTools($db, $CONF);
+ 
+$mod_rewrite=true;
+
+//Purge Sessions table of any old sessions
+$db->delete("sessions", "timeout < ?", array(date("Y-m-d H:i:s",time())));
+
+//Set the site's cookie domain
+ini_set('session.cookie_domain', '.'.$CONF['host']);
+
+//start the session
+session_start();
+
+//Set session if cookie present and valid
+if (isset($_COOKIE['auth']))
+{
+  list($identifier, $token) = explode(':', $_COOKIE['auth']);
+  $result = $db->select("sessions", "identifier=? AND token=?", array($identifier, $token));
+  if(isset($result['user_id']))
+  {
+      $_SESSION['user'] = serialize($userTools->get($result['user_id']));
+      $_SESSION['logged_in'] = 1;
+  }
+}
+
+//refresh session variables if logged in
+if (isset($_SESSION['logged_in']))
+{
+    $user = unserialize($_SESSION['user']);
+    $_SESSION['user'] = serialize($userTools->get($user->id));
+    if ($_SESSION['logged_in'] == 1)
+    {
+      $logged_in = true;
+    }
+    else
+    {
+      $logged_in = false;
+    }
+}
+
+// Set user specific config
+if ($logged_in)
+{
+  $CONF['theme'] = $user->theme;
+}
+?>

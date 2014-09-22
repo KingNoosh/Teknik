@@ -1,0 +1,9 @@
+{% extends 'layout_page.twig' %}
+
+{% set page = 'commits' %}
+
+{% block content %}
+    {% include 'breadcrumb.twig' with {breadcrumbs: [{dir: 'Commit history', path:''}]} %}
+
+    {% include 'commits_list.twig' %}
+{% endblock %}
