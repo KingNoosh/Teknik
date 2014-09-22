@@ -34,14 +34,15 @@ $(document).ready(function() {
         prev_keys = $("#update_public_key").val();
         var prev_split = prev_keys.split(",");
         var key_used = false;
-        var index = prev_split.indexOf(podFile);
+        var index = prev_split.indexOf(result);
+        var num_keys = prev_split.length;
         if (index != -1)
         {
           key_used = true;
         }
         if (!key_used)
         {
-          if (prev_split)
+          if (num_keys > 0)
           {
             $("#update_public_key").val(prev_keys + ',' + result);
           }
@@ -49,7 +50,8 @@ $(document).ready(function() {
           {
             $("#update_public_key").val(result);
           }
-          $("#public_key_list").append('<div class="row public_key_'+result+'"><input type="text" class="form-control" id="public_key_input_'+result+'" placeholder="'+result+'" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="'+result+'">Remove</button></span></div>');
+          var key_index = num_keys + 1;
+          $("#public_key_list").append('<div class="input-group public_key_'+key_index.toString()+'"><input type="text" class="form-control" id="public_key_input_'+key_index.toString()+'" value="'+result+'" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="'+key_index.toString()+'">Remove</button></span></div>');
           linkKeyDelete('.public_key_delete');
         }
         else
