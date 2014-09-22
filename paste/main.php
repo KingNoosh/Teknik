@@ -226,5 +226,5 @@ if (!(isset($pass) && (sha1($postPass) !== $pass)) || $pass == "EMPTY") {?>
 <?php } ?>
 
 <p class="text-center">
-  Tools: <a href="<?php echo get_subdomain_full_url('git', $CONF); ?>/Tools/blob/master/Paste/paste.sh">Bash Paste Script</a>
+  Tools: <a href="<?php echo get_subdomain_full_url('git', $CONF); ?>/Tools.git/blob/master/Paste/paste.sh">Bash Paste Script</a>
 </p>
