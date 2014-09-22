@@ -32,7 +32,7 @@ class Application extends SilexApplication
         $this['debug'] = $config->get('app', 'debug');
         $this['filetypes'] = $config->getSection('filetypes');
         $this['cache.archives'] = $this->getCachePath() . 'archives';
-        $this['path_prefix'] = '/'.$config->get('app', 'path_prefix');
+        $this['path_prefix'] = $config->get('app', 'path_prefix');
         $this['clone_url'] = $config->get('app', 'clone_url');
 
         // Register services

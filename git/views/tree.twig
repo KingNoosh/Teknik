@@ -7,7 +7,7 @@
         {% block extra %}
             <div class="pull-right">
                 <div class="btn-group download-buttons">
-                    <a href="{{ app.clone_url }}{{ repo }}" class="btn btn-default btn-xs" title="Clone '{{ repo }}'"><span class="fa fa-cloud-download"></span> Clone</a>
+                    <a href="{{ app.clone_url }}{{ repo }}" class="btn btn-default btn-xs" title="Clone {{ repo }}"><span class="fa fa-cloud-download"></span> Clone</a>
                     <a href="{{ app.path_prefix }}{{ path('archive', {repo: repo, branch: branch, format: 'zip'}) }}" class="btn btn-default btn-xs" title="Download '{{ branch }}' as a ZIP archive">ZIP</a>
                     <a href="{{ app.path_prefix }}{{ path('archive', {repo: repo, branch: branch, format: 'tar'}) }}" class="btn btn-default btn-xs" title="Download '{{ branch }}' as a TAR archive">TAR</a>
                 </div>

@@ -45,7 +45,7 @@ if ($_GET['user'])
       $_SERVER['HTTP_X_ORIGINAL_URL'] = str_replace("/u/".$_GET['user'], "", $_SERVER['HTTP_X_ORIGINAL_URL']);
       $config->set('git', 'repositories', array('G:\\Repositories\\u\\'.$_GET['user']));
       $config->set('git', 'hidden', array(''));
-      $config->set('app', 'path_prefix', 'u/'.$_GET['user']);
+      $config->set('app', 'path_prefix', '/u/'.$_GET['user']);
       $config->set('app', 'clone_url', 'ssh://git@teknik.io:u/'.$_GET['user'].'/');
       $app = require 'boot.php';
       $app->run();
