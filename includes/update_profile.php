@@ -131,19 +131,15 @@ if(isset($_POST))
         // Add the user's keys to his git account
         if ($public_key != $user->public_key)
         {            
-          if (!is_dir('../cache/gitolite-admin'))
-          {
-            mkdir('../cache/gitolite-admin', 0777, true);
-          }
           $Git = new Git();
           $Git->windows_mode();
-          $GitRepo = new GitRepo();
-          $GitRepo->setenv("HOME", "/home/git");
-          $repo = $GitRepo->create_new('C:\\inetpub\\wwwroot\\teknik\\cache\\gitolite-admin\\', 'git@localhost:gitolite-admin', true);
+          $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
+          $repo->setenv("HOME", "/home/git");
+          $repo->pull('origin', 'master');
           
-          if (is_dir("../cache/gitolite-admin/keydir/u/".$user->username))
+          if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
           {
-            $files = glob("../cache/gitolite-admin/keydir/u/".$user->username."/*");
+            $files = glob($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username."\\*");
             foreach($files as $file){ // iterate files
               if(is_file($file))
                 unlink($file); // delete file
@@ -151,7 +147,7 @@ if(isset($_POST))
           }
           else
           {
-            mkdir("../cache/gitolite-admin/keydir/u/".$user->username, 0777, true);
+            mkdir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 0777, true);
           }
           $index = 0;
           $keys = explode(",", $public_key);
@@ -160,7 +156,7 @@ if(isset($_POST))
             preg_match($pattern, $key, $matches);
             $key = "ssh-rsa " . $matches[2];
             
-            $keyFileName = "../cache/gitolite-admin/keydir/u/".$user->username."/".$user->username."@Key".$index.".pub";
+            $keyFileName = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username."\\".$user->username."@Key".$index.".pub";
             $fileHandle = fopen($keyFileName, 'w');
             fwrite($fileHandle, $key);
             fclose($fileHandle);
@@ -169,11 +165,6 @@ if(isset($_POST))
           $repo->add('.');
           $repo->commit('Modified keys for '.$user->username);
           $repo->push('origin', 'master');
-          
-          if (is_dir('../cache/gitolite-admin'))
-          {
-            unlink('../cache/gitolite-admin');
-          }
         }
         /*
         if ($minecraft != $user->minecraft_user)
