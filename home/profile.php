@@ -193,7 +193,7 @@ if (isset($_GET['id']))
                         foreach ($keyList as $key)
                         {
                         ?>
-                          <div class="alert alert-success public_key_<?php echo $key; ?>"><button type="button" class="close public_key_delete" id="<?php echo $key; ?>">&times;</button><?php echo $key; ?></div>
+                          <div class="row public_key_<?php echo $key; ?>"><input type="text" class="form-control" id="public_key_input_<?php echo $key; ?>" placeholder="<?php echo $key; ?>" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="<?php echo $key; ?>">Remove</button></span></div>
                         <?php
                         }
                       ?>

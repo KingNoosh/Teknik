@@ -34,7 +34,7 @@ $(document).ready(function() {
         prev_keys = $("#update_public_key").val();
         var prev_split = prev_keys.split(",");
         var key_used = false;
-        var index = fileList.indexOf(podFile);
+        var index = prev_split.indexOf(podFile);
         if (index != -1)
         {
           key_used = true;
@@ -49,7 +49,7 @@ $(document).ready(function() {
           {
             $("#update_public_key").val(result);
           }
-          $("#public_key_list").append('<div class="alert alert-success public_key_'+result+'"><button type="button" class="close public_key_delete" id="'+result+'">&times;</button>'+result+'</div>');
+          $("#public_key_list").append('<div class="row public_key_'+result+'"><input type="text" class="form-control" id="public_key_input_'+result+'" placeholder="'+result+'" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="'+result+'">Remove</button></span></div>');
           linkKeyDelete('.public_key_delete');
         }
         else
