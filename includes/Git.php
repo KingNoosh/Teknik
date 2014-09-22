@@ -282,11 +282,13 @@ class GitRepo {
 			$env = NULL;
 			foreach($this->envopts as $k => $v) {
 				putenv(sprintf("%s=%s",$k,$v));
-        echo $k.": ".$v;
 			}
 		} else {
 			$env = array_merge($_ENV, $this->envopts);
 		}
+    foreach($env as $k => $v) {
+      echo $k.": ".$v;
+    }
 		$cwd = $this->repo_path;
 		$resource = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
 		$stdout = stream_get_contents($pipes[1]);
