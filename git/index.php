@@ -20,7 +20,7 @@ if(!preg_match($pattern, $url))
 
   set_page_title("Teknik Git");
   ?>
-  <script src="<?php echo get_subdomain_full_url($CONF['sub'], $CONF); ?>/templates/<?php echo $CONF['template']; ?>/js/codemirror/codemirror.js"></script>
+  <script src="<?php echo get_page_url($CONF['sub'], $CONF); ?>/templates/<?php echo $CONF['template']; ?>/js/codemirror/codemirror.js"></script>
   <?php
 }
 

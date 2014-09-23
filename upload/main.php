@@ -36,7 +36,7 @@
   <br />
   <div class="well text-center">Each file is encrypted on upload using an AES-256-CBC cipher.  If you wish to view the file decrypted, you must use the direct Teknik link.</div>
   <div class="text-center">
-    Useful Tools: <a href="<?php echo get_subdomain_full_url('git', $CONF); ?>/Tools.git/blob/master/Upload/upload.sh">Bash Upload Script</a>
+    Useful Tools: <a href="<?php echo get_page_url('git', $CONF); ?>/Tools.git/blob/master/Upload/upload.sh">Bash Upload Script</a>
     <br />
     <br />
     You can now upload your screenshots automatically using <a href="https://github.com/KittyKatt/screenFetch">Screenfetch</a>!
@@ -63,7 +63,7 @@ Dropzone.options.TeknikUpload = {
             '+file.name+' \
           </div> \
           <div class="col-sm-3"> \
-            <a href="<?php echo get_subdomain_full_url('u', $CONF); ?>/'+full_name+'" target="_blank" class="alert-link"><?php echo get_subdomain_full_url('u', $CONF); ?>/'+full_name+'</a> \
+            <a href="<?php echo get_page_url('u', $CONF); ?>/'+full_name+'" target="_blank" class="alert-link"><?php echo get_page_url('u', $CONF); ?>/'+full_name+'</a> \
           </div> \
           <div class="col-sm-3"> \
             <button type="button" class="btn btn-default btn-xs generate-delete-link-'+short_name+'" id="'+full_name+'">Generate Deletion URL</button> \

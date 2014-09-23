@@ -38,7 +38,7 @@ if ($_GET['content'])
   $rssfeed .= '<rss version="2.0">';
   $rssfeed .= '<channel>';
   $rssfeed .= '<title><![CDATA['.$rss_title.']]></title>';
-  $rssfeed .= '<link>'.get_subdomain_full_url($rss_content, $CONF).'/'.$rss_author.'</link>';
+  $rssfeed .= '<link>'.get_page_url($rss_content, $CONF).'/'.$rss_author.'</link>';
   $rssfeed .= '<description><![CDATA['.$rss_desc.']]></description>';
   $rssfeed .= '<language>en-us</language>';
   $rssfeed .= '<copyright>Copyright (C) 2013-'.date('Y', time()).' Teknik.io';
@@ -81,7 +81,7 @@ if ($_GET['content'])
           $rssfeed .= '<item>';
           $rssfeed .= '<title><![CDATA[' . $title . ']]></title>';
           $rssfeed .= '<description><![CDATA[' . $post . ']]></description>';
-          $rssfeed .= '<link>' . get_subdomain_full_url("blog", $CONF) .'/'. $author->username .'/'. $post_id . '</link>';
+          $rssfeed .= '<link>' . get_page_url("blog", $CONF) .'/'. $author->username .'/'. $post_id . '</link>';
           $rssfeed .= '<pubDate>' . date("D, d M Y H:i:s O",strtotime($date)) . '</pubDate>';
           $rssfeed .= '</item>';
         }
@@ -121,14 +121,14 @@ if ($_GET['content'])
           
           foreach ($files as $filename)
           {
-            $file_path = get_subdomain_full_url("podcast", $CONF).'/Podcasts/'.$title.'/'.$filename;
+            $file_path = get_page_url("podcast", $CONF).'/Podcasts/'.$title.'/'.$filename;
             $direct_path = $CONF['podcast_dir'].$title.'/'.$filename;
             $file_type = mime_content_type($direct_path);
             $file_length = filesize($direct_path);
             $rssfeed .= '<enclosure url="'.$file_path.'" length="'.$file_length.'" type="'.$file_type.'" />';
           }
           
-          $rssfeed .= '<link>' . get_subdomain_full_url("podcast", $CONF) .'/' . $post_id . '</link>';
+          $rssfeed .= '<link>' . get_page_url("podcast", $CONF) .'/' . $post_id . '</link>';
           $rssfeed .= '<pubDate>' . date("D, d M Y H:i:s O",strtotime($date)) . '</pubDate>';
           $rssfeed .= '</item>';
         }

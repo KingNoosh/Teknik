@@ -22,7 +22,7 @@ set_page_title($podcast_title);
     <div class="row">
       <div class="col-sm-12 text-center">
         <p>
-          <a href="<?php echo get_subdomain_full_url('rss', $CONF).'/podcast/'; ?>"><i class="fa fa-rss fa-2x fa-border"></i></a>
+          <a href="<?php echo get_page_url('rss', $CONF).'/podcast/'; ?>"><i class="fa fa-rss fa-2x fa-border"></i></a>
         </p>
       </div>
     </div>

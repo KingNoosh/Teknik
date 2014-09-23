@@ -78,9 +78,9 @@ if (isset($_GET['post']))
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1 blog-main">
               <div class="blog-post">
-                <h2 class="blog-post-title text-center"><a href="<?php echo get_subdomain_full_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+                <h2 class="blog-post-title text-center"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
                 <p class="blog-post-meta text-center text-muted">
-                  Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a>
+                  Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a>
                   <?php
                   if ($own_blog)
                   {

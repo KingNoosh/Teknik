@@ -35,16 +35,16 @@ if(isset($_GET))
     }
     else
     {
-      header('Location: '.get_subdomain_full_url("error", $CONF).'/403');
+      header('Location: '.get_page_url("error", $CONF).'/403');
     }
   }
   else
   {
-    header('Location: '.get_subdomain_full_url("error", $CONF).'/404');
+    header('Location: '.get_page_url("error", $CONF).'/404');
   }
 }
 else
 {
-  header('Location: '.get_subdomain_full_url("error", $CONF).'/404');
+  header('Location: '.get_page_url("error", $CONF).'/404');
 }
 ?>

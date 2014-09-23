@@ -46,7 +46,7 @@
               {
                 $username = $userTools->get($result['user_id'])->username;
                 $thumbnail_src = "../uploads/thumbnails/150_150_" . $result['url'];
-                $image_src = get_subdomain_full_url("u", $CONF).'/' . $result['url'];
+                $image_src = get_page_url("u", $CONF).'/' . $result['url'];
                 $user_vote = $db->select('votes', 'table_name=? AND row_id=? AND user_id=? ORDER BY id DESC LIMIT 1', array('ricehalla', $result['id'], $user->id));
                 $thumb_up = "btn-hover";
                 $thumb_down = "btn-hover";
@@ -71,7 +71,7 @@
                     (<?php echo $result['TotalPoints']; ?>)
                   </div>
                   <div class="col-sm-3">
-                    <a href="<?php echo get_subdomain_full_url("ricehalla", $CONF).'/'.$result['id']; ?>" target="_blank" class="btn btn-sm btn-hover btn-primary"><span class="glyphicon glyphicon-link"></span></a>
+                    <a href="<?php echo get_page_url("ricehalla", $CONF).'/'.$result['id']; ?>" target="_blank" class="btn btn-sm btn-hover btn-primary"><span class="glyphicon glyphicon-link"></span></a>
                   </div>
                   <?php
                   if ($logged_in)
@@ -96,7 +96,7 @@
                   ?>
                 </div>
                 <div class="col-sm-2 filter-col">
-                  <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>/<?php echo $username; ?>"><?php echo $username; ?></a>
+                  <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $username; ?>"><?php echo $username; ?></a>
                 </div>
                 <div class="col-sm-2 filter-col">
                   <?php echo $result['date_added']; ?>
@@ -146,7 +146,7 @@
                     });
                 </script>
                 <div class="col-sm-2 filter-col">
-                  <a href="#" class="modalButton" data-toggle="modal" data-img="<?php echo $image_src; ?>" data-url="<?php echo get_subdomain_full_url("u", $CONF).'/'.$result['url']; ?>" data-user="<?php echo $username; ?>" data-target="#viewCreation">
+                  <a href="#" class="modalButton" data-toggle="modal" data-img="<?php echo $image_src; ?>" data-url="<?php echo get_page_url("u", $CONF).'/'.$result['url']; ?>" data-user="<?php echo $username; ?>" data-target="#viewCreation">
                     <img src="<?php echo $thumbnail_src; ?>" width="150" class="img-responsive img-rounded" alt="">
                   </a>
                 </div>

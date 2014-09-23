@@ -46,32 +46,32 @@
               Teknik was created to provide our users free services that they can trust.  All of our services are treated with the utmost care to provide you with the best experience possible, and the best security with your data that we can give.
             </p>
             <p>
-              You can view our complete activity and statistics by visiting the <a href="<?php echo get_subdomain_full_url("transparency", $CONF); ?>" target="_blank">Transparency</a> page.
+              You can view our complete activity and statistics by visiting the <a href="<?php echo get_page_url("transparency", $CONF); ?>" target="_blank">Transparency</a> page.
             </p>
           <h2 class="text-center">What we Offer</h2>
             <hr>
             <div class="row">
               <div class="col-sm-4 col-sm-offset-2 text-center">
-                <h4><a href="<?php echo get_subdomain_full_url("paste", $CONF); ?>" target="_blank">Fast and Secure Pastebin</a></h4>
-                <h4><a href="<?php echo get_subdomain_full_url("upload", $CONF); ?>" target="_blank">Encrypted File Uploads</a></h4>
-                <h4><a href="<?php echo get_subdomain_full_url("mail", $CONF); ?>" target="_blank">Free Email Address</a></h4>
-                <h4><a href="<?php echo get_subdomain_full_url("api", $CONF); ?>" target="_blank">Easy to Use API</a></h4>
+                <h4><a href="<?php echo get_page_url("paste", $CONF); ?>" target="_blank">Fast and Secure Pastebin</a></h4>
+                <h4><a href="<?php echo get_page_url("upload", $CONF); ?>" target="_blank">Encrypted File Uploads</a></h4>
+                <h4><a href="<?php echo get_page_url("mail", $CONF); ?>" target="_blank">Free Email Address</a></h4>
+                <h4><a href="<?php echo get_page_url("api", $CONF); ?>" target="_blank">Easy to Use API</a></h4>
               </div>              
               <div class="col-sm-4 text-center">
-                <h4><a href="<?php echo get_subdomain_full_url("blog", $CONF); if ($logged_in) { echo "/".$user->username; }?>" target="_blank">Personal Blog</a></h4>
-                <h4><a href="<?php echo get_subdomain_full_url("podcast", $CONF); ?>" target="_blank">Entertaining Podcasts</a></h4>
-                <h4><a href="<?php echo get_subdomain_full_url("help", $CONF); ?>#mumble" target="_blank">Mumble Server</a></h4>
-                <h4><a href="<?php echo get_subdomain_full_url("transparency", $CONF); ?>" target="_blank">Full Transparency</a></h4>
+                <h4><a href="<?php echo get_page_url("blog", $CONF); if ($logged_in) { echo "/".$user->username; }?>" target="_blank">Personal Blog</a></h4>
+                <h4><a href="<?php echo get_page_url("podcast", $CONF); ?>" target="_blank">Entertaining Podcasts</a></h4>
+                <h4><a href="<?php echo get_page_url("help", $CONF); ?>#mumble" target="_blank">Mumble Server</a></h4>
+                <h4><a href="<?php echo get_page_url("transparency", $CONF); ?>" target="_blank">Full Transparency</a></h4>
               </div>
             </div>
               
           <h2 class="text-center">How can I help?</h2>
             <hr>
             <p>
-              Teknik hosts an open <a href="<?php echo get_subdomain_full_url("git", $CONF); ?>">Git Repository</a> for all our internal tools projects.  This is open to all registered users so feel free to add to it!
+              Teknik hosts an open <a href="<?php echo get_page_url("git", $CONF); ?>">Git Repository</a> for all our internal tools projects.  This is open to all registered users so feel free to add to it!
               <br />
               <br />
-              Have a cool suggestion for the site?  Just submit it using the <a href="<?php echo get_subdomain_full_url("contact", $CONF); ?>">Feedback Form</a>!
+              Have a cool suggestion for the site?  Just submit it using the <a href="<?php echo get_page_url("contact", $CONF); ?>">Feedback Form</a>!
             </p>
             <div class="alert alert-info">
               <div class="text-center">
@@ -91,10 +91,10 @@
                     qrcode			: false,
                     auto_show    : false,
                     decimals		: 6,
-                    imgSource   : '<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
-                    cssSource   : '<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
-                    jsSource   : '<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
-                    phpSource   : '<?php echo get_subdomain_full_url($CONF['sub'], $CONF); ?>/includes/'
+                    imgSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
+                    cssSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
+                    jsSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
+                    phpSource   : '<?php echo get_page_url($CONF['sub'], $CONF); ?>/includes/'
                   });
                 </script>
                 <script>
@@ -110,10 +110,10 @@
                     qrcode			: false,
                     auto_show    : false,
                     decimals		: 6,
-                    imgSource   : '<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
-                    cssSource   : '<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
-                    jsSource   : '<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
-                    phpSource   : '<?php echo get_subdomain_full_url($CONF['sub'], $CONF); ?>/includes/'
+                    imgSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
+                    cssSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
+                    jsSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
+                    phpSource   : '<?php echo get_page_url($CONF['sub'], $CONF); ?>/includes/'
                   });
                 </script>
               </div>
@@ -176,7 +176,7 @@
             ?>
                 <div class="col-md-6">
                     <div class="blockquote-box blockquote-danger clearfix">
-                        <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>/<?php echo $founderuser->username; ?>">
+                        <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $founderuser->username; ?>">
                           <div class="square pull-left">
                             <span class="glyphicon glyphicon-tower glyphicon-lg"></span>
                           </div>
@@ -210,7 +210,7 @@
             ?>
                 <div class="col-md-6">
                     <div class="blockquote-box blockquote-primary clearfix">
-                        <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>/<?php echo $adminuser->username; ?>">
+                        <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $adminuser->username; ?>">
                           <div class="square pull-left">
                             <span class="glyphicon glyphicon-star glyphicon-lg"></span>
                           </div>
@@ -244,7 +244,7 @@
             ?>
                 <div class="col-md-6">
                     <div class="blockquote-box blockquote-success clearfix">
-                        <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>/<?php echo $moduser->username; ?>">
+                        <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $moduser->username; ?>">
                           <div class="square pull-left">
                             <span class="glyphicon glyphicon-star-empty glyphicon-lg"></span>
                           </div>

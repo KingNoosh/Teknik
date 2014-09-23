@@ -6,7 +6,7 @@
       <h3>Mail Server Settings</h3>
       <p>
           At registration, each user is given an email address with <b>1 GB</b> of storage space. 
-          You can either access your email via the <a href="<?php echo get_subdomain_full_url("mail", $CONF); ?>" target="_blank">Web Client</a> or by using a client of your choosing with support for IMAP or POP3.
+          You can either access your email via the <a href="<?php echo get_page_url("mail", $CONF); ?>" target="_blank">Web Client</a> or by using a client of your choosing with support for IMAP or POP3.
       </p>
       <div class="row">
         <div class="col-sm-5">

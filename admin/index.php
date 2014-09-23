@@ -19,11 +19,11 @@ if ($logged_in)
   }
   else
   {
-    header('Location: '.get_subdomain_full_url('error', $CONF).'/403');
+    header('Location: '.get_page_url('error', $CONF).'/403');
   }
 }
 else
 {
-  header('Location: '.get_subdomain_full_url('error', $CONF).'/403');
+  header('Location: '.get_page_url('error', $CONF).'/403');
 }
 ?>

@@ -41,6 +41,6 @@ if (file_exists($file_path) && $file_db)
 }
 else
 {
-  header('Location: '.get_subdomain_full_url("error", $CONF).'/404');
+  header('Location: '.get_page_url("error", $CONF).'/404');
 }
 ?>

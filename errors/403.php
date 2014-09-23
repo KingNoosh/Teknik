@@ -8,8 +8,8 @@
                     You aren't allowed to see this!
                 </div>
                 <div class="error-actions">
-                    <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
-                        Take Me Home </a><a href="<?php echo get_subdomain_full_url("contact", $CONF); ?>" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
+                    <a href="<?php echo get_page_url("home", $CONF); ?>" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                        Take Me Home </a><a href="<?php echo get_page_url("contact", $CONF); ?>" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-envelope"></span> Contact Support </a>
                 </div>
             </div>
         </div>

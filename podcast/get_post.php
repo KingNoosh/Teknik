@@ -43,7 +43,7 @@ if(isset($_POST))
       <div class="row">
         <div class="col-sm-10 col-sm-offset-1 podcast-main">
           <div class="podcast-post">
-            <h2 class="podcast-post-title text-center"><a href="<?php echo get_subdomain_full_url("podcast", $CONF); ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+            <h2 class="podcast-post-title text-center"><a href="<?php echo get_page_url("podcast", $CONF); ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
             <p class="podcast-post-meta text-center text-muted">
               Posted on <?php echo date("F d, Y",strtotime($date)); ?><?php echo $reply_msg; ?>
               <?php
@@ -62,7 +62,7 @@ if(isset($_POST))
                 <?php
                 foreach ($files as $filename)
                 {
-                  $file_path = get_subdomain_full_url("podcast", $CONF).'/Podcasts/'.$title.'/'.$filename;
+                  $file_path = get_page_url("podcast", $CONF).'/Podcasts/'.$title.'/'.$filename;
                   $direct_path = $CONF['podcast_dir'].$title.'/'.$filename;
                   if (file_exists($direct_path))
                   {
@@ -80,7 +80,7 @@ if(isset($_POST))
             <?php
             foreach ($files as $filename)
             {
-              $file_path = get_subdomain_full_url("podcast", $CONF).'/Podcasts/'.$title.'/'.$filename;
+              $file_path = get_page_url("podcast", $CONF).'/Podcasts/'.$title.'/'.$filename;
               $direct_path = $CONF['podcast_dir'].$title.'/'.$filename;
               if (file_exists($direct_path))
               {

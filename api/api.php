@@ -63,7 +63,7 @@ if (isset($_GET['component']))
                                   array('paste' =>
                                     array(
                                       'id' => $id,
-                                      'url' => get_subdomain_full_url("p", $CONF).'/'.$id,
+                                      'url' => get_page_url("p", $CONF).'/'.$id,
                                       'title' => $post['title'],
                                       'format' => $post['format'],
                                       'expiration' => $post['expires'],
@@ -131,8 +131,8 @@ if (isset($_GET['component']))
                         array_push($jsonArray, array('image' =>
                                                     array(
                                                       'id' => $row_id,
-                                                      'url' => get_subdomain_full_url("ricehalla", $CONF).'/'.$row_id,
-                                                      'image_src' => get_subdomain_full_url("u", $CONF).'/'.$filename,
+                                                      'url' => get_page_url("ricehalla", $CONF).'/'.$row_id,
+                                                      'image_src' => get_page_url("u", $CONF).'/'.$filename,
                                                       'votes' => 1,
                                                       'owner' => $user->username,
                                                       'date_posted' => $date_added,
@@ -245,8 +245,8 @@ if (isset($_GET['component']))
                 array_push($result_array, array('image' =>
                                             array(
                                               'id' => $id,
-                                              'url' => get_subdomain_full_url("ricehalla", $CONF).'/'.$id,
-                                              'image_src' => get_subdomain_full_url("u", $CONF).'/'.$image_src,
+                                              'url' => get_page_url("ricehalla", $CONF).'/'.$id,
+                                              'image_src' => get_page_url("u", $CONF).'/'.$image_src,
                                               'votes' => $user_vote,
                                               'owner' => $username,
                                               'date_posted' => $date_posted,

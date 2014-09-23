@@ -9,7 +9,7 @@ function get_page_url($page, $CONF, $full = true)
       {
         $page = 'www';
       }
-      $full_url = get_subdomain_full_url($page, $CONF);
+      $full_url = get_page_url($page, $CONF);
       break;
     case 'page':
       $cur_sub = get_subdomain();
@@ -19,7 +19,7 @@ function get_page_url($page, $CONF, $full = true)
   return $full_url;
 }
 
-function get_subdomain_full_url($sub_part, $CONF)
+function get_page_url($sub_part, $CONF)
 {
   $url = get_http($CONF).$sub_part.".".$CONF['host'];
   return $url;
@@ -201,7 +201,7 @@ function upload($files, $CONF, $db)
                 );
         $db->insert($data, 'uploads');
         $_SESSION[$targetFile] = $targetFile;
-        return array('results' => array('file' => array('name' => $targetFile, 'url' => get_subdomain_full_url("u", $CONF).'/'.$targetFile, 'type' => $file_type, 'size' => $filesize)));
+        return array('results' => array('file' => array('name' => $targetFile, 'url' => get_page_url("u", $CONF).'/'.$targetFile, 'type' => $file_type, 'size' => $filesize)));
       }
       return array('error' => $CONF['errors']['InvFile']);
   }

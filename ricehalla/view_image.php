@@ -19,7 +19,7 @@ if (isset($_GET['id']))
   if ($result)
   {
     $username = $userTools->get($result['user_id'])->username;
-    $image_src = get_subdomain_full_url("u", $CONF).'/'.$result['url'];
+    $image_src = get_page_url("u", $CONF).'/'.$result['url'];
     $user_vote = $db->select('votes', 'table_name=? AND row_id=? AND user_id=? ORDER BY id DESC LIMIT 1', array('ricehalla', $result['id'], $user->id));
     $thumb_up = "btn-hover";
     $thumb_down = "btn-hover";
@@ -132,7 +132,7 @@ if (isset($_GET['id']))
 <div class="container">
   <div class="row text-center">
     <div class="col-sm-12 view_image" style="overflow: hidden;">
-      <a href="<?php echo get_subdomain_full_url("u", $CONF).'/'.$result['url']; ?>" value="<?php echo $image_src; ?>" target="_blank">
+      <a href="<?php echo get_page_url("u", $CONF).'/'.$result['url']; ?>" value="<?php echo $image_src; ?>" target="_blank">
         <img src="<?php echo $image_src; ?>" class="img-responsive img-thumbnail" alt="">
       </a>
     </div>
@@ -160,6 +160,6 @@ if (isset($_GET['id']))
 }
 else
 {
-  redirect(get_subdomain_full_url("www", $CONF));
+  redirect(get_page_url("home", $CONF));
 }
 ?>
