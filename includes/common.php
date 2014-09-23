@@ -95,7 +95,7 @@ function get_active($page)
   {
     return 'active';
   }
-  return "";
+  return $cur_page;
 }
 
 function checkemail($email)
