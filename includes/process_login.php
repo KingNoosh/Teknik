@@ -19,12 +19,7 @@ if(isset($_POST))
     }
     if ($userTools->login($username, hashPassword($password, $CONF), $remember, $CONF))
     {
-      $user_var = 'user';
-      if ($CONF['dev_env'])
-      {
-        $user_var = 'user_dev';
-      }
-      $user = unserialize($_SESSION[$user_var]);
+      $user = unserialize($_SESSION[$CONF['session_prefix'].'user']);
       $user->save($db);
       //successful login, redirect them to a page
       echo "true";
