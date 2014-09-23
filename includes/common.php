@@ -50,7 +50,7 @@ function get_subdomain($CONF)
   $sub = extract_subdomains($_SERVER['HTTP_HOST']);
   if ($sub == "")
   {
-    $sub = $CONF['default_page']:;
+    $sub = $CONF['default_page'];
   }
   return $sub;
 }
