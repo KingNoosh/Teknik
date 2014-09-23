@@ -286,9 +286,7 @@ class GitRepo {
 		} else {
 			$env = array_merge($_ENV, $this->envopts);
 		}
-    foreach($_ENV as $val) {
-      echo $val;
-    }
+    
 		$cwd = $this->repo_path;
 		$resource = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
 		$stdout = stream_get_contents($pipes[1]);
@@ -296,7 +294,7 @@ class GitRepo {
 		foreach ($pipes as $pipe) {
 			fclose($pipe);
 		}
-
+    echo $stdout;
 		$status = trim(proc_close($resource));
 		if ($status) throw new Exception($stderr);
     //exec($command, $stdout);
