@@ -1,6 +1,6 @@
 <?php
 require_once('config.php');
-require_once('Git.php');
+require_once('PHPGit/Repository.php');
  
 //initialize php variables used in the form
 $current_password = "";
@@ -129,14 +129,12 @@ if(isset($_POST))
         }
         
         // Add the user's keys to his git account
-        /*
         if ($public_key != $user->public_key)
         {            
           $Git = new Git();
           $Git->windows_mode();
-          $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
-          $repo->setenv("HOME", "/home/git");
-          $repo->pull('origin', 'master');
+          $repo = new PHPGit_Repository($CONF['git_repo_path'][0].'gitolite-admin\\', true, array('git_executable' => $CONF['git_path']));
+          $repo->git('pull origin master');
           
           if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
           {
@@ -163,11 +161,11 @@ if(isset($_POST))
             fclose($fileHandle);
             $index++;
           }            
-          $repo->add('.');
-          $repo->commit('Modified keys for '.$user->username);
-          $repo->push('origin', 'master');
+          $repo->git('add .');
+          $repo->git('commit -m "Modified keys for '.$user->username.'"');
+          $repo->git('push origin master');
         }
-        */
+        
         /*
         if ($minecraft != $user->minecraft_user)
         {
