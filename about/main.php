@@ -94,7 +94,7 @@
                     imgSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
                     cssSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
                     jsSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
-                    phpSource   : '<?php echo get_page_url($CONF['sub'], $CONF); ?>/includes/'
+                    phpSource   : '<?php echo get_page_url($CONF['page'], $CONF); ?>/includes/'
                   });
                 </script>
                 <script>
@@ -113,7 +113,7 @@
                     imgSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
                     cssSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
                     jsSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
-                    phpSource   : '<?php echo get_page_url($CONF['sub'], $CONF); ?>/includes/'
+                    phpSource   : '<?php echo get_page_url($CONF['page'], $CONF); ?>/includes/'
                   });
                 </script>
               </div>
