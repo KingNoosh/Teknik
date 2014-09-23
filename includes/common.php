@@ -1,4 +1,24 @@
 <?php
+function get_page_url($page, $CONF, $full = true)
+{
+  $full_url = get_http($CONF).$CONF['host'];
+  switch ($CONF['url_type'])
+  {
+    case 'sub':
+      if ($page == $CONF['default_page'])
+      {
+        $page = 'www';
+      }
+      $full_url = get_subdomain_full_url($page, $CONF);
+      break;
+    case 'page':
+      $cur_sub = get_subdomain();
+      $full_url = get_http($CONF).$cur_sub.".".$CONF['host']."/".$page;
+      break;
+  }
+  return $full_url;
+}
+
 function get_subdomain_full_url($sub_part, $CONF)
 {
   $url = get_http($CONF).$sub_part.".".$CONF['host'];
@@ -35,6 +55,17 @@ function get_subdomain()
   return $sub;
 }
 
+function get_page()
+{
+  $full_page = $_SERVER['REQUEST_URI'];
+  $parts = explode("/", $full_page);
+  if (count($parts) > 0)
+  {
+    return $parts[0];
+  }
+  return "";
+}
+
 function get_http($CONF)
 {
   if ($CONF['https'] != "on")
@@ -50,8 +81,17 @@ function get_http($CONF)
 
 function get_active($page)
 {
-  $sub = get_subdomain();
-  if ($sub == $page)
+  $cur_page = '';
+  switch ($CONF['url_type'])
+  {
+    case 'sub':
+      $cur_page = get_subdomain();
+      break;
+    case 'page':
+      $cur_page = get_page();
+      break;
+  }
+  if ($cur_page == $page)
   {
     return 'active';
   }

@@ -19,6 +19,9 @@ require_once('Minifier.php');
 
 $CONF=array();
 
+// Determines whether the current website is the development server or not
+$CONF['dev_env'] = FALSE;
+
 // Database Information
 $CONF['db_name'] = 'name';
 $CONF['db_user'] = 'user';
@@ -40,6 +43,15 @@ $CONF['siteowner'] = "Example Owner";
 
 // Site Host
 $CONF['host'] = 'example.com';
+
+// Default Page - The page used for the www and default site.
+$CONF['default_page'] = 'home';
+
+// The method to use for generating the url's for the site
+// --OPTIONS--
+// sub => Each service is a subdomain.  ie: /about/ is about.$CONF['host']
+// page => Each service is a page in the url.  ie: /about/ is $CONF['host']/about/
+$CONF['url_type'] = 'sub';
 
 $CONF['https'] = $_SERVER['HTTPS'];
 
