@@ -75,7 +75,7 @@ function get_http($CONF)
   return $http;
 }
 
-function get_active($page)
+function get_active($page, $CONF)
 {
   $cur_page = '';
   switch ($CONF['url_type'])
@@ -95,7 +95,7 @@ function get_active($page)
   {
     return 'active';
   }
-  return $cur_page;
+  return "";
 }
 
 function checkemail($email)
