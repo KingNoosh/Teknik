@@ -35,7 +35,7 @@ if (!is_writable(__DIR__ . DIRECTORY_SEPARATOR . 'cache')) {
 require 'vendor/autoload.php';
 
 $config = GitList\Config::fromFile('config.ini');
-$config->set('app', 'clone_url', 'ssh://git@teknik.io:');
+$config->set('app', 'clone_url', 'git://teknik.io/');
 if ($_GET['user'])
 {
   if ($userTools->checkUsernameExists($_GET['user']))
@@ -46,7 +46,7 @@ if ($_GET['user'])
       $config->set('git', 'repositories', array('G:\\Repositories\\u\\'.$_GET['user']));
       $config->set('git', 'hidden', array(''));
       $config->set('app', 'path_prefix', '/u/'.$_GET['user']);
-      $config->set('app', 'clone_url', 'ssh://git@teknik.io:u/'.$_GET['user'].'/');
+      $config->set('app', 'clone_url', 'git://teknik.io/u/'.$_GET['user'].'/');
       $app = require 'boot.php';
       $app->run();
     }
