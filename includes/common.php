@@ -77,14 +77,14 @@ function get_http($CONF)
 
 function get_active($page)
 {
-  if ($page == $CONF['default_page'])
-  {
-    $page = 'www';
-  }
   $cur_page = '';
   switch ($CONF['url_type'])
   {
     case 'sub':
+      if ($page == $CONF['default_page'])
+      {
+        $page = 'www';
+      }
       $cur_page = get_subdomain();
       break;
     case 'page':
