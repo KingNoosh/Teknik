@@ -9,7 +9,7 @@ function get_page_url($page, $CONF, $full = true)
       {
         $page = 'www';
       }
-      $full_url = get_page_url($page, $CONF);
+      $full_url = get_subdomain_full($page, $CONF);
       break;
     case 'page':
       $cur_sub = get_subdomain();
@@ -19,7 +19,7 @@ function get_page_url($page, $CONF, $full = true)
   return $full_url;
 }
 
-function get_page_url($sub_part, $CONF)
+function get_subdomain_full($sub_part, $CONF)
 {
   $url = get_http($CONF).$sub_part.".".$CONF['host'];
   return $url;
