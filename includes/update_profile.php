@@ -134,7 +134,7 @@ if(isset($_POST))
           $Git = new Git();
           $Git->windows_mode();
           $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
-          echo "user: ".get_current_user()."<br />";
+          echo "user: ".trim(shell_exec('whoami'))."<br />";
           echo "uid: ".getmyuid()."<br />";
           echo "gid: ".getmygid()."<br />";
           echo "pid: ".getmypid()."<br />";
