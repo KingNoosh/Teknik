@@ -204,7 +204,7 @@
       <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
     <?php
     }
-    echo $_SERVER["SCRIPT_NAME"];
+    echo $_SERVER["REQUEST_URI"];
     echo get_page();
   ?>
   <!--<link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />-->
