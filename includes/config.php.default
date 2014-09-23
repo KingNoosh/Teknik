@@ -74,8 +74,18 @@ $CONF['themes']=array(
 	'superhero'=>'Superhero'
 );
   
-// Current Subdomain
-$CONF['sub'] = get_subdomain();
+// Current Page
+$cur_page = '';
+switch ($CONF['url_type'])
+{
+  case 'sub':
+    $cur_page = get_subdomain();
+    break;
+  case 'page':
+    $cur_page = get_page();
+    break;
+}
+$CONF['page'] = $cur_page;
 
 $CONF['salt'] = "aaaaaaaaaaaa";
 $CONF['salt_2'] = hash("sha256","bbbbbbbb");

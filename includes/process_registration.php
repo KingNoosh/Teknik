@@ -15,10 +15,13 @@ if(isset($_POST))
     $password = rawurldecode($_POST['password']);
     $password_confirm = rawurldecode($_POST['password_confirm']);
  
-    $obBaseApp = new COM("hMailServer.Application");
-    $obBaseApp->Connect();
-    $obBaseApp->Authenticate($CONF['mail_admin_user'], $CONF['mail_admin_pass']);
-    $domain = $obBaseApp->Domains->ItemByName($CONF['host']);
+    if (!$CONF['dev_env'])
+    {
+      $obBaseApp = new COM("hMailServer.Application");
+      $obBaseApp->Connect();
+      $obBaseApp->Authenticate($CONF['mail_admin_user'], $CONF['mail_admin_pass']);
+      $domain = $obBaseApp->Domains->ItemByName($CONF['host']);
+    }
     
     //initialize variables for form validation
     $success = true;
@@ -45,10 +48,13 @@ if(isset($_POST))
         $success = false;
     }
  
-    if($success && $userTools->checkEmailExists($domain, $username . "@" . $CONF['host']))
+    if (!$CONF['dev_env'])
     {
-        $error = "The email for that username is already taken.";
-        $success = false;
+      if($success && $userTools->checkEmailExists($domain, $username . "@" . $CONF['host']))
+      {
+          $error = "The email for that username is already taken.";
+          $success = false;
+      }
     }
     
     if($success && !$password)
@@ -78,14 +84,17 @@ if(isset($_POST))
         //save the new user to the database
         $newUser->save($db, true);
         
-        //Create an email for the user
-        $account = $domain->Accounts->Add();
-        $account->Address = $email;
-        $account->Password = $password;
-        $account->Active = True;
-        $account->MaxSize = 1000;
-        
-        $account->Save();
+        if (!$CONF['dev_env'])
+        {
+          //Create an email for the user
+          $account = $domain->Accounts->Add();
+          $account->Address = $email;
+          $account->Password = $password;
+          $account->Active = True;
+          $account->MaxSize = 1000;
+          
+          $account->Save();
+        }
 
         //log them in
         $userTools->login($username, hashPassword($password, $CONF), false);

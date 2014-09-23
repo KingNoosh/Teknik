@@ -8,7 +8,7 @@
     <meta name="description" content="<?php echo $CONF['sitedescription']; ?>" />
     <meta name="author" content="<?php echo $CONF['siteowner']; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/favicon.ico" type="image/x-icon" />
 
   <?php
     $cssFiles = array();
@@ -21,7 +21,7 @@
     array_push($jsFiles, 'jquery/1.10.2/jquery.min.js', 'common.js', 'bootstrap/bootstrap.min.js', 'bootstrap/select/bootstrap-select.js');    
     
     // Service Specific Files //
-    switch ($CONF['sub'])
+    switch ($CONF['page'])
     {
       case "www":
         array_push($cssFiles, 'bootstrap-markdown.min.css');
@@ -99,7 +99,7 @@
     
     // Check to see if the JS files have changed //
     $jsChanged = false;
-    $jsCacheFile = dirname(__FILE__).'/cache/js_cache_'.$CONF['sub'].'.txt';
+    $jsCacheFile = dirname(__FILE__).'/cache/js_cache_'.$CONF['page'].'.txt';
     if (file_exists($jsCacheFile))
     {
       $cache_arr = explode('|', file_get_contents($jsCacheFile));
@@ -142,14 +142,14 @@
         $js .= \JShrink\Minifier::minify(file_get_contents(dirname(__FILE__).'/js/'.$file)); 
       } 
 
-      file_put_contents(dirname(__FILE__)."/cache/js/".$CONF['sub'].".teknik.min.js", $js); 
+      file_put_contents(dirname(__FILE__)."/cache/js/".$CONF['page'].".teknik.min.js", $js); 
     }
     
     /*
     // Check to see if the CSS files have changed //
     $cssChanged = false;
-    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['sub'].'.txt';
-    if (file_exists($cssCacheFile) && file_exists(dirname(__FILE__)."/cache/css/".$CONF['sub'].".teknik.min.css"))
+    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['page'].'.txt';
+    if (file_exists($cssCacheFile) && file_exists(dirname(__FILE__)."/cache/css/".$CONF['page'].".teknik.min.css"))
     {
       $cache_arr = explode('|', file_get_contents($cssCacheFile));
       $time_str = $cache_arr[0];
@@ -194,23 +194,23 @@
       $minifier = new CssMinifier($css_str, $CONF['css_min_filters'], $CONF['css_min_plugins']);
       $final_css = $minifier->getMinified();
       
-      file_put_contents(dirname(__FILE__)."/cache/css/".$CONF['sub'].".teknik.min.css", $css_str); 
+      file_put_contents(dirname(__FILE__)."/cache/css/".$CONF['page'].".teknik.min.css", $css_str); 
     }
     */
 
     foreach ($cssFiles as $file)
     {
     ?>
-      <link href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
+      <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
     <?php
     }
   ?>
-  <!--<link href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['sub']; ?>.teknik.min.css" rel="stylesheet" />-->
-  <script src="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['sub']; ?>.teknik.min.js"></script>
+  <!--<link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />-->
+  <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/html5/html5.js"></script>
+      <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/html5/html5.js"></script>
     <![endif]-->
   </head>
   <?php flush(); ?>
