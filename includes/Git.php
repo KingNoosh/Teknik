@@ -286,9 +286,8 @@ class GitRepo {
 		} else {
 			$env = array_merge($_ENV, $this->envopts);
 		}
-    
+    print_r($_ENV);
 		$cwd = $this->repo_path;
-    /*
 		$resource = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
 		$stdout = stream_get_contents($pipes[1]);
 		$stderr = stream_get_contents($pipes[2]);
@@ -297,9 +296,7 @@ class GitRepo {
 		}
 		$status = trim(proc_close($resource));
 		if ($status) throw new Exception($stderr);
-    */
-    exec("cd \"".$cwd."\"", $stdout);
-    exec($command, $stdout);
+    //exec($command, $stdout);
 		return $stdout;
 	}
 
