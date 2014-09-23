@@ -189,13 +189,13 @@ if (isset($_GET['id']))
                     <div class="row">
                       <div class="col-sm-12" id="public_key_list">
                       <?php
-                        $keyList = explode(",", $Profile_User->public_key);
+                        $keyList = array_filter(explode(",", $Profile_User->public_key));
                         $index = 1;
                         foreach ($keyList as $key)
                         {
-                        ?>
-                          <div class="public_key_<?php echo $index; ?>"><div class="input-group"><input type="text" class="form-control" id="public_key_input_<?php echo $index; ?>" value="<?php echo $key; ?>" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="<?php echo $index; ?>">Remove</button></span></div><br /></div>
-                        <?php
+                          ?>
+                            <div class="public_key_<?php echo $index; ?>"><div class="input-group"><input type="text" class="form-control" id="public_key_input_<?php echo $index; ?>" value="<?php echo $key; ?>" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="<?php echo $index; ?>">Remove</button></span></div><br /></div>
+                          <?php
                           $index++;
                         }
                       ?>
