@@ -134,8 +134,13 @@ if(isset($_POST))
           $Git = new Git();
           $Git->windows_mode();
           $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
-          $repo->setenv("HOME", "/home/git");
-          echo get_current_user();
+          echo "File Owner: ".get_current_user()."<br />";
+          $processUser = posix_getpwuid(posix_geteuid());
+          echo "username: ".$processUser['name']."<br />";
+          echo "uid: ".getmyuid()."<br />";
+          echo "gid: ".getmygid()."<br />";
+          echo "pid: ".getmypid()."<br />";
+          
           $repo->pull('origin', 'master');
           
           if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
