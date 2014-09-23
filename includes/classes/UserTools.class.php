@@ -13,14 +13,14 @@ class UserTools {
     //username and password match a row in the database.
     //If it is successful, set the session variables
     //and store the user object within.
-    public function login($username, $password, $remember_me)
+    public function login($username, $password, $remember_me, $CONF)
     {
         $result = $this->db->select("users", "username=? AND password=?", array($username, $password));
         if($result)
         {
             $user = new User($result);
-            $_SESSION["user"] = serialize($user);
-            $_SESSION["logged_in"] = 1;
+            $_SESSION[$CONF['session_prefix']."user"] = serialize($user);
+            $_SESSION[$CONF['session_prefix']."logged_in"] = 1;
             if ($remember_me)
             {
               $identifier = hashPassword($username, $this->conf);
@@ -32,7 +32,7 @@ class UserTools {
                 "timeout" => date("Y-m-d H:i:s",time() + 60 * 60 * 24 * 7)
               );
               $this->db->insert($data, "sessions");
-              setcookie('auth', "$identifier:$token", time() + 60 * 60 * 24 * 7, '/', '.'.$this->conf['host']);
+              setcookie($CONF['session_prefix'].'auth', "$identifier:$token", time() + 60 * 60 * 24 * 7, '/', '.'.$this->conf['host']);
             }
             return true;
         }else{
@@ -52,17 +52,17 @@ class UserTools {
     }
     
     //Log the user out. Destroy the session variables.
-    public function logout()
+    public function logout($CONF)
     {
         if (isset($_COOKIE['auth']))
         {
-          $user = unserialize($_SESSION['user']);
+          $user = unserialize($_SESSION[$CONF['session_prefix'].'user']);
           list($identifier, $token) = explode(':', $_COOKIE['auth']);
           $this->db->delete("sessions", "user_id=?", array($user->id));
-          setcookie('auth', false, time() + 60 * 60 * 24 * 7, '/', '.'.$this->conf['host']);
+          setcookie($CONF['session_prefix'].'auth', false, time() + 60 * 60 * 24 * 7, '/', '.'.$this->conf['host']);
         }
-        unset($_SESSION['user']);
-        unset($_SESSION['logged_in']);
+        unset($_SESSION[$CONF['session_prefix'].'user']);
+        unset($_SESSION[$CONF['session_prefix'].'logged_in']);
         session_destroy();
     }
  

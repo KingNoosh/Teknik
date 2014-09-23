@@ -348,6 +348,12 @@ $CONF['errors'] = array(
   'NoAuth' => array('code' => 44, 'message' => 'Not Authorized')
 );
 
+$CONF['session_prefix'] = '';
+if ($CONF['dev_env'])
+{
+  $CONF['session_prefix'] = 'dev_';
+}
+
 /*
 Class initilization
 */
@@ -370,24 +376,24 @@ ini_set('session.cookie_domain', '.'.$CONF['host']);
 session_start();
 
 //Set session if cookie present and valid
-if (isset($_COOKIE['auth']))
+if (isset($_COOKIE[$CONF['session_prefix'].'auth']))
 {
   list($identifier, $token) = explode(':', $_COOKIE['auth']);
   $result = $db->select("sessions", "identifier=? AND token=?", array($identifier, $token));
   if(isset($result['user_id']))
   {
-      $_SESSION['user'] = serialize($userTools->get($result['user_id']));
-      $_SESSION['logged_in'] = 1;
+      $_SESSION[$CONF['session_prefix'].'user'] = serialize($userTools->get($result['user_id']));
+      $_SESSION[$CONF['session_prefix'].'logged_in'] = 1;
   }
 }
 
 //refresh session variables if logged in
-if (isset($_SESSION['logged_in']))
+if (isset($_SESSION[$CONF['session_prefix'].'logged_in']))
 {
-    $user = unserialize($_SESSION['user']);
-    $_SESSION['user'] = serialize($userTools->get($user->id));
-    if ($_SESSION['logged_in'] == 1)
+    if ($_SESSION[$CONF['session_prefix'].'logged_in'] == 1)
     {
+      $user = unserialize($_SESSION[$CONF['session_prefix'].'user']);
+      $_SESSION[$CONF['session_prefix'].'user'] = serialize($userTools->get($user->id));
       $logged_in = true;
     }
     else
