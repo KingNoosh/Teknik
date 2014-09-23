@@ -57,9 +57,9 @@ function get_subdomain()
 
 function get_page()
 {
-  $url_array = explode("/",explode("/",$_SERVER["REQUEST_URI"])[1]);
+  $url_array = explode("/",$_SERVER["REQUEST_URI"]);
 
-  return $url_array[1];
+  return ltrim($url_array[1], "/");
 }
 
 function get_http($CONF)
