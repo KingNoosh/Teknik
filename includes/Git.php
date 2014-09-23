@@ -286,7 +286,7 @@ class GitRepo {
 		} else {
 			$env = array_merge($_ENV, $this->envopts);
 		}
-    print_r($env);
+    
 		$cwd = $this->repo_path;
 		$resource = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
 		$stdout = stream_get_contents($pipes[1]);
