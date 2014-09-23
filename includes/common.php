@@ -57,13 +57,11 @@ function get_subdomain()
 
 function get_page()
 {
-  $full_page = $_SERVER['REQUEST_URI'];
-  $parts = explode("/", $full_page);
-  if (count($parts) > 1)
-  {
-    return $parts[1];
-  }
-  return "";
+  $url_array = explode("/",$_SERVER["REQUEST_URI"]);
+
+  $firstPage = strtolower($url_array[1]);
+
+  return $firstPage;
 }
 
 function get_http($CONF)
@@ -81,6 +79,10 @@ function get_http($CONF)
 
 function get_active($page)
 {
+  if ($page == $CONF['default_page'])
+  {
+    $page = 'www';
+  }
   $cur_page = '';
   switch ($CONF['url_type'])
   {

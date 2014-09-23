@@ -228,7 +228,7 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="<?php echo get_active("home"); echo get_active(""); ?>"><a href="<?php echo get_page_url("home", $CONF); ?>">Home</a></li>
+              <li class="<?php echo get_active("home"); ?>"><a href="<?php echo get_page_url("home", $CONF); ?>">Home</a></li>
               <li class="<?php echo get_active("about"); ?>"><a href="<?php echo get_page_url("about", $CONF); ?>">About</a></li>
               <li class="<?php echo get_active("blog"); ?>"><a href="<?php echo get_page_url("blog", $CONF); ?>">Blog</a></li>
               <li class="<?php echo get_active("podcast"); echo get_active("pod"); ?>"><a href="<?php echo get_page_url("podcast", $CONF); ?>">Podcast</a></li>
