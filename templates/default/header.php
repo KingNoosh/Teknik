@@ -20,8 +20,6 @@
     // Global JS Files //
     array_push($jsFiles, 'jquery/1.10.2/jquery.min.js', 'common.js', 'bootstrap/bootstrap.min.js', 'bootstrap/select/bootstrap-select.js');    
     
-    echo $CONF['page'];
-    echo $_SERVER['REQUEST_URI'];
     // Service Specific Files //
     switch ($CONF['page'])
     {

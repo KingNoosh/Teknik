@@ -59,9 +59,9 @@ function get_page()
 {
   $full_page = $_SERVER['REQUEST_URI'];
   $parts = explode("/", $full_page);
-  if (count($parts) > 0)
+  if (count($parts) > 1)
   {
-    return $parts[0];
+    return $parts[1];
   }
   return "";
 }
