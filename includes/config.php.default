@@ -53,6 +53,7 @@ $CONF['default_page'] = 'home';
 // page => Each service is a page in the url.  ie: /about/ is $CONF['host']/about/
 $CONF['url_type'] = 'sub';
 
+// Internal Variable for whether the user is using https or not
 $CONF['https'] = $_SERVER['HTTPS'];
 
 // What is the name of the template you want to use for the frontend (the folder name as displayed in /templates/)
