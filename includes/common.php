@@ -12,7 +12,7 @@ function get_page_url($page, $CONF, $full = true)
       $full_url = get_subdomain_full($page, $CONF);
       break;
     case 'page':
-      $cur_sub = get_subdomain();
+      $cur_sub = get_subdomain($CONF);
       $full_url = get_http($CONF).$cur_sub.".".$CONF['host']."/".$page;
       break;
   }
@@ -45,12 +45,12 @@ function extract_subdomains($domain)
     return $subdomains;
 }
 
-function get_subdomain()
+function get_subdomain($CONF)
 {
   $sub = extract_subdomains($_SERVER['HTTP_HOST']);
   if ($sub == "")
   {
-    $sub = "www";
+    $sub = $CONF['default_page']:;
   }
   return $sub;
 }
@@ -81,11 +81,7 @@ function get_active($page, $CONF)
   switch ($CONF['url_type'])
   {
     case 'sub':
-      if ($page == $CONF['default_page'])
-      {
-        $page = 'www';
-      }
-      $cur_page = get_subdomain();
+      $cur_page = get_subdomain($CONF);
       break;
     case 'page':
       $cur_page = get_page();

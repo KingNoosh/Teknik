@@ -23,7 +23,7 @@
     // Service Specific Files //
     switch ($CONF['page'])
     {
-      case "www":
+      case "home":
         array_push($cssFiles, 'bootstrap-markdown.min.css');
         array_push($jsFiles, 'bootbox/bootbox.min.js', 
                     'PageDown/Markdown.Converter.js', 
