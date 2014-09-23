@@ -8,7 +8,7 @@
     <meta name="description" content="<?php echo $CONF['sitedescription']; ?>" />
     <meta name="author" content="<?php echo $CONF['siteowner']; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/favicon.ico" type="image/x-icon" />
 
   <?php
     $cssFiles = array();
@@ -201,16 +201,16 @@
     foreach ($cssFiles as $file)
     {
     ?>
-      <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
+      <link href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
     <?php
     }
   ?>
-  <!--<link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['sub']; ?>.teknik.min.css" rel="stylesheet" />-->
-  <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['sub']; ?>.teknik.min.js"></script>
+  <!--<link href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['sub']; ?>.teknik.min.css" rel="stylesheet" />-->
+  <script src="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['sub']; ?>.teknik.min.js"></script>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/html5/html5.js"></script>
+      <script src="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/html5/html5.js"></script>
     <![endif]-->
   </head>
   <?php flush(); ?>
