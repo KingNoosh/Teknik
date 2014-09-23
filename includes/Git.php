@@ -288,16 +288,18 @@ class GitRepo {
 		}
     
 		$cwd = $this->repo_path;
+    /*
 		$resource = proc_open($command, $descriptorspec, $pipes, $cwd, $env);
 		$stdout = stream_get_contents($pipes[1]);
 		$stderr = stream_get_contents($pipes[2]);
 		foreach ($pipes as $pipe) {
 			fclose($pipe);
 		}
-    echo $stdout;
 		$status = trim(proc_close($resource));
 		if ($status) throw new Exception($stderr);
-    //exec($command, $stdout);
+    */
+    exec("cd \"".$cwd."\"", $stdout);
+    exec($command, $stdout);
 		return $stdout;
 	}
 
