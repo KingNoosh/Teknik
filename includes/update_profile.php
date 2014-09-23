@@ -131,8 +131,6 @@ if(isset($_POST))
         // Add the user's keys to his git account
         if ($public_key != $user->public_key)
         {            
-          $Git = new Git();
-          $Git->windows_mode();
           $repo = new PHPGit_Repository($CONF['git_repo_path'][0].'gitolite-admin\\', true, array('git_executable' => $CONF['git_path']));
           $repo->git('pull origin master');
           
