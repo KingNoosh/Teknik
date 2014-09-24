@@ -7,10 +7,10 @@
       <div name="GitRepositoryAccess" data-unique="GitRepositoryAccess"></div>
       <h3>Git Repository Access</h3>
       <p>
-        Every user is given the option to add their public key to the authorised users list to access the Teknik git repository.
+        Every user is given the option to add public keys to the authorised users list to access their git repositories, and also access the main Teknik repositories.
         <br />
         <br />
-        To add your public key, just login, click your username on the top navbar and click 'Profile'.  This will bring you to your profile page where you can add your public key or edit your existing one.
+        To add a public key, just login, click your username on the top navbar and click 'Profile'.  This will bring you to your profile page where you can add your public key or edit your existing one.
         <br />
         <br />
         <div class="bs-callout bs-callout-warning">
@@ -21,12 +21,23 @@
           </p>
         </div>
       </p>
+      <h3>Creating a Git Repository</h3>
+      <p>
+        Once you have a public key added, you will have the ability to create a repo.  To do so, you just need to clone the repo you want to create, and the repo will be created.
+        <br />
+        <br />
+        <code>~$git clone git@teknik.io:u/[username]/[repository_name]</code>
+      </p>
+      <h3>Viewing a user's git repositories</h3>
+      <p>
+        You can also view a list of the git repo's a user has by visiting: <code><?php echo get_page_url('git', $CONF); ?>/u/[username]/</code>
+        <br />
+      </p>
       <h3>Examples</h3>
       <p>
-        Once you have your key added, you will be able to access the git repository via ssh access
+        <b>Clone a Repo (Git Daemon):</b> <code>~$git clone git://teknik.io/u/[username]/[repository_name]</code>
         <br />
-        <br />
-        <b>Clone a Repo:</b> <code>~$git clone ssh://git@teknik.io/~/[repository_name]</code>
+        <b>Clone a Repo (SSH):</b> <code>~$git clone git@teknik.io:u/[username]/[repository_name]</code>
       </p>
     </div>
   </div>

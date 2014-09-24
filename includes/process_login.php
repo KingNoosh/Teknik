@@ -17,9 +17,9 @@ if(isset($_POST))
     {
       $remember = true;
     }
-    if ($userTools->login($username, hashPassword($password, $CONF), $remember))
+    if ($userTools->login($username, hashPassword($password, $CONF), $remember, $CONF))
     {
-      $user = unserialize($_SESSION['user']);
+      $user = unserialize($_SESSION[$CONF['session_prefix'].'user']);
       $user->save($db);
       //successful login, redirect them to a page
       echo "true";

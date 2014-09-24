@@ -16,7 +16,7 @@ if(isset($_POST) && isset($_SESSION))
       
       $post_id = $db->update($data, 'uploads', 'filename=?', array($filename));
       unset($_POST);
-      echo json_encode(array('result' => array('url' => get_subdomain_full_url("u", $CONF).'/'.$file_db['filename'].'/'.$delete_key)));
+      echo json_encode(array('result' => array('url' => get_page_url("u", $CONF).'/'.$file_db['filename'].'/'.$delete_key)));
     }
     else
     {

@@ -8,7 +8,7 @@
     <meta name="description" content="<?php echo $CONF['sitedescription']; ?>" />
     <meta name="author" content="<?php echo $CONF['siteowner']; ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/favicon.ico" type="image/x-icon" />
 
   <?php
     $cssFiles = array();
@@ -21,9 +21,9 @@
     array_push($jsFiles, 'jquery/1.10.2/jquery.min.js', 'common.js', 'bootstrap/bootstrap.min.js', 'bootstrap/select/bootstrap-select.js');    
     
     // Service Specific Files //
-    switch ($CONF['sub'])
+    switch ($CONF['page'])
     {
-      case "www":
+      case "home":
         array_push($cssFiles, 'bootstrap-markdown.min.css');
         array_push($jsFiles, 'bootbox/bootbox.min.js', 
                     'PageDown/Markdown.Converter.js', 
@@ -99,7 +99,7 @@
     
     // Check to see if the JS files have changed //
     $jsChanged = false;
-    $jsCacheFile = dirname(__FILE__).'/cache/js_cache_'.$CONF['sub'].'.txt';
+    $jsCacheFile = dirname(__FILE__).'/cache/js_cache_'.$CONF['page'].'.txt';
     if (file_exists($jsCacheFile))
     {
       $cache_arr = explode('|', file_get_contents($jsCacheFile));
@@ -142,14 +142,14 @@
         $js .= \JShrink\Minifier::minify(file_get_contents(dirname(__FILE__).'/js/'.$file)); 
       } 
 
-      file_put_contents(dirname(__FILE__)."/cache/js/".$CONF['sub'].".teknik.min.js", $js); 
+      file_put_contents(dirname(__FILE__)."/cache/js/".$CONF['page'].".teknik.min.js", $js); 
     }
     
     /*
     // Check to see if the CSS files have changed //
     $cssChanged = false;
-    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['sub'].'.txt';
-    if (file_exists($cssCacheFile) && file_exists(dirname(__FILE__)."/cache/css/".$CONF['sub'].".teknik.min.css"))
+    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['page'].'.txt';
+    if (file_exists($cssCacheFile) && file_exists(dirname(__FILE__)."/cache/css/".$CONF['page'].".teknik.min.css"))
     {
       $cache_arr = explode('|', file_get_contents($cssCacheFile));
       $time_str = $cache_arr[0];
@@ -194,23 +194,23 @@
       $minifier = new CssMinifier($css_str, $CONF['css_min_filters'], $CONF['css_min_plugins']);
       $final_css = $minifier->getMinified();
       
-      file_put_contents(dirname(__FILE__)."/cache/css/".$CONF['sub'].".teknik.min.css", $css_str); 
+      file_put_contents(dirname(__FILE__)."/cache/css/".$CONF['page'].".teknik.min.css", $css_str); 
     }
     */
 
     foreach ($cssFiles as $file)
     {
     ?>
-      <link href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
+      <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
     <?php
     }
   ?>
-  <!--<link href="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['sub']; ?>.teknik.min.css" rel="stylesheet" />-->
-  <script src="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['sub']; ?>.teknik.min.js"></script>
+  <!--<link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />-->
+  <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
-      <script src="<?php echo get_subdomain_full_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/html5/html5.js"></script>
+      <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/html5/html5.js"></script>
     <![endif]-->
   </head>
   <?php flush(); ?>
@@ -224,30 +224,30 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo get_subdomain_full_url("www", $CONF); ?>">Teknik</a>
+            <a class="navbar-brand" href="<?php echo get_page_url("home", $CONF); ?>">Teknik</a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="<?php echo get_active("www"); echo get_active(""); ?>"><a href="<?php echo get_subdomain_full_url("www", $CONF); ?>">Home</a></li>
-              <li class="<?php echo get_active("about"); ?>"><a href="<?php echo get_subdomain_full_url("about", $CONF); ?>">About</a></li>
-              <li class="<?php echo get_active("blog"); ?>"><a href="<?php echo get_subdomain_full_url("blog", $CONF); ?>">Blog</a></li>
-              <li class="<?php echo get_active("podcast"); echo get_active("pod"); ?>"><a href="<?php echo get_subdomain_full_url("podcast", $CONF); ?>">Podcast</a></li>
+              <li class="<?php echo get_active("home", $CONF); ?>"><a href="<?php echo get_page_url("home", $CONF); ?>">Home</a></li>
+              <li class="<?php echo get_active("about", $CONF); ?>"><a href="<?php echo get_page_url("about", $CONF); ?>">About</a></li>
+              <li class="<?php echo get_active("blog", $CONF); ?>"><a href="<?php echo get_page_url("blog", $CONF); ?>">Blog</a></li>
+              <li class="<?php echo get_active("podcast", $CONF); echo get_active("pod", $CONF); ?>"><a href="<?php echo get_page_url("podcast", $CONF); ?>">Podcast</a></li>
               <li class="divider-vertical"></li>
               
               <li class="dropdown">
                 <a href="#" id="services_menu" class="dropdown-toggle" data-toggle="dropdown">Services <strong class="caret"></strong></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="services_menu">
                   <li>
-                    <a href="<?php echo get_subdomain_full_url("upload", $CONF); ?>">Upload</a>
+                    <a href="<?php echo get_page_url("upload", $CONF); ?>">Upload</a>
                   </li>
                   <li>
-                    <a href="<?php echo get_subdomain_full_url("paste", $CONF); ?>">Paste</a>
+                    <a href="<?php echo get_page_url("paste", $CONF); ?>">Paste</a>
                   </li>
                   <li>
-                    <a href="<?php echo get_subdomain_full_url("git", $CONF); ?>">Git</a>
+                    <a href="<?php echo get_page_url("git", $CONF); ?>">Git</a>
                   </li>
                   <li>
-                    <a href="<?php echo get_subdomain_full_url("mail", $CONF); ?>" target="_blank">Mail</a>
+                    <a href="<?php echo get_page_url("mail", $CONF); ?>" target="_blank">Mail</a>
                   </li>
                   <li>
                     <a href="mumble://mumble.<?php echo $CONF['host']; ?>:64738/?version=1.2.5" target="_blank">Mumble</a>
@@ -255,16 +255,16 @@
                   <!--
                   <li class="divider"></li>
                   <li>
-                    <a href="<?php echo get_subdomain_full_url("ricehalla", $CONF); ?>">Ricehalla</a>
+                    <a href="<?php echo get_page_url("ricehalla", $CONF); ?>">Ricehalla</a>
                   </li>
                   -->
                 </ul>
               </li>
-              <li class="<?php echo get_active("contact"); ?>">
-                <a href="<?php echo get_subdomain_full_url("contact", $CONF); ?>">Contact</a>
+              <li class="<?php echo get_active("contact", $CONF); ?>">
+                <a href="<?php echo get_page_url("contact", $CONF); ?>">Contact</a>
               </li>
-              <li class="<?php echo get_active("help"); ?>">
-                <a href="<?php echo get_subdomain_full_url("help", $CONF); ?>">Help</a>
+              <li class="<?php echo get_active("help", $CONF); ?>">
+                <a href="<?php echo get_page_url("help", $CONF); ?>">Help</a>
               </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -277,17 +277,17 @@
                 <a href="#" id="user_menu" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user->username; ?> <strong class="caret"></strong></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="user_menu">
                   <li>
-                    <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>/<?php echo $user->username; ?>">Profile</a>
+                    <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $user->username; ?>">Profile</a>
                   </li>
                   <li>
-                    <a href="<?php echo get_subdomain_full_url("blog", $CONF); ?>/<?php echo $user->username; ?>">Blog</a>
+                    <a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $user->username; ?>">Blog</a>
                   </li>
                   <?php
                   if ($user->group == "Founder" || $user->group == "Admin" || $user->group == "Moderator")
                   {
                   ?>
                     <li>
-                      <a href="<?php echo get_subdomain_full_url("admin", $CONF); ?>">Administration</a>
+                      <a href="<?php echo get_page_url("admin", $CONF); ?>">Administration</a>
                     </li>
                   <?php
                   }

@@ -19,6 +19,9 @@ require_once('Minifier.php');
 
 $CONF=array();
 
+// Determines whether the current website is the development server or not
+$CONF['dev_env'] = FALSE;
+
 // Database Information
 $CONF['db_name'] = 'name';
 $CONF['db_user'] = 'user';
@@ -41,6 +44,16 @@ $CONF['siteowner'] = "Example Owner";
 // Site Host
 $CONF['host'] = 'example.com';
 
+// Default Page - The page used for the www and default site.
+$CONF['default_page'] = 'home';
+
+// The method to use for generating the url's for the site
+// --OPTIONS--
+// sub => Each service is a subdomain.  ie: /about/ is about.$CONF['host']
+// page => Each service is a page in the url.  ie: /about/ is $CONF['host']/about/
+$CONF['url_type'] = 'sub';
+
+// Internal Variable for whether the user is using https or not
 $CONF['https'] = $_SERVER['HTTPS'];
 
 // What is the name of the template you want to use for the frontend (the folder name as displayed in /templates/)
@@ -61,8 +74,18 @@ $CONF['themes']=array(
 	'superhero'=>'Superhero'
 );
   
-// Current Subdomain
-$CONF['sub'] = get_subdomain();
+// Current Page
+$cur_page = '';
+switch ($CONF['url_type'])
+{
+  case 'sub':
+    $cur_page = get_subdomain();
+    break;
+  case 'page':
+    $cur_page = get_page();
+    break;
+}
+$CONF['page'] = $cur_page;
 
 $CONF['salt'] = "aaaaaaaaaaaa";
 $CONF['salt_2'] = hash("sha256","bbbbbbbb");
@@ -325,6 +348,12 @@ $CONF['errors'] = array(
   'NoAuth' => array('code' => 44, 'message' => 'Not Authorized')
 );
 
+$CONF['session_prefix'] = '';
+if ($CONF['dev_env'])
+{
+  $CONF['session_prefix'] = 'dev_';
+}
+
 /*
 Class initilization
 */
@@ -347,24 +376,24 @@ ini_set('session.cookie_domain', '.'.$CONF['host']);
 session_start();
 
 //Set session if cookie present and valid
-if (isset($_COOKIE['auth']))
+if (isset($_COOKIE[$CONF['session_prefix'].'auth']))
 {
   list($identifier, $token) = explode(':', $_COOKIE['auth']);
   $result = $db->select("sessions", "identifier=? AND token=?", array($identifier, $token));
   if(isset($result['user_id']))
   {
-      $_SESSION['user'] = serialize($userTools->get($result['user_id']));
-      $_SESSION['logged_in'] = 1;
+      $_SESSION[$CONF['session_prefix'].'user'] = serialize($userTools->get($result['user_id']));
+      $_SESSION[$CONF['session_prefix'].'logged_in'] = 1;
   }
 }
 
 //refresh session variables if logged in
-if (isset($_SESSION['logged_in']))
+if (isset($_SESSION[$CONF['session_prefix'].'logged_in']))
 {
-    $user = unserialize($_SESSION['user']);
-    $_SESSION['user'] = serialize($userTools->get($user->id));
-    if ($_SESSION['logged_in'] == 1)
+    if ($_SESSION[$CONF['session_prefix'].'logged_in'] == 1)
     {
+      $user = unserialize($_SESSION[$CONF['session_prefix'].'user']);
+      $_SESSION[$CONF['session_prefix'].'user'] = serialize($userTools->get($user->id));
       $logged_in = true;
     }
     else

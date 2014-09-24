@@ -1,5 +1,25 @@
 <?php
-function get_subdomain_full_url($sub_part, $CONF)
+function get_page_url($page, $CONF, $full = true)
+{
+  $full_url = get_http($CONF).$CONF['host'];
+  switch ($CONF['url_type'])
+  {
+    case 'sub':
+      if ($page == $CONF['default_page'])
+      {
+        $page = 'www';
+      }
+      $full_url = get_subdomain_full($page, $CONF);
+      break;
+    case 'page':
+      $cur_sub = get_subdomain($CONF);
+      $full_url = get_http($CONF).$cur_sub.".".$CONF['host']."/".$page;
+      break;
+  }
+  return $full_url;
+}
+
+function get_subdomain_full($sub_part, $CONF)
 {
   $url = get_http($CONF).$sub_part.".".$CONF['host'];
   return $url;
@@ -25,14 +45,21 @@ function extract_subdomains($domain)
     return $subdomains;
 }
 
-function get_subdomain()
+function get_subdomain($CONF)
 {
   $sub = extract_subdomains($_SERVER['HTTP_HOST']);
   if ($sub == "")
   {
-    $sub = "www";
+    $sub = $CONF['default_page'];
   }
   return $sub;
+}
+
+function get_page()
+{
+  $url_array = explode("/",$_SERVER["REQUEST_URI"]);
+
+  return ltrim($url_array[1], "/");
 }
 
 function get_http($CONF)
@@ -48,10 +75,19 @@ function get_http($CONF)
   return $http;
 }
 
-function get_active($page)
+function get_active($page, $CONF)
 {
-  $sub = get_subdomain();
-  if ($sub == $page)
+  $cur_page = '';
+  switch ($CONF['url_type'])
+  {
+    case 'sub':
+      $cur_page = get_subdomain($CONF);
+      break;
+    case 'page':
+      $cur_page = get_page();
+      break;
+  }
+  if ($cur_page == $page)
   {
     return 'active';
   }
@@ -161,7 +197,7 @@ function upload($files, $CONF, $db)
                 );
         $db->insert($data, 'uploads');
         $_SESSION[$targetFile] = $targetFile;
-        return array('results' => array('file' => array('name' => $targetFile, 'url' => get_subdomain_full_url("u", $CONF).'/'.$targetFile, 'type' => $file_type, 'size' => $filesize)));
+        return array('results' => array('file' => array('name' => $targetFile, 'url' => get_page_url("u", $CONF).'/'.$targetFile, 'type' => $file_type, 'size' => $filesize)));
       }
       return array('error' => $CONF['errors']['InvFile']);
   }

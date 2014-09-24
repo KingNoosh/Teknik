@@ -30,7 +30,7 @@ if (isset($_GET['id']))
             <?php } ?>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Email</strong></span> <a href="mailto:<?php echo $Profile_User->username; ?>@teknik.io"><?php echo $Profile_User->username; ?>@teknik.io</a></li>
             <?php if ($Profile_User->blog_title) { ?>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Blog</strong></span> <a href="<?php echo get_subdomain_full_url('blog', $CONF).'/'.$Profile_User->username; ?>" id="blog_title"><?php echo $Profile_User->blog_title; ?></a></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Blog</strong></span> <a href="<?php echo get_page_url('blog', $CONF).'/'.$Profile_User->username; ?>" id="blog_title"><?php echo $Profile_User->blog_title; ?></a></li>
             <?php } ?>
             <?php if ($own_profile) { ?>
             <li class="list-group-item text-center"><button type="button" class="btn btn-danger" id="delete_account">Delete Account</button></li>
@@ -189,13 +189,13 @@ if (isset($_GET['id']))
                     <div class="row">
                       <div class="col-sm-12" id="public_key_list">
                       <?php
-                        $keyList = explode(",", $Profile_User->public_key);
+                        $keyList = array_filter(explode(",", $Profile_User->public_key));
                         $index = 1;
                         foreach ($keyList as $key)
                         {
-                        ?>
-                          <div class="public_key_<?php echo $index; ?>"><div class="input-group"><input type="text" class="form-control" id="public_key_input_<?php echo $index; ?>" value="<?php echo $key; ?>" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="<?php echo $index; ?>">Remove</button></span></div><br /></div>
-                        <?php
+                          ?>
+                            <div class="public_key_<?php echo $index; ?>"><div class="input-group"><input type="text" class="form-control" id="public_key_input_<?php echo $index; ?>" value="<?php echo $key; ?>" readonly><span class="input-group-btn"><button class="btn btn-danger public_key_delete" type="button" id="<?php echo $index; ?>">Remove</button></span></div><br /></div>
+                          <?php
                           $index++;
                         }
                       ?>
@@ -257,7 +257,7 @@ if (isset($_GET['id']))
 }
 else
 {
-  redirect(get_subdomain_full_url("www", $CONF));
+  redirect(get_page_url("home", $CONF));
 }
 include('../templates/'.$CONF['template'].'/footer.php');
 ?>

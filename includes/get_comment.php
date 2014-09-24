@@ -44,7 +44,7 @@ if(isset($_POST))
         <div class="col-sm-8 col-sm-offset-2">
           <div class="post-comment">
             <p class="post-comment-meta text-muted">
-              <a href="<?php echo get_subdomain_full_url("www", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a> replied at <?php echo date("g:i:s a",strtotime($date)); ?> on <?php echo date("F d, Y",strtotime($date)); ?>
+              <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a> replied at <?php echo date("g:i:s a",strtotime($date)); ?> on <?php echo date("F d, Y",strtotime($date)); ?>
               <?php
               if ($own_comment && $logged_in)
               {

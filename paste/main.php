@@ -213,8 +213,8 @@ if (!(isset($pass) && (sha1($postPass) !== $pass)) || $pass == "EMPTY") {?>
             <small class="pull-right"><?php echo $entry['agefmt'];?></small>
             <p class="no-margin"><i class="icon-code"></i>
             <?php if ( $mod_rewrite == true ) { 
-            echo '<a href="'. get_subdomain_full_url('p', $CONF) . '/' . $entry['pid'] . '">' . $entry['title'] . '</a>'; } else { 
-            echo '<a href="'. get_subdomain_full_url('p', $CONF) . '/' .'?paste='. $entry['pid'].'">' . $entry['title'] . '</a>'; } ?>
+            echo '<a href="'. get_page_url('p', $CONF) . '/' . $entry['pid'] . '">' . $entry['title'] . '</a>'; } else { 
+            echo '<a href="'. get_page_url('p', $CONF) . '/' .'?paste='. $entry['pid'].'">' . $entry['title'] . '</a>'; } ?>
             </p>
           </div>
         <?php } ?>
@@ -226,5 +226,5 @@ if (!(isset($pass) && (sha1($postPass) !== $pass)) || $pass == "EMPTY") {?>
 <?php } ?>
 
 <p class="text-center">
-  Tools: <a href="<?php echo get_subdomain_full_url('git', $CONF); ?>/Tools.git/blob/master/Paste/paste.sh">Bash Paste Script</a>
+  Tools: <a href="<?php echo get_page_url('git', $CONF); ?>/Tools.git/blob/master/Paste/paste.sh">Bash Paste Script</a>
 </p>

@@ -129,13 +129,12 @@ if(isset($_POST))
         }
         
         // Add the user's keys to his git account
-        /*
         if ($public_key != $user->public_key)
         {            
           $Git = new Git();
           $Git->windows_mode();
           $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
-          $repo->setenv("HOME", "/home/git");
+          $repo->setenv('HOME', '/home/iusr');
           $repo->pull('origin', 'master');
           
           if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
@@ -155,19 +154,22 @@ if(isset($_POST))
           foreach ($keys as $key)
           {
             preg_match($pattern, $key, $matches);
-            $key = "ssh-rsa " . $matches[2];
-            
-            $keyFileName = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username."\\".$user->username."@Key".$index.".pub";
-            $fileHandle = fopen($keyFileName, 'w');
-            fwrite($fileHandle, $key);
-            fclose($fileHandle);
-            $index++;
+            if (trim($matches[2]) != "")
+            {
+              $key = "ssh-rsa " . $matches[2];
+              
+              $keyFileName = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username."\\".$user->username."@Key".$index.".pub";
+              $fileHandle = fopen($keyFileName, 'w');
+              fwrite($fileHandle, $key);
+              fclose($fileHandle);
+              $index++;
+            }
           }            
           $repo->add('.');
           $repo->commit('Modified keys for '.$user->username);
           $repo->push('origin', 'master');
         }
-        */
+        
         /*
         if ($minecraft != $user->minecraft_user)
         {

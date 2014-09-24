@@ -145,10 +145,10 @@
           Here you can view all of Teknik's financial information, takedown requests and the actions we took, as well as some general statistics for the site's services.
         </p>
         <p>
-          If you would like to request additional information about Teknik, please feel free to contact us through our <a href="<?php echo get_subdomain_full_url("contact", $CONF); ?>" target="_blank">Contact Form</a> or by emailing us at <a href="mailto:support@<?php echo $CONF['host']; ?>">support@<?php echo $CONF['host']; ?></a>.
+          If you would like to request additional information about Teknik, please feel free to contact us through our <a href="<?php echo get_page_url("contact", $CONF); ?>" target="_blank">Contact Form</a> or by emailing us at <a href="mailto:support@<?php echo $CONF['host']; ?>">support@<?php echo $CONF['host']; ?></a>.
         </p>
         <p>
-          Want to make a donation?  Visit our <a href="<?php echo get_subdomain_full_url("about", $CONF); ?>" target="_blank">About Page</a> and choose a donation method at the bottom.
+          Want to make a donation?  Visit our <a href="<?php echo get_page_url("about", $CONF); ?>" target="_blank">About Page</a> and choose a donation method at the bottom.
         </p>
         <br />
       <h2 class="text-center"><b>Statistics</b></h2>
