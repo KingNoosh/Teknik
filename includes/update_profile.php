@@ -149,10 +149,8 @@ if(isset($_POST))
               }
             }
           }
-          else
-          {
-            mkdir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 0777, true);
-          }
+          
+          mkdir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 0777, true);
           $index = 0;
           $keys = explode(",", $public_key);
           foreach ($keys as $key)
