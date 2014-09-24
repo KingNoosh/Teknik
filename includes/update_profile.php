@@ -140,7 +140,7 @@ if(isset($_POST))
           
           if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
           {
-            $repo->run('rm -r keydir\\u\\'.$user->username);
+            $repo->run('rm -r keydir/u/'.$user->username);
           }
           else
           {
