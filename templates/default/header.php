@@ -28,7 +28,8 @@
         array_push($jsFiles, 'bootbox/bootbox.min.js', 
                     'PageDown/Markdown.Converter.js', 
                     'PageDown/Markdown.Sanitizer.js', 
-                    'bootstrap/markdown/bootstrap-markdown.js', 
+                    'bootstrap/markdown/bootstrap-markdown.js',
+                    'jquery/jquery.isloading.min.js',
                     'profile.js');
         break;
       case "about":

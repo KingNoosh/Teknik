@@ -63,7 +63,10 @@ $(document).ready(function() {
     return false;
   });
   
-  $("#update_submit").click(function(){  
+  $("#update_submit").click(function(){
+      // Start Updating Animation
+      $.isLoading({ text: "Working" });
+      
       current_password=encodeURIComponent($("#update_password_current").val());
       password=encodeURIComponent($("#update_password").val());
       password_confirm=encodeURIComponent($("#update_password_confirm").val());
@@ -83,6 +86,7 @@ $(document).ready(function() {
         {
           if(html=='true')
           {
+            $.isLoading( "hide" );
             window.location.reload();
           }
           else
