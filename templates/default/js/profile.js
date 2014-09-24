@@ -65,7 +65,7 @@ $(document).ready(function() {
   
   $("#update_submit").click(function(){
       // Start Updating Animation
-      $.blockUI({ message: '<h1><img src="../img/loading.gif" /> Just a moment...</h1>' });
+      $.blockUI({ message: '<img src="../img/loading.gif" /> Just a moment...' });
       
       current_password=encodeURIComponent($("#update_password_current").val());
       password=encodeURIComponent($("#update_password").val());
