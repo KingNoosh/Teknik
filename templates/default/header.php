@@ -29,7 +29,7 @@
                     'PageDown/Markdown.Converter.js', 
                     'PageDown/Markdown.Sanitizer.js', 
                     'bootstrap/markdown/bootstrap-markdown.js',
-                    'jquery/jquery.isloading.min.js',
+                    'jquery/jquery.blockUI.js',
                     'profile.js');
         break;
       case "about":

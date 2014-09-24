@@ -65,10 +65,7 @@ $(document).ready(function() {
   
   $("#update_submit").click(function(){
       // Start Updating Animation
-      $.isLoading({ 
-        text: "Working",
-        position: "overlay"
-      });
+      $.blockUI({ message: '<h1><img src="../img/loading.gif" /> Just a moment...</h1>' });
       
       current_password=encodeURIComponent($("#update_password_current").val());
       password=encodeURIComponent($("#update_password").val());
@@ -89,12 +86,12 @@ $(document).ready(function() {
         {
           if(html=='true')
           {
-            $.isLoading( "hide" );
+            $.unblockUI();
             window.location.reload();
           }
           else
           {
-            $.isLoading( "hide" );
+            $.unblockUI();
             $("#top_msg").css('display', 'inline', 'important');
             $("#top_msg").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+html+'</div>');
           }
