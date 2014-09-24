@@ -145,9 +145,8 @@ if(isset($_POST))
           else
           {
             mkdir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 0777, true);
-            chown($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 'iusr');
-            chgrp($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 'Administrators');
-            chmod($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 0777);
+            shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chown -R iusr:Administrators /cygdrive/g/Repositories/gitolite-admin/u/".$user->username."'");
+            shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chmod -R 777 /cygdrive/g/Repositories/gitolite-admin/u/".$user->username."'");
           }
           $index = 0;
           $keys = explode(",", $public_key);
@@ -162,9 +161,8 @@ if(isset($_POST))
               $fileHandle = fopen($keyFileName, 'w');
               fwrite($fileHandle, $key);
               fclose($fileHandle);
-              chown($keyFileName, 'iusr');
-              chgrp($keyFileName, 'Administrators');
-              chmod($keyFileName, 0777);
+              shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chown -R iusr:Administrators /cygdrive/g/Repositories/gitolite-admin/u/".$user->username."/".$user->username."@Key".$index.".pub'");
+              shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chmod -R 777 /cygdrive/g/Repositories/gitolite-admin/u/".$user->username."/".$user->username."@Key".$index.".pub'");
               $index++;
             }
           }            
