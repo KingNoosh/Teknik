@@ -135,8 +135,7 @@ if(isset($_POST))
           $Git->windows_mode();
           $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
           $repo->setenv('HOME', '/home/www_user');
-          $repo->setenv('USERNAME', 'www_user');
-          echo getenv("username");
+          echo get_current_user();
           $repo->fetch();
           $repo->run('reset --hard origin/master');
           
