@@ -139,9 +139,9 @@ if(isset($_POST))
           $repo->run('reset --hard origin/master');
           
           $dir = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username;
-          if (is_dir($dir."\\*"))
+          if (is_dir($dir))
           {
-            foreach (glob($dir."*") as $filename)
+            foreach (glob($dir."\\*") as $filename)
             {
               if (is_file($filename))
               {
