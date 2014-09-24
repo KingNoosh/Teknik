@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
   
   $("#add_public_key").click(function() {
-    bootbox.prompt("Enter your Public Key (including ssh-rsa)", function(result) {                
+    bootbox.prompt("Enter your Public Key [ie: ssh-rsa (.*)]", function(result) {                
       if (result)
       {
         prev_keys = $("#update_public_key").val();
