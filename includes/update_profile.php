@@ -138,15 +138,20 @@ if(isset($_POST))
           $repo->fetch();
           $repo->run('reset --hard origin/master');
           
-          if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
+          $dir = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username;
+          if ($handle = opendir($dir))
           {
-            $repo->run('rm -r keydir/u/'.$user->username.'/*');
+            while (($file = readdir($handle)) !== false)
+            {
+              if (!in_array($file, array('.', '..')) && !is_dir($dir.$file))
+              {
+                $repo->run('rm -r keydir/u/'.$user->username.'/'.basename($file));
+              }
+            }
           }
           else
           {
             mkdir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 0777, true);
-            echo shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chown -R iusr:Administrators /cygdrive/g/Repositories/gitolite-admin/keydir/*'");
-            echo shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chmod -R 777 /cygdrive/g/Repositories/gitolite-admin/keydir/*'");
           }
           $index = 0;
           $keys = explode(",", $public_key);
@@ -165,7 +170,9 @@ if(isset($_POST))
               echo shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chmod -R 777 /cygdrive/g/Repositories/gitolite-admin/keydir/*'");
               $index++;
             }
-          }            
+          }
+          echo shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chmod -R 777 /cygdrive/g/Repositories/gitolite-admin/'");
+          echo shell_exec("C:\cygwin64\bin\bash.exe --login  -c 'chown -R iusr:Administrators /cygdrive/g/Repositories/gitolite-admin/'");
           $repo->add('.');
           $repo->commit('Modified keys for '.$user->username);
           $repo->push('origin', 'master');
