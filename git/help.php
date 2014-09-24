@@ -25,6 +25,7 @@
       <p>
         Once you have a public key added, you will have the ability to create a repo.  To do so, you just need to clone the repo you want to create, and the repo will be created.
         <br />
+        <br />
         <code>~$git clone git@teknik.io:u/[username]/[repository_name]</code>
       </p>
       <h3>Viewing a user's git repositories</h3>
@@ -34,10 +35,8 @@
       </p>
       <h3>Examples</h3>
       <p>
-        Once you have your key added, you will be able to access the git repository via ssh access
-        <br />
-        <br />
         <b>Clone a Repo (Git Daemon):</b> <code>~$git clone git://teknik.io/u/[username]/[repository_name]</code>
+        <br />
         <b>Clone a Repo (SSH):</b> <code>~$git clone git@teknik.io:u/[username]/[repository_name]</code>
       </p>
     </div>
