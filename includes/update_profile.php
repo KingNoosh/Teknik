@@ -140,11 +140,7 @@ if(isset($_POST))
           
           if (is_dir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username))
           {
-            $files = glob($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username."\\*");
-            foreach($files as $file){ // iterate files
-              if(is_file($file))
-                unlink($file); // delete file
-            }
+            $repo->run('rm -r keydir\\u\\'.$user->username);
           }
           else
           {
