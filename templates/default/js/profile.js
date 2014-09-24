@@ -65,7 +65,10 @@ $(document).ready(function() {
   
   $("#update_submit").click(function(){
       // Start Updating Animation
-      $.isLoading({ text: "Working" });
+      $.isLoading({ 
+        text: "Working",
+        position: "overlay"
+      });
       
       current_password=encodeURIComponent($("#update_password_current").val());
       password=encodeURIComponent($("#update_password").val());

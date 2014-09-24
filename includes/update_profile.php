@@ -150,7 +150,10 @@ if(isset($_POST))
             }
           }
           
-          mkdir($CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username, 0777, true);
+          if (!is_dir($dir))
+          {
+            mkdir($dir, 0777, true);
+          }
           $index = 0;
           $keys = explode(",", $public_key);
           foreach ($keys as $key)
@@ -160,7 +163,7 @@ if(isset($_POST))
             {
               $key = "ssh-rsa " . $matches[2];
               
-              $keyFileName = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username."\\".$user->username."@Key".$index.".pub";
+              $keyFileName = $dir."\\".$user->username."@Key".$index.".pub";
               $fileHandle = fopen($keyFileName, 'w');
               fwrite($fileHandle, $key);
               fclose($fileHandle);
