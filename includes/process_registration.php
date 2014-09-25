@@ -97,7 +97,7 @@ if(isset($_POST))
         }
 
         //log them in
-        $userTools->login($username, hashPassword($password, $CONF), false);
+        $userTools->login($username, hashPassword($password, $CONF), false, $CONF);
  
         //redirect them to a welcome page
         echo "true";

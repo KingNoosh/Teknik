@@ -12,34 +12,35 @@ if(isset($_POST))
   $email = $user->username . "@" . $CONF['host'];
   $account = $domain->Accounts->ItemByAddress($email);
   $account->Delete();
-  
-  $file = $CONF['ssh_pub_keys'];
 
   //delete any public keys from git auth
-  $fh = fopen($file, 'r+');
-  if ($fh)
+  
+  $Git = new Git();
+  $Git->windows_mode();
+  $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
+  $repo->setenv('HOME', '/home/www_user');
+  
+  $dir = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username;
+  if (is_dir($dir))
   {
-    if (filesize($file) > 0)
+    foreach (glob($dir."\\*") as $filename)
     {
-      $data = fread($fh, filesize($file));
-      $reg_key = preg_quote($user->public_key, '/');
-      $reg_user = preg_quote($user->username, '/');
-      $forced_commands = preg_quote($CONF['forced_commands'], '/');
-      $new_data = preg_replace("/($forced_commands)(\s)($reg_key)(\s)($reg_user)(\n)*/", "", $data);
-      fclose($fh);
-      
-      $fh = fopen($file, 'w');
-      fwrite($fh, $new_data);
+      if (is_file($filename))
+      {
+        $repo->run('rm  keydir/u/'.$user->username.'/'.basename($filename));
+      }
     }
   }
-  fclose($fh);
-  
+  $repo->commit('Removed all keys for '.$user->username);
+  $repo->push('origin', 'master');
+  /*
   $r = new minecraftRcon($CONF['minecraft_server'], $CONF['rcon_port'], $CONF['rcon_pass']);
 
   // Authenticate, and if so, execute command(s)
   if ( $r->Auth() ) {
     $r->mcRconCommand('pex user '.$user->minecraft_user." group remove Member");
   }
+  */
   //delete the user from the main database
   $user->delete($db);
   

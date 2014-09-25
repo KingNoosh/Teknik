@@ -19,9 +19,6 @@ if(!preg_match($pattern, $url))
   include('../templates/'.$CONF['template'].'/header.php');
 
   set_page_title("Teknik Git");
-  ?>
-  <script src="<?php echo get_page_url($CONF['page'], $CONF); ?>/templates/<?php echo $CONF['template']; ?>/js/codemirror/codemirror.js"></script>
-  <?php
 }
 
 if (php_sapi_name() == 'cli-server' && file_exists(substr($_SERVER['REQUEST_URI'], 1))) {
