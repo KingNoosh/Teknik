@@ -163,7 +163,7 @@ if(isset($_POST))
               $index++;
             }
           }
-          $result = shell_exec('bash --login -c "gitolite trigger SSH_AUTHKEYS"');
+          $result = shell_exec('bash --login -c "/home/git/gitolite/src/gitolite trigger SSH_AUTHKEYS"');
           print($result);
         }
         
