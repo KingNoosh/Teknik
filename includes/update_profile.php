@@ -165,7 +165,6 @@ if(isset($_POST))
           }
           putenv("HOME=/home/git");
           $result = shell_exec('bash --login -c "/home/git/gitolite/src/gitolite trigger SSH_AUTHKEYS"');
-          print($result);
         }
         
         /*
