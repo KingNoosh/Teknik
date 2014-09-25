@@ -26,7 +26,7 @@ if(isset($_POST))
     }
   }
   putenv("HOME=/home/git");
-  $result = shell_exec('bash --login -c "/home/git/gitolite/src/gitolite trigger SSH_AUTHKEYS"');
+  $result = shell_exec('bash --login -c "'.$CONF['gitolite_path'].'gitolite trigger SSH_AUTHKEYS"');
   /*
   $r = new minecraftRcon($CONF['minecraft_server'], $CONF['rcon_port'], $CONF['rcon_pass']);
 

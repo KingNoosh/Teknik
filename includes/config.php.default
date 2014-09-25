@@ -111,7 +111,9 @@ $CONF['git_path'] = 'C:\\Git\\bin\\git.exe';
 
 $CONF['git_repo_path'] = array('C:\\Repositories\\Dir\\');
 
-$CONF['git_key_dir'] = array('C:\\cygwin\\var\\keys');
+$CONF['gitolite_path'] = '/cygwin/bin/gitolite/';
+
+$CONF['git_key_dir'] = 'C:\\cygwin\\var\\keys';
 
 $CONF['git_user'] = "gituser";
 
