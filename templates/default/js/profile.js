@@ -28,7 +28,7 @@ $(document).ready(function() {
   });
   
   $("#add_public_key").click(function() {
-    bootbox.prompt("Enter your Public Key (including ssh-rsa)", function(result) {                
+    bootbox.prompt("Enter your Public Key [ie: ssh-rsa (.*)]", function(result) {                
       if (result)
       {
         prev_keys = $("#update_public_key").val();
@@ -65,7 +65,7 @@ $(document).ready(function() {
   
   $("#update_submit").click(function(){
       // Start Updating Animation
-      $.blockUI({ message: '<div class="text-center"><h3>Working...</h3></div>' });
+      $.blockUI({ message: '<div class="text-center"><h3>Updating...</h3></div>' });
       
       current_password=encodeURIComponent($("#update_password_current").val());
       password=encodeURIComponent($("#update_password").val());

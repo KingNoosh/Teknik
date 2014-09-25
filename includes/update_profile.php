@@ -171,7 +171,7 @@ if(isset($_POST))
             }
           }
           $repo->add('.');
-          $repo->commit('Modified keys for '.$user->username);
+          $repo->commit('Modified '.$index.' keys for '.$user->username);
           $repo->push('origin', 'master');
         }
         

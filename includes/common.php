@@ -48,7 +48,7 @@ function extract_subdomains($domain)
 function get_subdomain($CONF)
 {
   $sub = extract_subdomains($_SERVER['HTTP_HOST']);
-  if ($sub == "")
+  if ($sub == "" || $sub == "www")
   {
     $sub = $CONF['default_page'];
   }
