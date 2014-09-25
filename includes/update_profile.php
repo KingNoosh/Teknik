@@ -135,8 +135,6 @@ if(isset($_POST))
           $Git->windows_mode();
           $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
           $repo->setenv('HOME', '/home/www_user');
-          $repo->fetch();
-          $repo->run('reset --hard origin/master');
           
           $dir = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username;
           if (is_dir($dir))
