@@ -14,25 +14,19 @@ if(isset($_POST))
   $account->Delete();
 
   //delete any public keys from git auth
-  
-  $Git = new Git();
-  $Git->windows_mode();
-  $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
-  $repo->setenv('HOME', '/home/www_user');
-  
-  $dir = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username;
+  $dir = $CONF['git_key_dir'].'u\\'.$user->username;
   if (is_dir($dir))
   {
     foreach (glob($dir."\\*") as $filename)
     {
       if (is_file($filename))
       {
-        $repo->run('rm  keydir/u/'.$user->username.'/'.basename($filename));
+        unlink($filename);
       }
     }
   }
-  $repo->commit('Removed all keys for '.$user->username);
-  $repo->push('origin', 'master');
+  putenv("HOME=/home/git");
+  $result = shell_exec('bash --login -c "/home/git/gitolite/src/gitolite trigger SSH_AUTHKEYS"');
   /*
   $r = new minecraftRcon($CONF['minecraft_server'], $CONF['rcon_port'], $CONF['rcon_pass']);
 
