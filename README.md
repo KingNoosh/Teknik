@@ -33,11 +33,11 @@ Teknik is a suite of services with attractive and functional interfaces.
 * Flexible installation and configuration
 
 ## Screenshots
-[![File Upload Screenshot](https://cdn.teknik.io/default/img/screenshots/upload_screenshot.PNG)
-[![Pastebin Screenshot](https://cdn.teknik.io/default/img/screenshots/paste_screenshot.PNG)
-[![Blog Screenshot](https://cdn.teknik.io/default/img/screenshots/blog_screenshot.PNG)
-[![Podcast Screenshot](https://cdn.teknik.io/default/img/screenshots/podcast_screenshot.PNG)
-[![Git Screenshot](https://cdn.teknik.io/default/img/screenshots/git_screenshot.PNG)
+[![File Upload Screenshot](https://cdn.teknik.io/default/img/screenshots/upload_screenshot.PNG)](https://cdn.teknik.io/default/img/screenshots/upload_screenshot.PNG)
+[![Pastebin Screenshot](https://cdn.teknik.io/default/img/screenshots/paste_screenshot.PNG)](https://cdn.teknik.io/default/img/screenshots/paste_screenshot.PNG)
+[![Blog Screenshot](https://cdn.teknik.io/default/img/screenshots/blog_screenshot.PNG)](https://cdn.teknik.io/default/img/screenshots/blog_screenshot.PNG)
+[![Podcast Screenshot](https://cdn.teknik.io/default/img/screenshots/podcast_screenshot.PNG)](https://cdn.teknik.io/default/img/screenshots/podcast_screenshot.PNG)
+[![Git Screenshot](https://cdn.teknik.io/default/img/screenshots/git_screenshot.PNG)](https://cdn.teknik.io/default/img/screenshots/git_screenshot.PNG)
 
 You can also see a live demo [here](https://www.teknik.io).
 
@@ -62,28 +62,28 @@ git clone git://teknik.io/Teknik
 * Do not clone the development branch unless you want to run the latest code.  It may be unstable.
 * Create a database and import DB.sql to create the required tables.
 * Rename and Edit Configs
-** Teknik Configuration
-*** Rename the `includes/config.php.default` file to `includes/config.php`.
-*** Open up the `includes/config.php` and configure the site installation.
-** Git Viewer Configuration
-*** Rename the `git/config.ini-example` file to `git/config.ini`.
-*** Open up the `git/config.ini` and configure the git viewer.
-** Server Stats Configuration
-*** Rename the `stats/phpsysinfo.ini.new` file to `stats/phpsysinfo.ini`.
-*** Open up the `stats/phpsysinfo.ini` and configure the server stats.
-** Mail Web Interface Configuration
-*** Rename the `mail/config/mail.inc.php.dist` file to `mail/config/mail.inc.php`.
-*** Rename the `mail/config/db.inc.php.dist` file to `mail/config/db.inc.php`.
-*** Open up the `mail/config/mail.inc.php` and configure the mail web interface settings.
-*** Open up the `mail/config/db.inc.php` and configure the mail database settings.
+  * Teknik Configuration
+    * Rename the `includes/config.php.default` file to `includes/config.php`.
+    * Open up the `includes/config.php` and configure the site installation.
+  * Git Viewer Configuration
+    * Rename the `git/config.ini-example` file to `git/config.ini`.
+    * Open up the `git/config.ini` and configure the git viewer.
+  * Server Stats Configuration
+    * Rename the `stats/phpsysinfo.ini.new` file to `stats/phpsysinfo.ini`.
+    * Open up the `stats/phpsysinfo.ini` and configure the server stats.
+  * Mail Web Interface Configuration
+    * Rename the `mail/config/mail.inc.php.dist` file to `mail/config/mail.inc.php`.
+    * Rename the `mail/config/db.inc.php.dist` file to `mail/config/db.inc.php`.
+    * Open up the `mail/config/mail.inc.php` and configure the mail web interface settings.
+    * Open up the `mail/config/db.inc.php` and configure the mail database settings.
 * If you are running IIS
-** Add the following virtual directories to every page (home, upload, git, etc...):
-*** templates `/var/www/Teknik/templates`
-*** includes `/var/www/Teknik/includes`
+  * Add the following virtual directories to every page (home, upload, git, etc...):
+    * templates `/var/www/Teknik/templates`
+    * includes `/var/www/Teknik/includes`
 * If you are running Apache
-** Create an Alias for each of the following:
-*** templates `/var/www/Teknik/templates`
-*** includes `/var/www/Teknik/includes`
+  * Create an Alias for each of the following:
+    * templates `/var/www/Teknik/templates`
+    * includes `/var/www/Teknik/includes`
 * Create the cache folders and give read/write permissions to your web server user:
 
 ```
@@ -97,7 +97,7 @@ chmod 777 cache
 ```
 
 * Create a local repo of the gitolite-admin repository and give it read/write permissions to the PHP script user.
-** In order to clone the repo, you will need to be added as an administrator within gitolite.  Refer to [Gitolite](http://gitolite.com/gitolite/) for information on how to set that up.
+  * In order to clone the repo, you will need to be added as an administrator within gitolite.  Refer to [Gitolite](http://gitolite.com/gitolite/) for information on how to set that up.
 
 ```
 cd /var/Repositories/
