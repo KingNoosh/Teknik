@@ -130,20 +130,15 @@ if(isset($_POST))
         
         // Add the user's keys to his git account
         if ($public_key != $user->public_key)
-        {            
-          $Git = new Git();
-          $Git->windows_mode();
-          $repo = $Git->open($CONF['git_repo_path'][0].'gitolite-admin\\');
-          $repo->setenv('HOME', '/home/www_user');
-          
-          $dir = $CONF['git_repo_path'][0].'gitolite-admin\\keydir\\u\\'.$user->username;
+        {
+          $dir = $CONF['git_key_dir'].'u\\'.$user->username;
           if (is_dir($dir))
           {
             foreach (glob($dir."\\*") as $filename)
             {
               if (is_file($filename))
               {
-                $repo->run('rm  keydir/u/'.$user->username.'/'.basename($filename));
+                unlink($filename);
               }
             }
           }
@@ -168,9 +163,7 @@ if(isset($_POST))
               $index++;
             }
           }
-          $repo->add('.');
-          $repo->commit('Modified '.$index.' keys for '.$user->username);
-          $repo->push('origin', 'master');
+          echo shell_exec('bash -c "gitolite trigger SSH_AUTHKEYS"');
         }
         
         /*
