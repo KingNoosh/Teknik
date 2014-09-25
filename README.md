@@ -88,7 +88,8 @@ chown -R www_user:GitGroup /var/Repositories/gitolite-admin/*
 chmod -R 750 /var/Repositories/gitolite-admin/*
 ```
 
-That's it, installation complete! If you're having problems, let us know through the [Contact](https://contact.teknik.io/) page.
+
+**That's it**, installation complete! If you're having problems, let us know through the [Contact](https://contact.teknik.io/) page.
 
 ## Authors and contributors
   * [Chris Woodward](https://www.teknik.io) (Creator, developer)
