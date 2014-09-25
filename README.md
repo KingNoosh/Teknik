@@ -2,19 +2,17 @@
 
 ---------------
 
-* Copyright (c), 2013-2014, Chris Woodward (admin@teknik.io)
-
 Teknik is a suite of services with attractive and functional interfaces.
 
 ## Features
-* File Upload w/ encryption
-* Pastebin
-* Blogs
-* Git Repositories
-* Podcasts
-* Easy to use API
-* Server Statistics
-* Flexible installation and configuration
+  * File Upload w/ encryption
+  * Pastebin
+  * Blogs
+  * Git Repositories
+  * Podcasts
+  * Easy to use API
+  * Server Statistics
+  * Flexible installation and configuration
 
 ## Screenshots
 [![File Upload Screenshot](https://cdn.teknik.io/default/img/screenshots/upload_screenshot_thumb.png)](https://cdn.teknik.io/default/img/screenshots/upload_screenshot.PNG)
@@ -28,47 +26,47 @@ You can also see a live demo [here](https://www.teknik.io).
 ## Requirements
 In order to run Teknik on your server, you'll need:
 
-* IIS 7 with URL Rewrite module or Apache with mod_rewrite enabled (Requires conversion of web.config files)
-* PHP >= 5.4.14
-* MySQL
-* hMailServer (If running email as well)
-* Git >= 1.7.2
-* gitolite
+  * IIS 7 with URL Rewrite module or Apache with mod_rewrite enabled (Requires conversion of web.config files)
+  * PHP >= 5.4.14
+  * MySQL
+  * hMailServer (If running email as well)
+  * Git >= 1.7.2
+  * gitolite
 
 ## Installation
-* Clone the Teknik repository to your web root directory, or anywhere else you want to run Teknik from.
+  * Clone the Teknik repository to your web root directory, or anywhere else you want to run Teknik from.
 
 ```
 cd /var/www
 git clone git://teknik.io/Teknik
 ```
 
-* Do not clone the development branch unless you want to run the latest code.  It may be unstable.
-* Create a database and import DB.sql to create the required tables.
-* Rename and Edit Configs
-  - Teknik Configuration
-    * Rename the `includes/config.php.default` file to `includes/config.php`.
-    * Open up the `includes/config.php` and configure the site installation.
-  - Git Viewer Configuration
-    * Rename the `git/config.ini-example` file to `git/config.ini`.
-    * Open up the `git/config.ini` and configure the git viewer.
-  - Server Stats Configuration
-    * Rename the `stats/phpsysinfo.ini.new` file to `stats/phpsysinfo.ini`.
-    * Open up the `stats/phpsysinfo.ini` and configure the server stats.
-  - Mail Web Interface Configuration
-    * Rename the `mail/config/mail.inc.php.dist` file to `mail/config/mail.inc.php`.
-    * Rename the `mail/config/db.inc.php.dist` file to `mail/config/db.inc.php`.
-    * Open up the `mail/config/mail.inc.php` and configure the mail web interface settings.
-    * Open up the `mail/config/db.inc.php` and configure the mail database settings.
-* If you are running IIS
-  - Add the following virtual directories to every page (home, upload, git, etc...):
-    * templates `/var/www/Teknik/templates`
-    * includes `/var/www/Teknik/includes`
-* If you are running Apache
-  - Create an Alias for each of the following:
-    * templates `/var/www/Teknik/templates`
-    * includes `/var/www/Teknik/includes`
-* Create the cache folders and give read/write permissions to your web server user:
+  * Do not clone the development branch unless you want to run the latest code.  It may be unstable.
+  * Create a database and import DB.sql to create the required tables.
+  * Rename and Edit Configs
+    - Teknik Configuration
+      * Rename the `includes/config.php.default` file to `includes/config.php`.
+      * Open up the `includes/config.php` and configure the site installation.
+    - Git Viewer Configuration
+      * Rename the `git/config.ini-example` file to `git/config.ini`.
+      * Open up the `git/config.ini` and configure the git viewer.
+    - Server Stats Configuration
+      * Rename the `stats/phpsysinfo.ini.new` file to `stats/phpsysinfo.ini`.
+      * Open up the `stats/phpsysinfo.ini` and configure the server stats.
+    - Mail Web Interface Configuration
+      * Rename the `mail/config/mail.inc.php.dist` file to `mail/config/mail.inc.php`.
+      * Rename the `mail/config/db.inc.php.dist` file to `mail/config/db.inc.php`.
+      * Open up the `mail/config/mail.inc.php` and configure the mail web interface settings.
+      * Open up the `mail/config/db.inc.php` and configure the mail database settings.
+  * If you are running IIS
+    - Add the following virtual directories to every page (home, upload, git, etc...):
+      * templates `/var/www/Teknik/templates`
+      * includes `/var/www/Teknik/includes`
+  * If you are running Apache
+    - Create an Alias for each of the following:
+      * templates `/var/www/Teknik/templates`
+      * includes `/var/www/Teknik/includes`
+  * Create the cache folders and give read/write permissions to your web server user:
 
 ```
 cd /var/www/Teknik/templates/default
@@ -80,8 +78,8 @@ mkdir cache
 chmod 777 cache
 ```
 
-* Create a local repo of the gitolite-admin repository and give it read/write permissions to the PHP script user.
-  - In order to clone the repo, you will need to be added as an administrator within gitolite.  Refer to [Gitolite](http://gitolite.com/gitolite/) for information on how to set that up.
+  * Create a local repo of the gitolite-admin repository and give it read/write permissions to the PHP script user.
+    - In order to clone the repo, you will need to be added as an administrator within gitolite.  Refer to [Gitolite](http://gitolite.com/gitolite/) for information on how to set that up.
 
 ```
 cd /var/Repositories/
@@ -93,7 +91,7 @@ chmod -R 750 /var/Repositories/gitolite-admin/*
 That's it, installation complete! If you're having problems, let us know through the [Contact](https://contact.teknik.io/) page.
 
 ## Authors and contributors
-* [Chris Woodward](https://www.teknik.io) (Creator, developer)
+  * [Chris Woodward](https://www.teknik.io) (Creator, developer)
 
 ## License
 [BSD 3-Clause license](http://opensource.org/licenses/BSD-3-Clause)
