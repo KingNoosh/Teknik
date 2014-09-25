@@ -1,6 +1,5 @@
 <?php
 require_once('config.php');
-require_once('Git.php');
  
 //initialize php variables used in the form
 $current_password = "";
