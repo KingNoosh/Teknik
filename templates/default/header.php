@@ -49,7 +49,16 @@
       case "contact":
         array_push($jsFiles, 'contact.js');
         break;
-      case "git":
+      case "git":      
+        $url = curPageURL();
+        $pattern = "/^(.*)((\/zipball\/)|(\/tarball\/)|(\/raw\/))(.*)$/";
+        if(!preg_match($pattern, $url))
+        {
+          array_push($jsFiles, 
+                      'raphael/raphael.js',
+                      'showdown/showdown.js',
+                      'codemirror/codemirror.js');
+        }
         array_push($jsFiles, 'git.js');
         break;
       case "pod":
