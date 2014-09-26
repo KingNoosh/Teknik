@@ -24,16 +24,13 @@
     switch ($CONF['page'])
     {
       case "home":
-        if (isset($_GET['id']))
-        {
-          array_push($cssFiles, 'bootstrap-markdown.min.css');
-          array_push($jsFiles, 'bootbox/bootbox.min.js', 
-                      'PageDown/Markdown.Converter.js', 
-                      'PageDown/Markdown.Sanitizer.js', 
-                      'bootstrap/markdown/bootstrap-markdown.js',
-                      'jquery/jquery.blockUI.js',
-                      'profile.js');
-        }
+        array_push($cssFiles, 'bootstrap-markdown.min.css');
+        array_push($jsFiles, 'bootbox/bootbox.min.js', 
+                    'PageDown/Markdown.Converter.js', 
+                    'PageDown/Markdown.Sanitizer.js', 
+                    'bootstrap/markdown/bootstrap-markdown.js',
+                    'jquery/jquery.blockUI.js',
+                    'profile.js');
         break;
       case "about":
         array_push($cssFiles, 'coin.css');
