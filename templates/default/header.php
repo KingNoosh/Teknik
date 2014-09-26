@@ -215,6 +215,7 @@
     }*/
   ?>
   <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
+  <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
