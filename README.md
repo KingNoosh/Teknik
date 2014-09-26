@@ -70,8 +70,8 @@ git clone git://teknik.io/Teknik
 
 ```
 cd /var/www/Teknik/templates/default
-mkdir -p cache/js
-chmod -R 777 cache
+mkdir cache
+chmod 777 cache
 
 cd /var/www/Teknik/git
 mkdir cache
