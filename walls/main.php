@@ -1,5 +1,5 @@
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="true">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
@@ -34,12 +34,12 @@
 </div>
 <div id="links">
     <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/blog_screenshot.PNG" title="Banana" data-gallery>
-        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/blog_screenshot_thumbnail.png" alt="Banana">
+        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/blog_screenshot_thumb.png" alt="Banana">
     </a>
     <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/paste_screenshot.PNG" title="Apple" data-gallery>
-        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/paste_screenshot_thumbnail.png" alt="Apple">
+        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/paste_screenshot_thumb.png" alt="Apple">
     </a>
     <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/podcast_screenshot.PNG" title="Orange" data-gallery>
-        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/podcast_screenshot_thumbnail.png" alt="Orange">
+        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/podcast_screenshot_thumb.png" alt="Orange">
     </a>
 </div>
