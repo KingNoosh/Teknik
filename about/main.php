@@ -56,12 +56,14 @@
                 <h4><a href="<?php echo get_page_url("upload", $CONF); ?>" target="_blank">Encrypted File Uploads</a></h4>
                 <h4><a href="<?php echo get_page_url("mail", $CONF); ?>" target="_blank">Free Email Address</a></h4>
                 <h4><a href="<?php echo get_page_url("api", $CONF); ?>" target="_blank">Easy to Use API</a></h4>
+                <h4><a href="<?php echo get_page_url("help", $CONF); ?>#Git" target="_blank">Personal Git Repositories</a></h4>
               </div>              
               <div class="col-sm-4 text-center">
                 <h4><a href="<?php echo get_page_url("blog", $CONF); if ($logged_in) { echo "/".$user->username; }?>" target="_blank">Personal Blog</a></h4>
                 <h4><a href="<?php echo get_page_url("podcast", $CONF); ?>" target="_blank">Entertaining Podcasts</a></h4>
-                <h4><a href="<?php echo get_page_url("help", $CONF); ?>#mumble" target="_blank">Mumble Server</a></h4>
+                <h4><a href="<?php echo get_page_url("help", $CONF); ?>#Mumble" target="_blank">Mumble Server</a></h4>
                 <h4><a href="<?php echo get_page_url("transparency", $CONF); ?>" target="_blank">Full Transparency</a></h4>
+                <h4><a href="<?php echo get_page_url("git", $CONF); ?>Teknik.git/" target="_blank">Completely Open Source</a></h4>
               </div>
             </div>
               
