@@ -55,7 +55,7 @@
         if(!preg_match($pattern, $url))
         {
           array_push($jsFiles, 
-                      'raphael/raphael.js',
+                      //'raphael/raphael.js',
                       'showdown/showdown.js',
                       'codemirror/codemirror.js');
         }
