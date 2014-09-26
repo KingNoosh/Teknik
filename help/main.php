@@ -14,5 +14,9 @@
             <dd>The current Server Hardware statistics that Teknik is running on.</dd>
         </dl>
     </div>
+    <div class="col-xs-2">
+      <div id="toc">
+      </div>
+    </div>
   </div>
 </div>

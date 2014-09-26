@@ -61,6 +61,12 @@
         }
         array_push($jsFiles, 'git.js');
         break;
+      case "help":      
+        array_push($cssFiles, 'jquery.tocify.css');
+        array_push($jsFiles
+                    'jquery/1.10.2/jquery-ui.widgets.js',
+                    'jquery/jquery.tocify.min.js');
+        break;
       case "pod":
       case "podcast":
         array_push($cssFiles, 'bootstrap-markdown.min.css', 'audioplayer.css');
