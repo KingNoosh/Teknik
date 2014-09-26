@@ -24,13 +24,16 @@
     switch ($CONF['page'])
     {
       case "home":
-        array_push($cssFiles, 'bootstrap-markdown.min.css');
-        array_push($jsFiles, 'bootbox/bootbox.min.js', 
-                    'PageDown/Markdown.Converter.js', 
-                    'PageDown/Markdown.Sanitizer.js', 
-                    'bootstrap/markdown/bootstrap-markdown.js',
-                    'jquery/jquery.blockUI.js',
-                    'profile.js');
+        if (isset($_GET['id']))
+        {
+          array_push($cssFiles, 'bootstrap-markdown.min.css');
+          array_push($jsFiles, 'bootbox/bootbox.min.js', 
+                      'PageDown/Markdown.Converter.js', 
+                      'PageDown/Markdown.Sanitizer.js', 
+                      'bootstrap/markdown/bootstrap-markdown.js',
+                      'jquery/jquery.blockUI.js',
+                      'profile.js');
+        }
         break;
       case "about":
         array_push($cssFiles, 'coin.css');
@@ -152,7 +155,7 @@
         $js .= \JShrink\Minifier::minify(file_get_contents(dirname(__FILE__).'/js/'.$file)); 
       } 
 
-      file_put_contents(dirname(__FILE__)."/cache/js/".$CONF['page'].".teknik.min.js", $js); 
+      file_put_contents(dirname(__FILE__)."/cache/".$CONF['page'].".teknik.min.js", $js); 
     }
     
     
@@ -215,7 +218,7 @@
     }*/
   ?>
   <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
-  <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
+  <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
