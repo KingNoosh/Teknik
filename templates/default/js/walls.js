@@ -1,4 +1,4 @@
-document.getElementById('links').onclick = function (event) {
+document.getElementById('a').onclick = function (event) {
     event = event || window.event;
     var target = event.target || event.srcElement,
         link = target.src ? target.parentNode : target,
