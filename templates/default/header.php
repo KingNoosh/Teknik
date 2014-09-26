@@ -158,7 +158,7 @@
     
     // Check to see if the CSS files have changed //
     $cssChanged = false;
-    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['page'].'.lock';
+    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['page'].'.txt';
     if (file_exists($cssCacheFile) && file_exists(dirname(__FILE__)."/cache/".$CONF['page'].".teknik.min.css"))
     {
       $cache_arr = explode('|', file_get_contents($cssCacheFile));
@@ -174,7 +174,7 @@
             $cssChanged = true;
             break;
           }
-          if(filemtime(dirname(__FILE__)."/".$file)>$time)
+          if(filemtime(dirname(__FILE__)."/css/".$file)>$time)
           {
             $cssChanged = true;
             break;
