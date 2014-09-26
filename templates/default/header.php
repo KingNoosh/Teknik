@@ -111,6 +111,13 @@
                     'sorttable/sorttable.js',
                     'transparency/transparency.min.js',
                     'stats.js');
+      case "w":
+      case "walls":
+        array_push($cssFiles, 'blueimp-gallery.min.css', 'bootstrap-image-gallery.min.css');
+        array_push($jsFiles,
+                    'jquery/jquery.blueimp-gallery.min.js',
+                    'bootstrap/image-gallery/bootstrap-image-gallery.min.js',
+                    'stats.js');
         break;
     }
     
