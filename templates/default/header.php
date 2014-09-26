@@ -15,7 +15,7 @@
     $jsFiles = array();
     
     // Global CSS Files //
-    array_push($cssFiles, 'bootstrap.'.$CONF['theme'].'.min.css', 'font-awesome.min.css', 'common.css');
+    array_push($cssFiles, 'font-awesome.min.css', 'common.css');
     
     // Global JS Files //
     array_push($jsFiles, 'jquery/1.10.2/jquery.min.js', 'common.js', 'bootstrap/bootstrap.min.js', 'bootstrap/select/bootstrap-select.js');    
@@ -221,6 +221,7 @@
     <?php
     }*/
   ?>
+  <link  href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/bootstrap.<?php echo $CONF['theme']; ?>.min.css" rel="stylesheet" />
   <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
   <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
