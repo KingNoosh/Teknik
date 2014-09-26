@@ -32,14 +32,20 @@
         </div>
     </div>
 </div>
-<div id="links">
-    <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/blog_screenshot.PNG" title="Banana" data-gallery>
-        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/blog_screenshot_thumb.png" alt="Banana">
-    </a>
-    <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/paste_screenshot.PNG" title="Apple" data-gallery>
-        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/paste_screenshot_thumb.png" alt="Apple">
-    </a>
-    <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/podcast_screenshot.PNG" title="Orange" data-gallery>
-        <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/podcast_screenshot_thumb.png" alt="Orange">
-    </a>
+<div class="conatainer">
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <div id="links">
+          <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/blog_screenshot.PNG" title="Banana" data-gallery>
+              <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/blog_screenshot_thumb.png" alt="Banana">
+          </a>
+          <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/paste_screenshot.PNG" title="Apple" data-gallery>
+              <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/paste_screenshot_thumb.png" alt="Apple">
+          </a>
+          <a href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/podcast_screenshot.PNG" title="Orange" data-gallery>
+              <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/screenshots/podcast_screenshot_thumb.png" alt="Orange">
+          </a>
+      </div>
+    </div>
+  </div>
 </div>
