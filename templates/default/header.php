@@ -158,8 +158,8 @@
     
     // Check to see if the CSS files have changed //
     $cssChanged = false;
-    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['page'].'.txt';
-    if (file_exists($cssCacheFile) && file_exists(dirname(__FILE__)."/cache/css/".$CONF['page'].".teknik.min.css"))
+    $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['page'].'.lock';
+    if (file_exists($cssCacheFile) && file_exists(dirname(__FILE__)."/cache/".$CONF['page'].".teknik.min.css"))
     {
       $cache_arr = explode('|', file_get_contents($cssCacheFile));
       $time_str = $cache_arr[0];
@@ -174,7 +174,7 @@
             $cssChanged = true;
             break;
           }
-          if(filemtime(dirname(__FILE__)."/css/".$file)>$time)
+          if(filemtime(dirname(__FILE__)."/".$file)>$time)
           {
             $cssChanged = true;
             break;
@@ -203,7 +203,7 @@
       }
       $final_css = compress($css_str);
       
-      file_put_contents(dirname(__FILE__)."/cache/css/".$CONF['page'].".teknik.min.css", $css_str); 
+      file_put_contents(dirname(__FILE__)."/cache/".$CONF['page'].".teknik.min.css", $css_str); 
     }
     
     /*
@@ -214,7 +214,7 @@
     <?php
     }*/
   ?>
-  <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
+  <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
   <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
