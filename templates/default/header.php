@@ -117,7 +117,7 @@
         array_push($jsFiles,
                     'jquery/jquery.blueimp-gallery.min.js',
                     'bootstrap/image-gallery/bootstrap-image-gallery.min.js',
-                    'stats.js');
+                    'walls.js');
         break;
     }
     

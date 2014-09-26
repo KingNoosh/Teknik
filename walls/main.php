@@ -1,5 +1,5 @@
 <!-- The Bootstrap Image Gallery lightbox, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="true">
+<div id="blueimp-gallery" class="blueimp-gallery" data-use-bootstrap-modal="false">
     <!-- The container for the modal slides -->
     <div class="slides"></div>
     <!-- Controls for the borderless lightbox -->
