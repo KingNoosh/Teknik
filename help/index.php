@@ -11,18 +11,18 @@ include('../templates/'.$CONF['template'].'/header.php');
 ?>
 <div class="container">
   <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-10">
     <?php
     include('main.php');
-    include('../git/help.php');
-    include('../mail/help.php');
+    include('git.php');
+    include('mail.php');
     include('irc.php');
     //include('../minecraft/help.php');
     include('mumble.php');
-    include('../api/help.php');
+    include('api.php');
     ?>
     </div>     
-    <div class="col-md-3"> 
+    <div class="col-md-2"> 
       <div id="toc"> 
       </div>
     </div>

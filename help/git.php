@@ -1,5 +1,4 @@
 <div class="row">
-  <div name="Git" data-unique="Git"></div>
   <h2><b>Git</b></h2>
   <hr>
   <h3>Git Repository Access</h3>
