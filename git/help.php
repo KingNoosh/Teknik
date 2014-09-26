@@ -2,7 +2,6 @@
   <div name="Git" data-unique="Git"></div>
   <h2><b>Git</b></h2>
   <hr>
-  <div name="GitRepositoryAccess" data-unique="GitRepositoryAccess"></div>
   <h3>Git Repository Access</h3>
   <p>
     Every user is given the option to add public keys to the authorised users list to access their git repositories, and also access the main Teknik repositories.
@@ -12,7 +11,6 @@
     <br />
     <br />
     <div class="bs-callout bs-callout-warning">
-      <div name="PublicKeyFormat" data-unique="PublicKeyFormat"></div>
       <h4>Public Key Format</h4>
       <p>
         The Public Key must be in the following format: <b>ssh-rsa [0-9A-Za-z/+]</b>

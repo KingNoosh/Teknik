@@ -1,7 +1,6 @@
 <div class="row">
-  <h2>This page contains specific help information for all of our services.</h2>
+  <h2>Teknik Services</h2>
   <hr>
-  
   <h3>Important Links</h3>
     <dl class="dl-horizontal">
       <dt><a href="<?php echo get_page_url("transparency", $CONF); ?>" target="_blank">Site Transparency</a></dt>
