@@ -10,6 +10,7 @@
     <div class="col-md-12">
       <ul class="list-group">
         <li class="list-group-item text-center"><h4>Outlook</h4></li>
+        <br />
         <div class="col-sm-6">
           <ul class="list-group">
             <li class="list-group-item text-center">User Information</li>
@@ -37,6 +38,7 @@
     <div class="col-md-12">
       <ul class="list-group">
         <li class="list-group-item text-center"><h4>Thunderbird</h4></li>
+        <br />
         <div class="col-sm-6">
           <ul class="list-group">
             <li class="list-group-item text-center">Server Settings</li>
