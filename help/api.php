@@ -21,9 +21,9 @@
   <h3><b>Paste</b></h3>
     <hr>
     <p>This is a description of the API commands available for the Paste service.</p>
-    <h3>Submit a Paste</h3>
+    <h4>Submit a Paste</h4>
       <pre><code>POST https://api.teknik.io/paste</code></pre>
-      <h4>Parameters</h4>
+      <h5>Parameters</h5>
         <table>
           <thead>
             <tr>
@@ -130,7 +130,7 @@
             </tr>
           </tbody>
         </table>
-      <h4>Response</h4>
+      <h5>Response</h5>
         <pre><code>{"results":{"paste":{"id":<var>id_num</var> "url":"<var>url</var>", "title":"<var>paste_title</var>", "format":"<var>text</var>", "expiration":"<var>date</var>", "password":"<var>password</var>"}}}</code></pre>
         <table>
           <thead>
@@ -209,14 +209,14 @@
             </tr>
           </tbody>
         </table>
-      <h4>Example</h4>
+      <h5>Example</h5>
         <pre><code>$ curl --data "title=Paste%20Title&format=text&expiration=d" --data-urlencode "code=This%20is%20my%20test%20code." https://api.teknik.io/paste</code></pre>
   <h3><b>Ricehalla</b></h3>
     <hr>
     <p>This is a description of the API commands available for the Ricehalla service.</p>
-    <h3>Get Submitted Images</h3>
+    <h4>Get Submitted Images</h4>
       <pre><code>POST https://api.teknik.io/ricehalla/get</code></pre>
-      <h4>Parameters</h4>
+      <h5>Parameters</h5>
         <table>
           <thead>
             <tr>
@@ -307,7 +307,7 @@
             </tr>
           </tbody>
         </table>
-      <h4>Response</h4>
+      <h5>Response</h5>
         <pre><code>{"results":{"image":{"id":<var>id_num</var>, "url":"<var>url</var>", "image_src":"<var>url</var>", "owner":"<var>name</var>", "date_posted":"<var>date</var>", "tags":["<var>tag</var>", ..., "<var>tag</var>"]}}}</code></pre>
         <table>
           <thead>
@@ -397,11 +397,11 @@
             </tr>
           </tbody>
         </table>
-      <h4>Example</h4>
+      <h5>Example</h5>
         <pre><code>$ curl -d "limit=10&order=ASC&order_by=date" https://api.teknik.io/ricehalla/get</code></pre>
-    <h3>Submit an Image</h3>
+    <h4>Submit an Image</h4>
       <pre><code>POST https://api.teknik.io/ricehalla/post</code></pre>
-      <h4>Parameters</h4>
+      <h5>Parameters</h5>
         <table>
           <thead>
             <tr>
@@ -459,7 +459,7 @@
             </tr>
           </tbody>
         </table>
-      <h4>Response</h4>
+      <h5>Response</h5>
         <pre><code>{"results":{"image":{"id":<var>id_num</var>, "url":"<var>url</var>", "image_src":"<var>url</var>", "owner":"<var>name</var>", "date_posted":"<var>date</var>", "tags":["<var>tag</var>", ..., "<var>tag</var>"]}}}</code></pre>
         <table>
           <thead>
@@ -549,14 +549,14 @@
             </tr>
           </tbody>
         </table>
-      <h4>Example</h4>
+      <h5>Example</h5>
         <pre><code>$ curl -F "username=TestUser" -F "password=TestPass" -F "file=@image.png" https://api.teknik.io/ricehalla/post</code></pre>
   <h3><b>Upload</b></h3>
     <hr>
     <p>This is a description of the API commands available for the Upload service.</p>
-    <h3>Upload a File</h3>
+    <h4>Upload a File</h4>
       <pre><code>POST https://api.teknik.io/upload/post</code></pre>
-      <h4>Parameters</h4>
+      <h5>Parameters</h5>
         <table>
           <thead>
             <tr>
@@ -598,7 +598,7 @@
             </tr>
           </tbody>
         </table>
-      <h4>Response</h4>
+      <h5>Response</h5>
         <pre><code>{"results":{"file":{"name":"<var>file_name</var>", "url":"<var>url</var>", "type":"<var>file_type</var>", "size":<var>size</var>}}}</code></pre>
         <table>
           <thead>
@@ -667,7 +667,7 @@
             </tr>
           </tbody>
         </table>
-      <h4>Example</h4>
+      <h5>Example</h5>
         <pre><code>$ curl -F "get_delete_key=yes" -F "file=@image.png" https://api.teknik.io/upload/post</code></pre>
   <br />
   <br />

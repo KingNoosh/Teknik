@@ -28,6 +28,11 @@
     You can also view a list of the git repo's a user has by visiting: <code><?php echo get_page_url('git', $CONF); ?>/u/[username]/</code>
     <br />
   </p>
+  <h3>More Information</h3>
+  <p>
+    For more information on the commands available to you, just type: `~$ssh git@teknik.io help`
+    <br />
+  </p>
   <h3>Examples</h3>
   <p>
     <b>Clone a Repo (Git Daemon):</b> <code>~$git clone git://teknik.io/u/[username]/[repository_name]</code>
