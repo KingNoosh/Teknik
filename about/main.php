@@ -63,7 +63,7 @@
                 <h4><a href="<?php echo get_page_url("podcast", $CONF); ?>" target="_blank">Entertaining Podcasts</a></h4>
                 <h4><a href="<?php echo get_page_url("help", $CONF); ?>#Mumble" target="_blank">Mumble Server</a></h4>
                 <h4><a href="<?php echo get_page_url("transparency", $CONF); ?>" target="_blank">Full Transparency</a></h4>
-                <h4><a href="<?php echo get_page_url("git", $CONF); ?>Teknik.git/" target="_blank">Completely Open Source</a></h4>
+                <h4><a href="<?php echo get_page_url("git", $CONF); ?>/Teknik.git/" target="_blank">Completely Open Source</a></h4>
               </div>
             </div>
               
