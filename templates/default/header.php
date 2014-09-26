@@ -155,7 +155,7 @@
       file_put_contents(dirname(__FILE__)."/cache/js/".$CONF['page'].".teknik.min.js", $js); 
     }
     
-    /*
+    
     // Check to see if the CSS files have changed //
     $cssChanged = false;
     $cssCacheFile = dirname(__FILE__).'/cache/css_cache_'.$CONF['page'].'.txt';
@@ -201,21 +201,20 @@
       {
         $css_str .= file_get_contents(dirname(__FILE__)."/css/".$file)."\r\n"; 
       }
-      $minifier = new CssMinifier($css_str, $CONF['css_min_filters'], $CONF['css_min_plugins']);
-      $final_css = $minifier->getMinified();
+      $final_css = compress($css_str);
       
       file_put_contents(dirname(__FILE__)."/cache/css/".$CONF['page'].".teknik.min.css", $css_str); 
     }
-    */
-
+    
+    /*
     foreach ($cssFiles as $file)
     {
     ?>
       <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
     <?php
-    }
+    }*/
   ?>
-  <!--<link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />-->
+  <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/css/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
   <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/js/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
