@@ -15,7 +15,7 @@
     $jsFiles = array();
     
     // Global CSS Files //
-    array_push($cssFiles, 'bootstrap.'.$CONF['theme'].'.min.css', 'font-awesome.min.css', 'common.css');
+    array_push($cssFiles, 'font-awesome.min.css', 'common.css');
     
     // Global JS Files //
     array_push($jsFiles, 'jquery/1.10.2/jquery.min.js', 'common.js', 'bootstrap/bootstrap.min.js', 'bootstrap/select/bootstrap-select.js');    
@@ -55,11 +55,18 @@
         if(!preg_match($pattern, $url))
         {
           array_push($jsFiles, 
-                      'raphael/raphael.js',
+                      //'raphael/raphael.js',
                       'showdown/showdown.js',
                       'codemirror/codemirror.js');
         }
         array_push($jsFiles, 'git.js');
+        break;
+      case "help":      
+        array_push($cssFiles, 'jquery.tocify.css');
+        array_push($jsFiles,
+                    'jquery/1.10.2/jquery-ui.widgets.js',
+                    'jquery/jquery.tocify.min.js',
+                    'help.js');
         break;
       case "pod":
       case "podcast":
@@ -103,6 +110,13 @@
         array_push($jsFiles,
                     'sorttable/sorttable.js',
                     'transparency/transparency.min.js',
+                    'stats.js');
+      case "w":
+      case "walls":
+        array_push($cssFiles, 'blueimp-gallery.min.css', 'bootstrap-image-gallery.min.css');
+        array_push($jsFiles,
+                    'jquery/jquery.blueimp-gallery.min.js',
+                    'bootstrap/image-gallery/bootstrap-image-gallery.min.js',
                     'stats.js');
         break;
     }
@@ -214,6 +228,7 @@
     <?php
     }*/
   ?>
+  <link  href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/bootstrap.<?php echo $CONF['theme']; ?>.min.css" rel="stylesheet" />
   <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
   <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
     
