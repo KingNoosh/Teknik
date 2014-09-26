@@ -66,7 +66,7 @@
         array_push($jsFiles,
                     'jquery/1.10.2/jquery-ui.widgets.js',
                     'jquery/jquery.tocify.min.js',
-                    'help.js',);
+                    'help.js');
         break;
       case "pod":
       case "podcast":
