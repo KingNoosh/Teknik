@@ -57,6 +57,7 @@ if (isset($_GET['id']))
             <?php } ?>
             <?php if($own_profile) { ?>
             <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+            <li class="active"><a href="#privacy" data-toggle="tab">Privacy</a></li>
             <?php } ?>
           </ul>
         <?php } ?>
@@ -159,7 +160,6 @@ if (isset($_GET['id']))
                         <textarea class="form-control" name="update_about" id="update_about" placeholder="I'm awesome" title="enter any information you want to share with the world." data-provide="markdown" rows="10"><?php echo $Profile_User->about; ?></textarea>
                       </div>
                     </div>
-                    <iframe style="border: 0; height: 200px; width: 600px;" src="https://stats.teknik.io/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
                     <!-- Minecraft Settings
                     <div class="row">
                       <div class="col-sm-12 text-center">
@@ -232,7 +232,10 @@ if (isset($_GET['id']))
                       </div>
                     </div>
               	</form>
-              </div><!--/tab-pane-->
+              </div><!--/tab-pane-->              
+             <div class="tab-pane active" id="privacy">
+              <iframe style="border: 0;" src="https://stats.teknik.io/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
+             </div>
                <?php } ?>
           </div><!--/tab-content-->
 
