@@ -111,8 +111,6 @@ $(document).ready(function() {
       {
         if(html)
         {
-          podFile=encodeURIComponent($("#edit_podcast_file").val());
-          
           var fileList = $("#edit_podcast_file").val().split(',');
           var oldFileList = html.split(',');
           for (var i = 0; i < fileList.length; i++)
