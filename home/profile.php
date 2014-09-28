@@ -159,6 +159,7 @@ if (isset($_GET['id']))
                         <textarea class="form-control" name="update_about" id="update_about" placeholder="I'm awesome" title="enter any information you want to share with the world." data-provide="markdown" rows="10"><?php echo $Profile_User->about; ?></textarea>
                       </div>
                     </div>
+                    <iframe style="border: 0; height: 200px; width: 600px;" src="https://stats.teknik.io/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
                     <!-- Minecraft Settings
                     <div class="row">
                       <div class="col-sm-12 text-center">
