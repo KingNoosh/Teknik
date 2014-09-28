@@ -33,6 +33,18 @@
     </div>
 </div>
 <div class="conatainer">
+  <?php
+  if ($logged_in)
+  {
+  ?>
+  <div class="row">
+    <center>
+      <button type="button" class="btn btn-primary" id="uploader">Add Wallpaper</button>
+    </center>
+  </div>
+  <?php
+  }
+  ?>
   <div class="row">
     <div class="col-sm-12 text-center">
       <div id="links">
