@@ -4,6 +4,7 @@
           <p class="text-muted">&copy; Teknik 2013-2014 | <a href="<?php echo get_page_url("privacy", $CONF); ?>">Privacy</a> | <a href="<?php echo get_page_url("transparency", $CONF); ?>">Transparency</a> | <a href="<?php echo get_page_url("server", $CONF); ?>">Server</a></p>
       </div>
     </footer>
+    
     <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];
