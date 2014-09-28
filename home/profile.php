@@ -233,9 +233,13 @@ if (isset($_GET['id']))
                     </div>
               	</form>
               </div><!--/tab-pane-->              
-             <div class="tab-pane active" id="privacy">
-              <iframe style="border: 0;" src="https://stats.teknik.io/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
-             </div>
+            <div class="tab-pane active" id="privacy">
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <iframe style="border: 0; width: 100%;" src="https://stats.teknik.io/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
+                </div>
+              </div>
+            </div>
                <?php } ?>
           </div><!--/tab-content-->
 
