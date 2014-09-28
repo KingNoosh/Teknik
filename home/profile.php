@@ -57,6 +57,7 @@ if (isset($_GET['id']))
             <?php } ?>
             <?php if($own_profile) { ?>
             <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+            <li class="active"><a href="#privacy" data-toggle="tab">Privacy</a></li>
             <?php } ?>
           </ul>
         <?php } ?>
@@ -231,7 +232,14 @@ if (isset($_GET['id']))
                       </div>
                     </div>
               	</form>
-              </div><!--/tab-pane-->
+              </div><!--/tab-pane-->              
+            <div class="tab-pane active" id="privacy">
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <iframe style="border: 0; width: 100%;" src="https://stats.teknik.io/index.php?module=CoreAdminHome&action=optOut&language=en"></iframe>
+                </div>
+              </div>
+            </div>
                <?php } ?>
           </div><!--/tab-content-->
 

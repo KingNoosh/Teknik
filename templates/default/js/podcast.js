@@ -111,8 +111,6 @@ $(document).ready(function() {
       {
         if(html)
         {
-          podFile=encodeURIComponent($("#edit_podcast_file").val());
-          
           var fileList = $("#edit_podcast_file").val().split(',');
           var oldFileList = html.split(',');
           for (var i = 0; i < fileList.length; i++)
@@ -242,7 +240,7 @@ $(function() {
         $("#uploadedPodcasts").html('');
         if (!data.result.error)
         {
-          podFile=encodeURIComponent($("#podcast_file").val());
+          podFile=$("#podcast_file").val();
           if (podFile != '')
           {
             $("#podcast_file").val(podFile+','+data.result.file.name);
@@ -269,7 +267,7 @@ $(function() {
       done: function (e, data) {
         if (!data.result.error)
         {
-          podFile=encodeURIComponent($("#edit_podcast_file").val());
+          podFile=$("#edit_podcast_file").val();
           if (podFile != '')
           {
             $("#edit_podcast_file").val(podFile+','+data.result.file.name);

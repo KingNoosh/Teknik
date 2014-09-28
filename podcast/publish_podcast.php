@@ -55,11 +55,11 @@ if(isset($_POST))
     
     if($success)
     {
-      mkdir($_CONF['podcast_dir'].$title);
+      mkdir($CONF['podcast_dir'].$title, 0777, true);
       $files = explode(',', $file);
       foreach ($files as $single)
       {
-        rename($_CONF['podcast_dir'].$single, $_CONF['podcast_dir'].$title.'/'.$single);
+        rename($CONF['podcast_dir'].$single, $CONF['podcast_dir'].$title.'/'.$single);
       }
       $data = array(
           "title" => $title,
