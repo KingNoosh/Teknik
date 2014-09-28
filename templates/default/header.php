@@ -18,7 +18,7 @@
     array_push($cssFiles, 'font-awesome.min.css', 'common.css');
     
     // Global JS Files //
-    array_push($jsFiles, 'jquery/1.10.2/jquery.min.js', 'common.js', 'bootstrap/bootstrap.min.js', 'bootstrap/select/bootstrap-select.js');    
+    array_push($jsFiles, 'jquery/1.10.2/jquery.min.js', 'common.js', 'bootstrap/bootstrap.min.js', 'bootstrap/select/bootstrap-select.js');
     
     // Service Specific Files //
     switch ($CONF['page'])
@@ -231,6 +231,69 @@
   <link  href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/bootstrap.<?php echo $CONF['theme']; ?>.min.css" rel="stylesheet" />
   <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.css" rel="stylesheet" />
   <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/cache/<?php echo $CONF['page']; ?>.teknik.min.js"></script>
+  
+  <?php
+    // Theme specific files    
+    $cssTheme = array();
+    $jsTheme = array();
+    
+    $theme=array(
+      'default'=>'Default',
+      'darkly'=>'Darkly',
+      'flatly'=>'Flatly',
+      'lumen'=>'Lumen',
+      'material'=>'Material',
+      'paper'=>'Paper',
+      'sandstone'=>'Sandstone',
+      'simplex'=>'Simplex',
+      'superhero'=>'Superhero'
+    );
+    switch ($CONF['theme'])
+    {
+      case "default":
+        array_push($cssTheme, 'bootstrap.default.min.css');
+        break;
+      case "darkly":
+        array_push($cssTheme, 'bootstrap.darkly.min.css');
+        break;
+      case "flatly":
+        array_push($cssTheme, 'bootstrap.flatly.min.css');
+        break;
+      case "lumen":
+        array_push($cssTheme, 'bootstrap.lumen.min.css');
+        break;
+      case "material":
+        array_push($cssTheme, 'bootstrap.default.min.css', 'material.css');
+        array_push($jsTheme, 'material.js');
+        break;
+      case "paper":
+        array_push($cssTheme, 'bootstrap.paper.min.css');
+        break;
+      case "sandstone":
+        array_push($cssTheme, 'bootstrap.sandstone.min.css');
+        break;
+      case "simplex":
+        array_push($cssTheme, 'bootstrap.samplex.min.css');
+        break;
+      case "superhero":
+        array_push($cssTheme, 'bootstrap.superhero.min.css');
+        break;
+    }
+    
+    foreach ($cssTheme as $file)
+    {
+    ?>
+      <link href="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/<?php echo $file; ?>" rel="stylesheet" />
+    <?php
+    }
+    
+    foreach ($jsTheme as $file)
+    {
+    ?>
+      <script src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/<?php echo $file; ?>"></script>
+    <?php
+    }
+  ?>
     
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
