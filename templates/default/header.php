@@ -106,18 +106,18 @@
       case "p":
         array_push($jsFiles, 'paste.js');
         break;
-      case "stats":
+      case "server":
         array_push($jsFiles,
                     'sorttable/sorttable.js',
                     'transparency/transparency.min.js',
-                    'stats.js');
+                    'server.js');
       case "w":
       case "walls":
         array_push($cssFiles, 'blueimp-gallery.min.css', 'bootstrap-image-gallery.min.css');
         array_push($jsFiles,
                     'jquery/jquery.blueimp-gallery.min.js',
                     'bootstrap/image-gallery/bootstrap-image-gallery.min.js',
-                    'stats.js');
+                    'walls.js');
         break;
     }
     
