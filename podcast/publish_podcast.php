@@ -56,6 +56,7 @@ if(isset($_POST))
     if($success)
     {
       mkdir($_CONF['podcast_dir'].$title, 0777, true);
+      echo $_CONF['podcast_dir'].$title;
       $files = explode(',', $file);
       foreach ($files as $single)
       {
