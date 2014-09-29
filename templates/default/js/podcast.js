@@ -48,7 +48,7 @@ $(document).ready(function() {
     $("#edit_podcast_post").val("");
     $("#edit_podcast_title").val("");
     $("#edit_podcast_file").val("");
-    $("#edit_uploadedPodcasts").val("");
+    $("#edit_uploadedPodcasts").html('');
     userID=encodeURIComponent($(e.relatedTarget).attr("id"));
     $("#edit_podcast_postid").val(userID);
     $.ajax({
