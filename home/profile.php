@@ -57,7 +57,7 @@ if (isset($_GET['id']))
             <?php } ?>
             <?php if($own_profile) { ?>
             <li class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
-            <li class="active"><a href="#privacy" data-toggle="tab">Privacy</a></li>
+            <li><a href="#privacy" data-toggle="tab">Privacy</a></li>
             <?php } ?>
           </ul>
         <?php } ?>
