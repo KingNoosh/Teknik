@@ -23,13 +23,13 @@ if (isset($_GET['component']))
             {
               if (isset($_POST['get_delete_key']))
               {
-                $filename = $results['results']['file']['name'];
-                $delete_key = generate_code($filename, $CONF);
+                $name = $results['results']['file']['name'];
+                $delete_key = generate_code($name, $CONF);
                 $data = array(
                     "delete_key" => $delete_key
                 );
                 
-                $post_id = $db->update($data, 'uploads', 'filename=?', array($filename));
+                $post_id = $db->update($data, 'uploads', 'url=?', array($name));
                 $results['results']['file'] = $results['results']['file'] + $data;
               }
               array_push($jsonArray, $results);
