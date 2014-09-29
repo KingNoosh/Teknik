@@ -55,8 +55,7 @@ Dropzone.options.TeknikUpload = {
     this.on("success", function(file, responseText) {
       obj = JSON.parse(responseText);
       var name = obj.results.file.name;
-      var short_name = file.name.split(".")[0];
-      short_name = short_name.hashcode();
+      var short_name = file.name.split(".")[0].hashCode();
       $("#upload-links").css('display', 'inline', 'important');
       $("#upload-links").prepend(' \
         <div class="row link_'+short_name+'"> \
@@ -74,8 +73,7 @@ Dropzone.options.TeknikUpload = {
       linkUploadDelete('.generate-delete-link-'+short_name+'');
     });
     this.on("removedfile", function(file) {
-      var name = file.name.split(".")[0];
-      name = name.hashcode();
+      var name = file.name.split(".")[0].hashCode();
       $('.link_'+name).remove();
     });
     this.on("reset", function(file, responseText) {
