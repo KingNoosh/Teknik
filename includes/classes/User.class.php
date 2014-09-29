@@ -20,7 +20,7 @@ class User {
  
     //Constructor is called whenever a new object is created.
     //Takes an associative array with the DB row as an argument.
-    function __construct($data) {
+    function __construct($data, $db) {
         $this->id = (isset($data['id'])) ? $data['id'] : "";
         $this->username = (isset($data['username'])) ? $data['username'] : "";
         $this->hashedPassword = (isset($data['password'])) ? $data['password'] : "";
@@ -37,11 +37,11 @@ class User {
         $this->blog_title = (isset($data['blog_title'])) ? $data['blog_title'] : "";
         $this->blog_desc = (isset($data['blog_desc'])) ? $data['blog_desc'] : "";
         $this->roles = array();
-        $results = $this->db->select("user_role as ur JOIN roles as r ON ur.role_id = r.role_id", "WHERE ur.user_id=?", array($this->id), "ur.role_id, r.role_name");
+        $results = $db->select("user_role as ur JOIN roles as r ON ur.role_id = r.role_id", "WHERE ur.user_id=?", array($this->id), "ur.role_id, r.role_name");
         $users = array();
         foreach ($results as $result)
         {
-          $this->roles[$result["role_name"]] = Role::getRolePerms($result["role_id"], $this->db);
+          $this->roles[$result["role_name"]] = Role::getRolePerms($result["role_id"], $db);
         }
     }
  

@@ -18,7 +18,7 @@ class UserTools {
         $result = $this->db->select("users", "username=? AND password=?", array($username, $password));
         if($result)
         {
-            $user = new User($result);
+            $user = new User($result, $this->db);
             $_SESSION[$CONF['session_prefix']."user"] = serialize($user);
             $_SESSION[$CONF['session_prefix']."logged_in"] = 1;
             if ($remember_me)
@@ -97,7 +97,7 @@ class UserTools {
     public function getUser($username) 
     {    
         $result = $this->db->select('users', "username=?", array($username));
-        return new User($result);
+        return new User($result, $this->db);
     }
  
     //Grab all of the users from a select group
@@ -109,9 +109,9 @@ class UserTools {
         {
           if (!is_array($result))
           {
-            return array(new User($results));
+            return array(new User($results, $this->db));
           }
-          $users[] = new User($result);
+          $users[] = new User($result, $this->db);
         }
         return $users;
     }
@@ -125,9 +125,9 @@ class UserTools {
         {
           if (!is_array($result))
           {
-            return array(new User($results));
+            return array(new User($results, $this->db));
           }
-          array_push($users, new User($result));
+          array_push($users, new User($result, $this->db));
         }
         return $users;
     }
@@ -137,7 +137,7 @@ class UserTools {
     public function get($id)
     {
       $result = $this->db->select('users', "id=?", array($id));      
-      return new User($result);
+      return new UserUser($result, $this->db);
     }    
  
     // check if user has a specific privilege
