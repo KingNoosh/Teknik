@@ -139,25 +139,6 @@ class UserTools {
       $result = $this->db->select('users', "id=?", array($id));      
       return new User($result, $this->db);
     }    
- 
-    // check if user has a specific privilege
-    public function hasPrivilege($perm)
-    {
-      foreach ($this->roles as $role)
-      {
-          if ($role->hasPerm($perm))
-          {
-              return true;
-          }
-      }
-      return false;
-    }
-    
-    // check if a user has a specific role
-    public function hasRole($role_name)
-    {
-      return isset($this->roles[$role_name]);
-    }
      
     // insert a new role permission association
     public function insertPerm($role_id, $perm_id)
