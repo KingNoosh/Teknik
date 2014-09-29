@@ -7,7 +7,7 @@ if(isset($_GET))
 {
   $file = rawurldecode($_GET['file']);
   $hash = rawurldecode($_GET['hash']);
-  $upload = $db->select('uploads', "filename=? LIMIT 1", array($file));
+  $upload = $db->select('uploads', "url=? LIMIT 1", array($file));
   if ($upload)
   {
     $success = true;
@@ -20,12 +20,13 @@ if(isset($_GET))
     if ($success)
     {
       $db->delete('uploads', 'id=?', array($upload['id']));
+      unlink($CONF['upload_dir'].$upload['filename']);
       include('../templates/'.$CONF['template'].'/header.php');
       ?>
       <div class="container">
         <div class="row">
           <div class="col-sm-12 text-center">
-            <h2><b><?php echo $upload['filename']; ?></b> has been successfully deleted.</h2>
+            <h2><b><?php echo $upload['url']; ?></b> has been successfully deleted.</h2>
           </div>
         </div>
       </div>
