@@ -1,7 +1,7 @@
 <?php
 include('../../includes/config.php');
 require_once('../../includes/PiwikTracker.php');
-PiwikTracker::$URL = get_page_url('stats', $CONF);
+PiwikTracker::$URL = get_page_url('stats', $CONF).'/piwik.php';
 $fileURL = $_GET['file'];
 $file_db = $db->select('uploads', "url=? LIMIT 1", array($fileURL));
 $file_path  = $CONF['upload_dir'] . $file_db['filename'];
@@ -12,6 +12,7 @@ if (file_exists($file_path) && $file_db)
   $t = new PiwikTracker( $idSite = 1);
   $t->setUserAgent($_SERVER['HTTP_USER_AGENT']);
   $t->setUrlReferrer($_SERVER['HTTP_REFERER']);
+  $t->setUrl( $url = get_page_url('u', $CONF).'/'.$fileURL );
   $t->doTrackPageView('Teknik Upload - '.$fileURL);
   
   if ($file_db['hash'] != "")
