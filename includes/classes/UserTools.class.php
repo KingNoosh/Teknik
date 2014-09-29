@@ -136,10 +136,86 @@ class UserTools {
     //returns a User object. Takes the users id as an input
     public function get($id)
     {
-        $result = $this->db->select('users', "id=?", array($id));
-        
-        return new User($result);
+      $result = $this->db->select('users', "id=?", array($id));      
+      return new User($result);
+    }    
+ 
+    // check if user has a specific privilege
+    public function hasPrivilege($perm)
+    {
+      foreach ($this->roles as $role)
+      {
+          if ($role->hasPerm($perm))
+          {
+              return true;
+          }
+      }
+      return false;
     }
     
+    // check if a user has a specific role
+    public function hasRole($role_name)
+    {
+      return isset($this->roles[$role_name]);
+    }
+     
+    // insert a new role permission association
+    public function insertPerm($role_id, $perm_id)
+    {
+      $data = array(
+              "role_id" => $role_id,
+              "perm_id" => $perm_id
+          );
+      $this->db->insert($data, "role_perm");
+      return true;
+    }
+     
+    // delete ALL role permissions
+    public function deletePerms()
+    {
+      $db->delete('role_perm', '1=?', array(1));
+      return true;
+    }
+    
+    // insert a new role
+    public function insertRole($role_name)
+    {
+      $data = array(
+              "role_name" => $role_name
+          );
+      $this->db->insert($data, "roles");
+      return true;
+    }
+     
+    // insert array of roles for specified user id
+    public function insertUserRoles($user_id, $roles)
+    {
+      foreach ($roles as $role_id)
+      {
+        $data = array(
+                "user_id" => $user_id,
+                "role_id" => $role_id
+            );
+        $this->db->insert($data, "user_role");
+      }
+      return true;
+    }
+     
+    // delete array of roles, and all associations
+    public static function deleteRoles($roles)
+    {
+      foreach ($roles as $role_id)
+      {
+        $db->delete('roles as t1 JOIN user_role as t2 on t1.role_id = t2.role_id JOIN role_perm as t3 on t1.role_id = t3.role_id', 't1.role_id=?', array($role_id), "t1, t2, t3");
+      }
+      return true;
+    }
+     
+    // delete ALL roles for specified user id
+    public static function deleteUserRoles($user_id)
+    {
+      $db->delete('user_role', 'user_id=?', array($user_id));
+      return true;
+    }
 }
 ?>
