@@ -137,7 +137,7 @@ class UserTools {
     public function get($id)
     {
       $result = $this->db->select('users', "id=?", array($id));      
-      return new UserUser($result, $this->db);
+      return new User($result, $this->db);
     }    
  
     // check if user has a specific privilege
