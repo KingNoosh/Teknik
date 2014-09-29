@@ -186,8 +186,21 @@ function upload($files, $CONF, $db)
       {
         $iv = rand_string(32);
         $targetFile = upload_file($files, $CONF['upload_dir'], $CONF['key'], $iv, $CONF['cipher']);
+        
+        $file_used = true;
+        while ($file_used)
+        {
+          $randomString = rand_string(6);
+          $fileURL = $randomString;
+          $result = $db->select("uploads", "url=?", array($fileURL));
+          if (!$result)
+          {
+            $file_used = false;
+          }
+        }
         $data = array(
                     "filename" => $targetFile,
+                    "url" => $fileURL,
                     "type" => $file_type,
                     "user_id" => $user_id,
                     "upload_date" => date("Y-m-d H:i:s",time()),
@@ -196,8 +209,8 @@ function upload($files, $CONF, $db)
                     "cipher" => $CONF['cipher']
                 );
         $db->insert($data, 'uploads');
-        $_SESSION[$targetFile] = $targetFile;
-        return array('results' => array('file' => array('name' => $targetFile, 'url' => get_page_url("u", $CONF).'/'.$targetFile, 'type' => $file_type, 'size' => $filesize)));
+        $_SESSION[$fileURL] = $fileURL;
+        return array('results' => array('file' => array('name' => $fileURL, 'url' => get_page_url("u", $CONF).'/'.$fileURL, 'type' => $file_type, 'size' => $filesize)));
       }
       return array('error' => $CONF['errors']['InvFile']);
   }
@@ -212,7 +225,7 @@ function upload_file($file, $destination, $key, $iv, $cipher)
     $file_used = true;
     while ($file_used)
     {
-      $randomString = rand_string(6);
+      $randomString = rand_string(12);
       $targetFile = $randomString.'.'.$fileType;
       if (!file_exists($destination.$targetFile))
       {

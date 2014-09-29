@@ -115,6 +115,7 @@
       case "walls":
         array_push($cssFiles, 'blueimp-gallery.min.css', 'bootstrap-image-gallery.min.css');
         array_push($jsFiles,
+                    'blueimp/blueimp-gallery.min.js',
                     'jquery/jquery.blueimp-gallery.min.js',
                     'bootstrap/image-gallery/bootstrap-image-gallery.min.js',
                     'walls.js');

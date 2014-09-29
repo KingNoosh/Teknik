@@ -1,10 +1,9 @@
 <?php
 include('../../includes/config.php');
-$path_parts = pathinfo($_GET['file']);
-$file_name  = $path_parts['basename'];
-$file_path  = $CONF['upload_dir'] . $file_name;
-$file_db = $db->select('uploads', "filename=? LIMIT 1", array($file_name));
-$temp_path = sys_get_temp_dir()."\\".$file_name;
+$fileURL = $_GET['file'];
+$file_db = $db->select('uploads', "url=? LIMIT 1", array($fileURL));
+$file_path  = $CONF['upload_dir'] . $file_db['filename'];
+$temp_path = sys_get_temp_dir()."\\".$file_db['filename'];
 
 if (file_exists($file_path) && $file_db)
 {
@@ -21,7 +20,7 @@ if (file_exists($file_path) && $file_db)
   $pattern = "/^((image)|(text)|(audio)|(video))\/(.*)$/";
   if(!preg_match($pattern, $file_type))
   {
-    header("Content-Disposition: attachment; filename=\"$file_name\"");
+    header("Content-Disposition: attachment; filename=\"".$file_db['filename']."\"");
     header("Pragma: public");
     header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
     header('Content-Type: '.$file_type);

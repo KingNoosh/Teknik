@@ -3,20 +3,20 @@ include('../includes/config.php');
 
 if(isset($_POST) && isset($_SESSION))
 {
-  $filename = rawurldecode($_POST['uploadID']);
-  if (isset($_SESSION[$filename]) && $_SESSION[$filename] == $filename)
+  $file = rawurldecode($_POST['uploadID']);
+  if (isset($_SESSION[$file]) && $_SESSION[$file] == $file)
   {
-    $file_db = $db->select('uploads', "filename=? LIMIT 1", array($filename));
+    $file_db = $db->select('uploads', "url=? LIMIT 1", array($file));
     if ($file_db)
     {
-      $delete_key = generate_code($file_db['filename'], $CONF);
+      $delete_key = generate_code($file_db['url'], $CONF);
       $data = array(
           "delete_key" => $delete_key
       );
       
-      $post_id = $db->update($data, 'uploads', 'filename=?', array($filename));
+      $post_id = $db->update($data, 'uploads', 'url=?', array($file));
       unset($_POST);
-      echo json_encode(array('result' => array('url' => get_page_url("u", $CONF).'/'.$file_db['filename'].'/'.$delete_key)));
+      echo json_encode(array('result' => array('url' => get_page_url("u", $CONF).'/'.$file_db['url'].'/'.$delete_key)));
     }
     else
     {

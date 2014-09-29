@@ -8,6 +8,9 @@
     <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+      _paq.push(["setCookieDomain", "*.teknik.io"]);
+      _paq.push(["setDomains", ["*.teknik.io"]]);
       _paq.push(['trackPageView']);
       _paq.push(['enableLinkTracking']);
       (function() {
