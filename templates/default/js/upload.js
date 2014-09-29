@@ -9,7 +9,7 @@ function linkUploadDelete(selector)
       ID=encodeURIComponent($(this).attr('id'));
       $.ajax({
         type: "POST",
-        url: "../../../generate_delete_link.php",
+        url: "../../generate_delete_link.php",
         data: "uploadID="+ID,
         success: function(html)
         {
