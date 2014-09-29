@@ -1,6 +1,7 @@
 <?php
 include('../../includes/config.php');
 require_once('../../includes/PiwikTracker.php');
+PiwikTracker::$URL = get_page_url('stats', $CONF);
 $fileURL = $_GET['file'];
 $file_db = $db->select('uploads', "url=? LIMIT 1", array($fileURL));
 $file_path  = $CONF['upload_dir'] . $file_db['filename'];
@@ -8,6 +9,11 @@ $temp_path = sys_get_temp_dir()."\\".$file_db['filename'];
 
 if (file_exists($file_path) && $file_db)
 {
+  $t = new PiwikTracker( $idSite = 1);
+  $t->setUserAgent($_SERVER['HTTP_USER_AGENT']);
+  $t->setUrlReferrer($_SERVER['HTTP_REFERER']);
+  $t->doTrackPageView('Teknik Upload - '.$fileURL);
+  
   if ($file_db['hash'] != "")
   {
     $crypt = new Cryptography();
@@ -38,21 +44,6 @@ if (file_exists($file_path) && $file_db)
   {
     $result = unlink($file_path);
   }
-  $t = new PiwikTracker( $idSite = 1, get_page_url('stats', $CONF));
-
-  // Optional function calls
-  $t->setUserAgent($_SERVER['HTTP_USER_AGENT']);
-  $t->setUrlReferrer($_SERVER['HTTP_REFERER']);
-
-  // if you wanted to force to record the page view or conversion to a specific User ID
-  // $t->setUserId( "username@example.org" );
-  // Mandatory: set the URL being tracked
-  $t->setUrl( $url = get_page_url('u', $CONF).'/'.$fileURL );
-
-  // Finally, track the page view with a Custom Page Title
-  // In the standard JS API, the content of the <title> tag would be set as the page title
-  $t->doTrackPageView('Teknik Upload - '.$fileURL);
-
 }
 else
 {
