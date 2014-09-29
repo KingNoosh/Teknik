@@ -55,9 +55,10 @@ Dropzone.options.TeknikUpload = {
     this.on("success", function(file, responseText) {
       obj = JSON.parse(responseText);
       var name = obj.results.file.name;
+      var short_name = file.name.split(".")[0];
       $("#upload-links").css('display', 'inline', 'important');
       $("#upload-links").prepend(' \
-        <div class="row link_'+name+'"> \
+        <div class="row link_'+short_name+'"> \
           <div class="col-sm-6"> \
             '+file.name+' \
           </div> \
@@ -65,14 +66,14 @@ Dropzone.options.TeknikUpload = {
             <a href="<?php echo get_page_url('u', $CONF); ?>/'+name+'" target="_blank" class="alert-link"><?php echo get_page_url('u', $CONF); ?>/'+name+'</a> \
           </div> \
           <div class="col-sm-3"> \
-            <button type="button" class="btn btn-default btn-xs generate-delete-link-'+name+'" id="'+name+'">Generate Deletion URL</button> \
+            <button type="button" class="btn btn-default btn-xs generate-delete-link-'+short_name+'" id="'+name+'">Generate Deletion URL</button> \
           </div> \
         </div> \
       ');
-      linkUploadDelete('.generate-delete-link-'+name+'');
+      linkUploadDelete('.generate-delete-link-'+short_name+'');
     });
     this.on("removedfile", function(file) {
-      var name = file.name;
+      var name = file.name.split(".")[0];
       $('.link_'+name).remove();
     });
     this.on("reset", function(file, responseText) {
