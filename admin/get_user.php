@@ -33,9 +33,9 @@ if(isset($_POST))
             {
               ?>
               <div class="form-group">
-                <label class="col-sm-8 control-label" for="<?php echo $user->id; ?>_<?php echo $role; ?>"><?php echo $role; ?></label>
-                <div class="col-sm-4">
-                  <button type="button" class="btn btn-danger" id="<?php echo $user->id; ?>_<?php echo $role; ?>">Remove</button>
+                <label class="col-sm-3 control-label" for="<?php echo $user->id; ?>_<?php echo $role; ?>"><?php echo $role; ?></label>
+                <div class="col-sm-9">
+                  <button type="button" class="btn btn-danger btn-sm remove_user_role" id="<?php echo $user->id; ?>_<?php echo $role; ?>">Remove</button>
                 </div>
               </div>
               <?php

@@ -192,10 +192,20 @@ class UserTools {
       return true;
     }
      
-    // delete ALL roles for specified user id
-    public static function deleteUserRoles($user_id)
+    // delete specified or ALL roles for specified user id
+    public static function deleteUserRoles($user_id, $roles=null)
     {
-      $db->delete('user_role', 'user_id=?', array($user_id));
+      if ($roles != null)
+      {
+        foreach ($roles as $role_id)
+        {
+          $db->delete('user_role', 'user_id=? AND role_id=?', array($user_id, $role_id));
+        }
+      }
+      else
+      {
+        $db->delete('user_role', 'user_id=?', array($user_id));
+      }
       return true;
     }
 }

@@ -8,7 +8,7 @@ function update_user_list(search)
     {
       $(".user_list").html(html);
       linkUserAddRole('.add_user_role');
-      //linkUserRemoveRole('.remove_role');
+      linkUserRemoveRole('.remove_user_role');
       //linkUserDelete('.user_delete');
     }
   });
@@ -24,6 +24,34 @@ function linkUserAddRole(selector)
     $.ajax({
       type: "POST",
       url: "../../../admin/add_user_role.php",
+      data: "id="+user_id+"&role="+role,
+      success: function(html)
+      {
+        if(!html)
+        {          
+          update_user_list($('#userSearch').val());
+        }
+        else
+        {
+          $("#top_msg").css('display', 'inline', 'important');
+          $("#top_msg").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+html+'</div>');
+        }
+      }
+    });
+  });
+}
+
+function linkUserRemoveRole(selector)
+{
+  $(selector).click(function() {
+    var object = $(this);
+    role_info=encodeURIComponent(object.attr("id"));
+    info = role_info.split("_");
+    user_id = info[0];
+    role = info[1];
+    $.ajax({
+      type: "POST",
+      url: "../../../admin/remove_user_role.php",
       data: "id="+user_id+"&role="+role,
       success: function(html)
       {
