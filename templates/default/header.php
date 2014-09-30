@@ -32,6 +32,9 @@
                     'jquery/jquery.blockUI.js',
                     'profile.js');
         break;
+      case "admin":
+        array_push($jsFiles, 'admin.js');
+        break;
       case "about":
         array_push($cssFiles, 'coin.css');
         array_push($jsFiles, 'coin/coin.js');
