@@ -23,5 +23,21 @@ class Role
     public function hasPerm($permission) {
         return isset($this->permissions[$permission]);
     }
+    
+    public function getRoles()
+    {
+        $role_list = $db->select('roles', "1=?", array(1));
+        $roles = array();
+        foreach ($role_list as $role)
+        {
+          if (!is_array($role))
+          {
+            $roles = array($role_list);
+            break;
+          }
+          array_push($roles, $role);
+        }
+        return $roles;
+    }
 }
 ?>

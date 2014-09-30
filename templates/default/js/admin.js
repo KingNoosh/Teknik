@@ -1,6 +1,5 @@
 function update_user_list(search)
 {
-  blog_id=encodeURIComponent($(".blog-main").attr("id"));
   $.ajax({
     type: "POST",
     url: "../../../get_user.php",
@@ -9,8 +8,10 @@ function update_user_list(search)
     {
       if(html)
       {
-        $(".user_list").append(obj.result);
-        linkUserUpdate('.user_update');
+        $(".user_list").html(html);
+        //linkAddRole('.add_role');
+        //linkRemoveRole('.remove_role');
+        //linkUserDelete('.user_delete');
       }
     }
   });
