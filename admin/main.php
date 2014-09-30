@@ -64,8 +64,9 @@
           ?>
         </div>
         <div class="tab-pane" id="management">
+          <h2 class="text-center"><strong>User Management</strong></h2>
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-6">
               <div class="form-group">
                 <label for="userSearch" class="col-sm-2 control-label">Username</label>
                 <div class="col-sm-10">
