@@ -11,10 +11,20 @@ class Role
     public static function getRolePerms($role_id, $db)
     {
         $role = new Role();
-        $db->select_raw("role_perm as rp JOIN permissions as p ON rp.perm_id = p.perm_id", "WHERE rp.role_id=?", array($role_id), "p.perm_name");
-        foreach ($results as $result)
+        $perm_list = $db->select_raw("role_perm as rp JOIN permissions as p ON rp.perm_id = p.perm_id", "WHERE rp.role_id=?", array($role_id), "p.perm_name");
+        $perms = array();        
+        foreach ($perm_list as $perm)
         {
-            $role->permissions[$result["perm_name"]] = true;
+          if (!is_array($perm))
+          {
+            $perms = array($perm_list);
+            break;
+          }
+          array_push($perms, $perm);
+        }
+        foreach ($perms as $perm)
+        {
+            $role->permissions[$perm["perm_name"]] = true;
         }
         return $role;
     }

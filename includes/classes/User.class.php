@@ -37,11 +37,20 @@ class User {
         $this->blog_title = (isset($data['blog_title'])) ? $data['blog_title'] : "";
         $this->blog_desc = (isset($data['blog_desc'])) ? $data['blog_desc'] : "";
         $this->roles = array();
-        $results = $db->select("user_role as ur JOIN roles as r ON ur.role_id = r.role_id", "ur.user_id=?", array($this->id), "ur.role_id, r.role_name");
-        $users = array();
-        foreach ($results as $result)
+        $user_list = $db->select("user_role as ur JOIN roles as r ON ur.role_id = r.role_id", "ur.user_id=?", array($this->id), "ur.role_id, r.role_name");
+        $users = array();        
+        foreach ($user_list as $user)
         {
-          $this->roles[$result["role_name"]] = Role::getRolePerms($result["role_id"], $db);
+          if (!is_array($user))
+          {
+            $users = array($user_list);
+            break;
+          }
+          array_push($users, $user);
+        }
+        foreach ($users as $user)
+        {
+          $this->roles[$user["role_name"]] = Role::getRolePerms($user["role_id"], $db);
         }
     }
  
