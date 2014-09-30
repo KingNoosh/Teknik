@@ -34,6 +34,7 @@ class Role
         return isset($this->permissions[$permission]);
     }
     
+    // Get Role by Name
     public function getRole($db, $role_name)
     {
         $role_list = $db->select('roles', "role_name=?", array($role_name));
@@ -50,25 +51,10 @@ class Role
         return $roles;
     }
     
+    // Get all Roles
     public function getRoles($db)
     {
         $role_list = $db->select('roles', "1=?", array(1));
-        $roles = array();
-        foreach ($role_list as $role)
-        {
-          if (!is_array($role))
-          {
-            $roles = array($role_list);
-            break;
-          }
-          array_push($roles, $role);
-        }
-        return $roles;
-    }
-    
-    public function getRole($db, $role_name)
-    {
-        $role_list = $db->select('roles', "role_name=?", array($role_name));
         $roles = array();
         foreach ($role_list as $role)
         {
