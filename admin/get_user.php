@@ -40,25 +40,27 @@ if(isset($_POST))
             }
             ?>
           </div>
+          <br />
           <div class="row">
             <div class="col-sm-10">
-              <select class="form-control" name="role_select_<?php echo $user->id; ?>" id="role_select_<?php echo $user->id; ?>">
+              <select class="form-control selectpicker" name="role_select_<?php echo $user->id; ?>" id="role_select_<?php echo $user->id; ?>">
                 <?php
                 $roles = Role::getRoles($db);
                 foreach ($roles as $role)
                 {
-                  echo "<option>".$role['role_name']."</option>";
+                  echo "<option value=\"".$role['role_name']."\">".$role['role_name']."</option>";
                 }
                 ?>
               </select>
             </div>
             <div class="col-sm-2">
-              <button type="button" class="btn btn-default" id="<?php echo $user->id; ?>">Add Role</button>
+              <button type="button" class="btn btn-default add_user_role" id="<?php echo $user->id; ?>">Add Role</button>
             </div>
           </div>
         
         </div>
       </div>
+      <hr />
       <?php
     }
   }

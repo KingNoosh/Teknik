@@ -7,10 +7,37 @@ function update_user_list(search)
     success: function(html)
     {
       $(".user_list").html(html);
-      //linkAddRole('.add_role');
-      //linkRemoveRole('.remove_role');
+      //linkUserAddRole('.add_user_role');
+      //linkUserRemoveRole('.remove_role');
       //linkUserDelete('.user_delete');
     }
+  });
+}
+
+function linkUserAddRole(selector)
+{
+  $(selector).click(function() {
+    var object = $(this);
+    user_id=encodeURIComponent(object.attr("id"));
+    var selectObj = $('#role_select_'+user_id);
+    role=encodeURIComponent(selectObj.options[selectObj.selectedIndex].value);
+    $.ajax({
+      type: "POST",
+      url: "../../../add_user_role.php",
+      data: "id="+user_id+"&role="+role,
+      success: function(html)
+      {
+        if(!html)
+        {          
+          update_user_list($('#userSearch').val());
+        }
+        else
+        {
+          $("#top_msg").css('display', 'inline', 'important');
+          $("#top_msg").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+html+'</div>');
+        }
+      }
+    });
   });
 }
 
