@@ -7,7 +7,7 @@ function update_user_list(search)
     success: function(html)
     {
       $(".user_list").html(html);
-      //linkUserAddRole('.add_user_role');
+      linkUserAddRole('.add_user_role');
       //linkUserRemoveRole('.remove_role');
       //linkUserDelete('.user_delete');
     }
