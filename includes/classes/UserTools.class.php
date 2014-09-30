@@ -187,7 +187,7 @@ class UserTools {
     {
       foreach ($roles as $role_id)
       {
-        $db->delete('roles as t1 JOIN user_role as t2 on t1.role_id = t2.role_id JOIN role_perm as t3 on t1.role_id = t3.role_id', 't1.role_id=?', array($role_id), "t1, t2, t3");
+        $this->db->delete('roles as t1 JOIN user_role as t2 on t1.role_id = t2.role_id JOIN role_perm as t3 on t1.role_id = t3.role_id', 't1.role_id=?', array($role_id), "t1, t2, t3");
       }
       return true;
     }
@@ -199,12 +199,12 @@ class UserTools {
       {
         foreach ($roles as $role_id)
         {
-          $db->delete('user_role', 'user_id=? AND role_id=?', array($user_id, $role_id));
+          $this->db->delete('user_role', 'user_id=? AND role_id=?', array($user_id, $role_id));
         }
       }
       else
       {
-        $db->delete('user_role', 'user_id=?', array($user_id));
+        $this->db->delete('user_role', 'user_id=?', array($user_id));
       }
       return true;
     }
