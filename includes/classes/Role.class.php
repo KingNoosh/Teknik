@@ -24,7 +24,7 @@ class Role
         return isset($this->permissions[$permission]);
     }
     
-    public function getRoles()
+    public function getRoles($db)
     {
         $role_list = $db->select('roles', "1=?", array(1));
         $roles = array();

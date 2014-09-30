@@ -6,13 +6,10 @@ function update_user_list(search)
     data: "query="+search,
     success: function(html)
     {
-      if(html)
-      {
-        $(".user_list").html(html);
-        //linkAddRole('.add_role');
-        //linkRemoveRole('.remove_role');
-        //linkUserDelete('.user_delete');
-      }
+      $(".user_list").html(html);
+      //linkAddRole('.add_role');
+      //linkRemoveRole('.remove_role');
+      //linkUserDelete('.user_delete');
     }
   });
 }
