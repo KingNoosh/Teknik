@@ -183,7 +183,7 @@ class UserTools {
     }
      
     // delete array of roles, and all associations
-    public static function deleteRoles($roles)
+    public function deleteRoles($roles)
     {
       foreach ($roles as $role_id)
       {
@@ -193,7 +193,7 @@ class UserTools {
     }
      
     // delete specified or ALL roles for specified user id
-    public static function deleteUserRoles($user_id, $roles=null)
+    public function deleteUserRoles($user_id, $roles=null)
     {
       if ($roles != null)
       {
