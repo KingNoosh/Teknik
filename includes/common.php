@@ -15,18 +15,6 @@ function get_page_url($page, $CONF, $full = true)
       $cur_sub = get_subdomain($CONF);
       $full_url = get_http($CONF).$cur_sub.".".$CONF['host']."/".$page;
       break;
-    case 'get':
-      if (isset($_GET['site_page']))
-      {
-        $cur_page = $_GET['site_page'];
-      }
-      else
-      {
-        $cur_page = $CONF['default_page'];
-      }
-      $cur_sub = get_subdomain($CONF);
-      $full_url = get_http($CONF).$cur_sub.".".$CONF['host']."/".$cur_page;
-      break;
   }
   return $full_url;
 }
@@ -97,16 +85,6 @@ function get_active($page, $CONF)
       break;
     case 'page':
       $cur_page = get_page();
-      break;
-    case 'get':
-      if (isset($_GET['site_page']))
-      {
-        $cur_page = $_GET['site_page'];
-      }
-      else
-      {
-        $cur_page = $CONF['default_page'];
-      }
       break;
   }
   if ($cur_page == $page)
