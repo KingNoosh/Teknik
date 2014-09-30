@@ -68,10 +68,8 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="userSearch" class="col-sm-2 control-label">Username</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" id="userSearch" placeholder="Username" maxlength="40" onkeyup="update_user_list(this.value);" />
-                </div>
+                <label for="userSearch" class="control-label">Username</label>
+                <input type="text" class="form-control" id="userSearch" placeholder="Username" maxlength="40" onkeyup="update_user_list(this.value);" />
               </div>
             </div>
           </div>
