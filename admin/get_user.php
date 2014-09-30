@@ -29,13 +29,14 @@ if(isset($_POST))
           <div class="row">
             <h4>Roles</h4>
             <?php
-            foreach ($user->roles as $role => $perm)
+            foreach ($user->roles as $role_name => $perm)
             {
+              $role = Role::getRole($db, $role_name);
               ?>
               <div class="form-group">
-                <label class="col-sm-3 control-label" for="<?php echo $user->id; ?>_<?php echo $role; ?>"><?php echo $role; ?></label>
+                <label class="col-sm-3 control-label" for="<?php echo $user->id; ?>_<?php echo $role['role_id']; ?>"><?php echo $role['role_name']; ?></label>
                 <div class="col-sm-9">
-                  <button type="button" class="btn btn-danger btn-sm remove_user_role" id="<?php echo $user->id; ?>_<?php echo $role; ?>">Remove</button>
+                  <button type="button" class="btn btn-danger btn-sm remove_user_role" id="<?php echo $user->id; ?>_<?php echo $role['role_id']; ?>">Remove</button>
                 </div>
               </div>
               <?php

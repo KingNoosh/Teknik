@@ -65,5 +65,21 @@ class Role
         }
         return $roles;
     }
+    
+    public function getRole($db, $role_name)
+    {
+        $role_list = $db->select('roles', "role_name=?", array($role_name));
+        $roles = array();
+        foreach ($role_list as $role)
+        {
+          if (!is_array($role))
+          {
+            $roles = array($role_list);
+            break;
+          }
+          array_push($roles, $role);
+        }
+        return $roles;
+    }
 }
 ?>
