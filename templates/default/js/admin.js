@@ -2,7 +2,7 @@ function update_user_list(search)
 {
   $.ajax({
     type: "POST",
-    url: "../../get_user.php",
+    url: "../../../admin/get_user.php",
     data: "query="+search,
     success: function(html)
     {
