@@ -20,7 +20,7 @@ function linkUserAddRole(selector)
     var object = $(this);
     user_id=encodeURIComponent(object.attr("id"));
     var selectObj = $('#role_select_'+user_id);
-    role=encodeURIComponent(selectObj.options[selectObj.selectedIndex].value);
+    role=encodeURIComponent(selectObj.val());
     $.ajax({
       type: "POST",
       url: "../../../admin/add_user_role.php",

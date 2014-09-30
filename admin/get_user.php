@@ -48,7 +48,7 @@ if(isset($_POST))
                 $roles = Role::getRoles($db);
                 foreach ($roles as $role)
                 {
-                  echo "<option value=\"".$role['role_name']."\">".$role['role_name']."</option>";
+                  echo "<option value=\"".$role['role_id']."\">".$role['role_name']."</option>";
                 }
                 ?>
               </select>
