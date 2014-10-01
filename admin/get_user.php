@@ -64,7 +64,7 @@ if(isset($_POST))
               </div>
               <br />
               <div class="row">
-                <div class="col-sm-10">
+                <div class="col-sm-8">
                   <select class="selectpicker" name="role_select_<?php echo $item->id; ?>" id="role_select_<?php echo $item->id; ?>">
                     <?php
                     $roles = Role::getRoles($db);
@@ -75,7 +75,7 @@ if(isset($_POST))
                     ?>
                   </select>
                 </div>
-                <div class="col-sm-2">
+                <div class="col-sm-4">
                   <button type="button" class="btn btn-default add_user_role" id="<?php echo $item->id; ?>">Add Role</button>
                 </div>
               </div>
