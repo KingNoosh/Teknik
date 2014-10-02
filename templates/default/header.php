@@ -301,7 +301,7 @@
   <body data-twttr-rendered="true">
     <div id="wrap">
       <div class="navbar navbar-default navbar-fixed-top">
-        <div class="container-fluid">
+        <div class="container">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
               <span class="icon-bar"></span>
@@ -349,15 +349,12 @@
               </li>
               <li class="<?php echo get_active("help", $CONF); ?>">
                 <a href="<?php echo get_page_url("help", $CONF); ?>">Help</a>
-              </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-            
+              </li>            
             <?php
               if ($logged_in)
               {
             ?>
-              <li class="dropdown">
+              <li class="dropdown pull-right">
                 <a href="#" id="user_menu" class="dropdown-toggle" data-toggle="dropdown"><?php echo $user->username; ?> <strong class="caret"></strong></a>
                 <ul class="dropdown-menu" role="menu" aria-labelledby="user_menu">
                   <li>
@@ -386,7 +383,7 @@
               else
               {
             ?>
-              <li class="dropdown">
+              <li class="dropdown pull-right">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="reg_dropdown">Sign Up <strong class="caret"></strong></a>
                 <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                   <form role="form" id="registrationForm" action="#" method="post" accept-charset="UTF-8">
@@ -407,7 +404,7 @@
                 </div>
               </li>
               
-              <li class="dropdown">
+              <li class="dropdown pull-right">
                 <a class="dropdown-toggle" href="#" data-toggle="dropdown" id="login_dropdown">Sign In <strong class="caret"></strong></a>
                 <div class="dropdown-menu" style="padding: 15px; padding-bottom: 0px;">
                   <form role="form" id="loginForm" action="#" method="post" accept-charset="UTF-8">
