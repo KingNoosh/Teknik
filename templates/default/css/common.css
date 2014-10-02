@@ -30,6 +30,16 @@ body { padding-top: 70px; }
   border-radius: 0;
 }
 
+.service-list {
+  position: relative;
+}
+
+.service-item {
+  bottom: 0;
+  top: 0;
+  position: absolute; /* The container must have position: relative */
+}
+
 .v-center div[class*='col-'] {
     vertical-align: middle;
 }
