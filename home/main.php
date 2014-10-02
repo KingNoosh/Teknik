@@ -23,8 +23,8 @@ $topic = $irc_info['topic'];
 <div class="container"> 
   <div class="row">
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-at fa-5x"></i>
           <div class="caption">
@@ -34,8 +34,8 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Git">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-git fa-5x"></i>
           <div class="caption">
@@ -45,8 +45,8 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("blog", $CONF); ?>">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-rss fa-5x"></i>
           <div class="caption">
@@ -56,8 +56,8 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("upload", $CONF); ?>">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-lock fa-5x"></i>
           <div class="caption">
@@ -69,8 +69,8 @@ $topic = $irc_info['topic'];
   </div>
   <div class="row">
     <a href="<?php echo get_page_url("paste", $CONF); ?>">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-code fa-5x"></i>
           <div class="caption">
@@ -80,8 +80,8 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("podcast", $CONF); ?>">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-microphone fa-5x"></i>
           <div class="caption">
@@ -91,8 +91,8 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mumble">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-comments fa-5x"></i>
           <div class="caption">
@@ -102,8 +102,8 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("api", $CONF); ?>">
-      <div class="thumbnail">
-        <div class="col-md-3 text-center col-md-height col-top">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
           <br />
           <i class="fa fa-exchange fa-5x"></i>
           <div class="caption">
