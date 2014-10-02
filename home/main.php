@@ -70,7 +70,7 @@ $topic = $irc_info['topic'];
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
           <br />
-          <i class="fa fa-lock fa-5x"></i>
+          <i class="fa fa-code fa-5x"></i>
           <div class="caption">
             <h3>Clean Pastebin</h3>
           </div>
@@ -81,7 +81,7 @@ $topic = $irc_info['topic'];
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
           <br />
-          <i class="fa fa-lock fa-5x"></i>
+          <i class="fa fa-microphone fa-5x"></i>
           <div class="caption">
             <h3>Entertaining Podcasts</h3>
           </div>
@@ -92,7 +92,7 @@ $topic = $irc_info['topic'];
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
           <br />
-          <i class="fa fa-lock fa-5x"></i>
+          <i class="fa fa-comments fa-5x"></i>
           <div class="caption">
             <h3>Mumble Server</h3>
           </div>
@@ -103,7 +103,7 @@ $topic = $irc_info['topic'];
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
           <br />
-          <i class="fa fa-lock fa-5x"></i>
+          <i class="fa fa-exchange fa-5x"></i>
           <div class="caption">
             <h3>Easy to Use API</h3>
           </div>
