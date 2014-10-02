@@ -241,18 +241,6 @@
     $cssTheme = array();
     $jsTheme = array();
     
-    $theme=array(
-      'default'=>'Default',
-      'darkly'=>'Darkly',
-      'flat-ui'=>'Flat UI',
-      'flatly'=>'Flatly',
-      'lumen'=>'Lumen',
-      'material'=>'Material',
-      'paper'=>'Paper',
-      'sandstone'=>'Sandstone',
-      'simplex'=>'Simplex',
-      'superhero'=>'Superhero'
-    );
     switch ($CONF['theme'])
     {
       case "default":
