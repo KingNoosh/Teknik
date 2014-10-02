@@ -1,3 +1,6 @@
+<?php
+http_response_code(404);
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
@@ -6,6 +9,11 @@
                 <h2>404 Not Found</h2>
                 <div class="error-details">
                     Sorry, an error has occured, Requested page not found!
+                    <br />
+                    <br />
+                    Here is the url you tried to execute.
+                    <br />
+                    <code><?php echo $_SERVER['HTTP_REFERER']; ?></code>
                 </div>
                 <div class="error-actions">
                     <a href="<?php echo get_page_url("home", $CONF); ?>" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
