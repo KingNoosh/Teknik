@@ -21,9 +21,9 @@ $topic = $irc_info['topic'];
 </div>
 <br />
 <div class="container"> 
-  <div class="row service-list">
+  <div class="row">
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-at fa-5x"></i>
@@ -34,7 +34,7 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Git">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-git fa-5x"></i>
@@ -45,7 +45,7 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("blog", $CONF); ?>">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-rss fa-5x"></i>
@@ -56,7 +56,7 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("upload", $CONF); ?>">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-lock fa-5x"></i>
@@ -66,8 +66,10 @@ $topic = $irc_info['topic'];
         </div>
       </div>
     </a>
+  </div>
+  <div class="row">
     <a href="<?php echo get_page_url("paste", $CONF); ?>">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-code fa-5x"></i>
@@ -78,7 +80,7 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("podcast", $CONF); ?>">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-microphone fa-5x"></i>
@@ -89,7 +91,7 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mumble">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-comments fa-5x"></i>
@@ -100,7 +102,7 @@ $topic = $irc_info['topic'];
       </div>
     </a>
     <a href="<?php echo get_page_url("api", $CONF); ?>">
-      <div class="col-md-3 text-center service-item">
+      <div class="col-md-3 text-center col-md-height col-top">
         <div class="thumbnail">
           <br />
           <i class="fa fa-exchange fa-5x"></i>
