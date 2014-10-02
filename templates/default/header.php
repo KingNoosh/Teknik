@@ -314,13 +314,18 @@
             <ul class="nav navbar-nav">
               <li class="<?php echo get_active("home", $CONF); ?>"><a href="<?php echo get_page_url("home", $CONF); ?>">Home</a></li>
               <li class="<?php echo get_active("about", $CONF); ?>"><a href="<?php echo get_page_url("about", $CONF); ?>">About</a></li>
-              <li class="<?php echo get_active("blog", $CONF); ?>"><a href="<?php echo get_page_url("blog", $CONF); ?>">Blog</a></li>
-              <li class="<?php echo get_active("podcast", $CONF); echo get_active("pod", $CONF); ?>"><a href="<?php echo get_page_url("podcast", $CONF); ?>">Podcast</a></li>
               <li class="divider-vertical"></li>
               
               <li class="dropdown">
                 <a href="#" id="services_menu" class="dropdown-toggle" data-toggle="dropdown">Services <strong class="caret"></strong></a>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="services_menu">
+                <ul class="dropdown-menu" role="menu" aria-labelledby="services_menu">                
+                  <li class="<?php echo get_active("blog", $CONF); ?>">
+                    <a href="<?php echo get_page_url("blog", $CONF); ?>">Blog</a>
+                  </li>
+                  <li class="<?php echo get_active("podcast", $CONF); echo get_active("pod", $CONF); ?>">
+                    <a href="<?php echo get_page_url("podcast", $CONF); ?>">Podcast</a>
+                  </li>
+                  <li class="divider"></li>
                   <li>
                     <a href="<?php echo get_page_url("upload", $CONF); ?>">Upload</a>
                   </li>
@@ -351,7 +356,7 @@
                 <a href="<?php echo get_page_url("help", $CONF); ?>">Help</a>
               </li>
             </ul>
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="nav navbar-nav pull-right">
             
             <?php
               if ($logged_in)

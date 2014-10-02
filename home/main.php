@@ -19,14 +19,8 @@ $topic = $irc_info['topic'];
     </h2>
   </div>
 </div>
+<br />
 <div class="container"> 
-  <div class="row">
-    <div class="col-sm-12 text-center">
-      <h1><strong>Services We Offer</strong></h1>
-    </div>
-  </div>
-  <hr>
-  <br />
   <div class="row">
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
       <div class="col-md-3 text-center">
@@ -72,6 +66,8 @@ $topic = $irc_info['topic'];
         </div>
       </div>
     </a>
+  </div>
+  <div class="row">
     <a href="<?php echo get_page_url("paste", $CONF); ?>">
       <div class="col-md-3 text-center">
         <div class="thumbnail">
