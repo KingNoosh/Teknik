@@ -326,19 +326,19 @@
                     <a href="<?php echo get_page_url("podcast", $CONF); ?>">Podcast</a>
                   </li>
                   <li class="divider"></li>
-                  <li>
+                  <li class="<?php echo get_active("upload", $CONF); echo get_active("u", $CONF); ?>">
                     <a href="<?php echo get_page_url("upload", $CONF); ?>">Upload</a>
                   </li>
-                  <li>
+                  <li class="<?php echo get_active("paste", $CONF); echo get_active("p", $CONF); ?>">
                     <a href="<?php echo get_page_url("paste", $CONF); ?>">Paste</a>
                   </li>
-                  <li>
+                  <li class="<?php echo get_active("git", $CONF); ?>">
                     <a href="<?php echo get_page_url("git", $CONF); ?>">Git</a>
                   </li>
-                  <li>
+                  <li class="<?php echo get_active("mail", $CONF); ?>">
                     <a href="<?php echo get_page_url("mail", $CONF); ?>" target="_blank">Mail</a>
                   </li>
-                  <li>
+                  <li class="<?php echo get_active("mumble", $CONF); ?>">
                     <a href="mumble://mumble.<?php echo $CONF['host']; ?>:64738/?version=1.2.5" target="_blank">Mumble</a>
                   </li>
                   <!--
