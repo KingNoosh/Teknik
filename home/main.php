@@ -5,10 +5,12 @@ $count = $irc_info['cur_nicks'];
 $topic = $irc_info['topic'];
 ?>
 <div class="container">
-  <div class="row text-center">
-    <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/logo-text.png" class="img-responsive" alt="Teknik">
+  <div class="row">
+    <center>
+      <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/logo-text.png" class="img-responsive" alt="Teknik">
+    </center>
   </div>
-  <div class="jumbotron text-center">
+  <div class="row text-center">
     <p>
       Teknik is the website for the #/g/technology IRC channel on Rizon.
       <br />
