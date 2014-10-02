@@ -10,12 +10,13 @@ $topic = $irc_info['topic'];
       <img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/logo-text.png" class="img-responsive" alt="Teknik">
     </center>
   </div>
+  <br />
   <div class="row text-center">
-    <p>
+    <h2>
       Teknik is the website for the #/g/technology IRC channel on Rizon.
       <br />
       We host various channels services for our IRC community and by extension, 4chan's Technology board.
-    </p>
+    </h2>
   </div>
 </div>
 <div class="container"> 
