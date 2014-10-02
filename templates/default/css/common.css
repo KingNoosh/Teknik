@@ -876,8 +876,3 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 .col-bottom {
     vertical-align:bottom;
 }
-
-/* fix firefox responsive images */
-.img-responsive {
-    width: 100%
-}
