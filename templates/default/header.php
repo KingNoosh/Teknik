@@ -241,18 +241,6 @@
     $cssTheme = array();
     $jsTheme = array();
     
-    $theme=array(
-      'default'=>'Default',
-      'darkly'=>'Darkly',
-      'flat-ui'=>'Flat UI',
-      'flatly'=>'Flatly',
-      'lumen'=>'Lumen',
-      'material'=>'Material',
-      'paper'=>'Paper',
-      'sandstone'=>'Sandstone',
-      'simplex'=>'Simplex',
-      'superhero'=>'Superhero'
-    );
     switch ($CONF['theme'])
     {
       case "default":
@@ -274,6 +262,10 @@
       case "material":
         array_push($cssTheme, 'bootstrap.default.min.css', 'material.css');
         array_push($jsTheme, 'material/material.js');
+        break;
+      case "metro":
+        array_push($cssTheme, 'metro-bootstrap.min.css', 'metro-bootstrap-responsive.min.css', 'iconFont.min.css');
+        array_push($jsTheme, 'jquery/jquery.mousewheel.js', 'metro/metro.min.js');
         break;
       case "paper":
         array_push($cssTheme, 'bootstrap.paper.min.css');
@@ -310,7 +302,7 @@
     <![endif]-->
   </head>
   <?php flush(); ?>
-  <body data-twttr-rendered="true">
+  <body data-twttr-rendered="true" class="<?php echo $CONF['theme']; ?>">
     <div id="wrap">
       <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
