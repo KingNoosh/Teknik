@@ -244,6 +244,7 @@
     $theme=array(
       'default'=>'Default',
       'darkly'=>'Darkly',
+      'flat-ui'=>'Flat UI',
       'flatly'=>'Flatly',
       'lumen'=>'Lumen',
       'material'=>'Material',
@@ -260,6 +261,10 @@
       case "darkly":
         array_push($cssTheme, 'bootstrap.darkly.min.css');
         break;
+      case "flat-ui":
+        array_push($cssTheme, 'bootstrap.default.min.css', 'flat-ui.min.css');
+        array_push($jsTheme, 'respond/respond.min.js', 'flat-ui/flat-ui.min.js');
+        break;
       case "flatly":
         array_push($cssTheme, 'bootstrap.flatly.min.css');
         break;
@@ -268,7 +273,7 @@
         break;
       case "material":
         array_push($cssTheme, 'bootstrap.default.min.css', 'material.css');
-        array_push($jsTheme, 'material.js');
+        array_push($jsTheme, 'material/material.js');
         break;
       case "paper":
         array_push($cssTheme, 'bootstrap.paper.min.css');
