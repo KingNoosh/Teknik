@@ -8,7 +8,7 @@
 require_once('../includes/config.php');
 
 include('../templates/'.$CONF['template'].'/header.php');
-include('help.php');
+include('../help/api.php');
 include('../templates/'.$CONF['template'].'/footer.php');
 
 set_page_title("Teknik API");
