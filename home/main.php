@@ -19,6 +19,7 @@ $topic = $irc_info['topic'];
     </h2>
   </div>
 </div>
+<br />
 <div class="container"> 
   <div class="row">
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
