@@ -263,10 +263,6 @@
         array_push($cssTheme, 'bootstrap.default.min.css', 'material.css');
         array_push($jsTheme, 'material/material.js');
         break;
-      case "metro":
-        array_push($cssTheme, 'metro-bootstrap.min.css', 'metro-bootstrap-responsive.min.css', 'iconFont.min.css');
-        array_push($jsTheme, 'jquery/jquery.mousewheel.js', 'metro/metro.min.js');
-        break;
       case "paper":
         array_push($cssTheme, 'bootstrap.paper.min.css');
         break;
