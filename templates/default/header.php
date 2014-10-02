@@ -241,6 +241,18 @@
     $cssTheme = array();
     $jsTheme = array();
     
+    $theme=array(
+      'default'=>'Default',
+      'darkly'=>'Darkly',
+      'flat-ui'=>'Flat UI',
+      'flatly'=>'Flatly',
+      'lumen'=>'Lumen',
+      'material'=>'Material',
+      'paper'=>'Paper',
+      'sandstone'=>'Sandstone',
+      'simplex'=>'Simplex',
+      'superhero'=>'Superhero'
+    );
     switch ($CONF['theme'])
     {
       case "default":
@@ -298,7 +310,7 @@
     <![endif]-->
   </head>
   <?php flush(); ?>
-  <body data-twttr-rendered="true" class="<?php echo $CONF['theme']; ?>">
+  <body data-twttr-rendered="true">
     <div id="wrap">
       <div class="navbar navbar-default navbar-fixed-top">
         <div class="container">
