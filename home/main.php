@@ -85,7 +85,7 @@ $topic = $irc_info['topic'];
           <br />
           <i class="fa fa-microphone fa-5x"></i>
           <div class="caption">
-            <h3>Entertaining Podcasts</h3>
+            <h3>Technical Podcasts</h3>
           </div>
         </div>
       </div>
