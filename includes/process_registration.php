@@ -79,7 +79,7 @@ if(isset($_POST))
         $data['password'] = hashPassword($password, $CONF); //encrypt the password for storage
         
         //create the new user object
-        $newUser = new User($data);
+        $newUser = new User($data, $db);
  
         //save the new user to the database
         $newUser->save($db, true);

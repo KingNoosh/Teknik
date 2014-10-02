@@ -32,6 +32,9 @@
                     'jquery/jquery.blockUI.js',
                     'profile.js');
         break;
+      case "admin":
+        array_push($jsFiles, 'admin.js');
+        break;
       case "about":
         array_push($cssFiles, 'coin.css');
         array_push($jsFiles, 'coin/coin.js');
@@ -238,17 +241,6 @@
     $cssTheme = array();
     $jsTheme = array();
     
-    $theme=array(
-      'default'=>'Default',
-      'darkly'=>'Darkly',
-      'flatly'=>'Flatly',
-      'lumen'=>'Lumen',
-      'material'=>'Material',
-      'paper'=>'Paper',
-      'sandstone'=>'Sandstone',
-      'simplex'=>'Simplex',
-      'superhero'=>'Superhero'
-    );
     switch ($CONF['theme'])
     {
       case "default":
@@ -256,6 +248,10 @@
         break;
       case "darkly":
         array_push($cssTheme, 'bootstrap.darkly.min.css');
+        break;
+      case "flat-ui":
+        array_push($cssTheme, 'bootstrap.default.min.css', 'flat-ui.min.css');
+        array_push($jsTheme, 'respond/respond.min.js', 'flat-ui/flat-ui.min.js');
         break;
       case "flatly":
         array_push($cssTheme, 'bootstrap.flatly.min.css');
@@ -265,7 +261,7 @@
         break;
       case "material":
         array_push($cssTheme, 'bootstrap.default.min.css', 'material.css');
-        array_push($jsTheme, 'material.js');
+        array_push($jsTheme, 'material/material.js');
         break;
       case "paper":
         array_push($cssTheme, 'bootstrap.paper.min.css');

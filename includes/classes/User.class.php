@@ -1,6 +1,5 @@
 <?php
-require_once('DB.class.php');
-
+require_once('Role.class.php');
 class User {
  
     public $id;
@@ -17,10 +16,11 @@ class User {
     public $about;
     public $blog_title;
     public $blog_desc;
+    public $roles;
  
     //Constructor is called whenever a new object is created.
     //Takes an associative array with the DB row as an argument.
-    function __construct($data) {
+    function __construct($data, $db) {
         $this->id = (isset($data['id'])) ? $data['id'] : "";
         $this->username = (isset($data['username'])) ? $data['username'] : "";
         $this->hashedPassword = (isset($data['password'])) ? $data['password'] : "";
@@ -36,6 +36,22 @@ class User {
         $this->quote = (isset($data['quote'])) ? $data['quote'] : "";
         $this->blog_title = (isset($data['blog_title'])) ? $data['blog_title'] : "";
         $this->blog_desc = (isset($data['blog_desc'])) ? $data['blog_desc'] : "";
+        $this->roles = array();
+        $user_list = $db->select("user_role as ur JOIN roles as r ON ur.role_id = r.role_id", "ur.user_id=?", array($this->id), "ur.role_id, r.role_name");
+        $users = array();        
+        foreach ($user_list as $user)
+        {
+          if (!is_array($user))
+          {
+            $users = array($user_list);
+            break;
+          }
+          array_push($users, $user);
+        }
+        foreach ($users as $user)
+        {
+          $this->roles[$user["role_name"]] = Role::getRolePerms($user["role_id"], $db);
+        }
     }
  
     public function save($db, $isNewUser = false) {
@@ -80,6 +96,25 @@ class User {
         //if the user is being registered for the first time.
         $db->delete('users', 'id=?', array($this->id));
         return true;
+    }
+ 
+    // check if user has a specific privilege
+    public function hasPrivilege($perm)
+    {
+      foreach ($this->roles as $role)
+      {
+          if ($role->hasPerm($perm))
+          {
+              return true;
+          }
+      }
+      return false;
+    }
+    
+    // check if a user has a specific role
+    public function hasRole($role_name)
+    {
+      return isset($this->roles[$role_name]);
     }
 }
 ?>
