@@ -25,6 +25,7 @@ $topic = $irc_info['topic'];
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
+          <br />
           <i class="fa fa-at fa-5x"></i>
           <div class="caption">
             <h3>Free Email</h3>
@@ -35,6 +36,7 @@ $topic = $irc_info['topic'];
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Git">
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
+          <br />
           <i class="fa fa-git fa-5x"></i>
           <div class="caption">
             <h3>Unlimited Git Repositories</h3>
@@ -45,6 +47,7 @@ $topic = $irc_info['topic'];
     <a href="<?php echo get_page_url("blog", $CONF); ?>">
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
+          <br />
           <i class="fa fa-rss fa-5x"></i>
           <div class="caption">
             <h3>Personal Blog</h3>
@@ -55,9 +58,54 @@ $topic = $irc_info['topic'];
     <a href="<?php echo get_page_url("upload", $CONF); ?>">
       <div class="col-sm-4 col-md-3 text-center">
         <div class="thumbnail">
+          <br />
           <i class="fa fa-lock fa-5x"></i>
           <div class="caption">
             <h3>Encrypted File Uploads</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("paste", $CONF); ?>">
+      <div class="col-sm-4 col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-lock fa-5x"></i>
+          <div class="caption">
+            <h3>Clean Pastebin</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("podcast", $CONF); ?>">
+      <div class="col-sm-4 col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-lock fa-5x"></i>
+          <div class="caption">
+            <h3>Entertaining Podcasts</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("help", $CONF); ?>/#Mumble">
+      <div class="col-sm-4 col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-lock fa-5x"></i>
+          <div class="caption">
+            <h3>Mumble Server</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("api", $CONF); ?>">
+      <div class="col-sm-4 col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-lock fa-5x"></i>
+          <div class="caption">
+            <h3>Easy to Use API</h3>
           </div>
         </div>
       </div>
