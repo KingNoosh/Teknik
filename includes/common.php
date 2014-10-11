@@ -174,7 +174,7 @@ function upload($files, $CONF, $db)
   if (!empty($files)) {
       $filesize = filesize($files['file']['tmp_name']);
       $file_type = mime_content_type($files['file']['tmp_name']);
-      $ext = pathinfo($files['file']['tmp_name'], PATHINFO_EXTENSION);
+      $ext = pathinfo($files['file']['name'], PATHINFO_EXTENSION);
       if ($logged_in == 1)
       {
         $user_id = $user->id;
