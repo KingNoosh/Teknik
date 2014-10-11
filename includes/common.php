@@ -174,6 +174,7 @@ function upload($files, $CONF, $db)
   if (!empty($files)) {
       $filesize = filesize($files['file']['tmp_name']);
       $file_type = mime_content_type($files['file']['tmp_name']);
+      $ext = pathinfo($files['file']['tmp_name'], PATHINFO_EXTENSION);
       if ($logged_in == 1)
       {
         $user_id = $user->id;
@@ -186,12 +187,11 @@ function upload($files, $CONF, $db)
       {
         $iv = rand_string(32);
         $targetFile = upload_file($files, $CONF['upload_dir'], $CONF['key'], $iv, $CONF['cipher']);
-        
         $file_used = true;
         while ($file_used)
         {
           $randomString = rand_string(6);
-          $fileURL = $randomString;
+          $fileURL = $randomString.".".$ext;
           $result = $db->select("uploads", "url=?", array($fileURL));
           if (!$result)
           {
