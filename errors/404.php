@@ -1,3 +1,6 @@
+<?php
+http_response_code(404);
+?>
 <div class="container">
     <div class="row">
         <div class="col-md-12">
