@@ -1,5 +1,6 @@
 <?php
 require_once('../includes/config.php');
+include '../includes/Parsedown.php';
 
 $rss_id = 0;
 $rss_author = "";
@@ -113,7 +114,9 @@ if ($_GET['content'])
           $tags = $pod['tags'];
           $file = $pod['file_name'];
           $files = explode(',', $file);
-          $post = $pod['description'];
+          
+          $Parsedown = new Parsedown();
+          $post = $Parsedown->text($pod['description']);
           
           $rssfeed .= '<item>';
           $rssfeed .= '<title><![CDATA[' . $title . ']]></title>';
