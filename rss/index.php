@@ -77,7 +77,9 @@ if ($_GET['content'])
           $date = $post['date_posted'];
           $title = $post['title'];
           $tags = $post['tags'];
-          $post = $post['post'];
+          
+          $Parsedown = new Parsedown();
+          $post = $Parsedown->text($post['post']);
           
           $rssfeed .= '<item>';
           $rssfeed .= '<title><![CDATA[' . $title . ']]></title>';
