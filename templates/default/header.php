@@ -341,12 +341,10 @@
                   <li class="<?php echo get_active("mumble", $CONF); ?>">
                     <a href="mumble://mumble.<?php echo $CONF['host']; ?>:64738/?version=1.2.5" target="_blank">Mumble</a>
                   </li>
-                  <!--
                   <li class="divider"></li>
                   <li>
                     <a href="<?php echo get_page_url("ricehalla", $CONF); ?>">Ricehalla</a>
                   </li>
-                  -->
                 </ul>
               </li>
               <li class="<?php echo get_active("contact", $CONF); ?>">
