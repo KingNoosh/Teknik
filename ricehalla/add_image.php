@@ -12,7 +12,7 @@ if(isset($_POST) && $logged_in)
   {
     $file_real_name = $file_db['filename'];
     $file_path  = $CONF['upload_dir'] . $file_real_name;
-    $thumbnail_path  = $CONF['upload_dir'] . 'thumbnails/150_150_' . $file_real_name;
+    $thumbnail_path  = $CONF['upload_dir'] . 'thumbnails/150_150_' . $filename;
     $temp_path = sys_get_temp_dir()."\\".$file_real_name;
     if (file_exists($file_path))
     {
