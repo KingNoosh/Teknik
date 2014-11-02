@@ -1,5 +1,5 @@
 <?php
-  $Results = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE votes.table_name=? GROUP BY votes.row_id ORDER BY TotalPoints / TotalVotes DESC", array("ricehalla"), 'ricehalla.url, ricehalla.user_id, ricehalla.id, ricehalla.tags, votes.points, votes.user_id, sum(votes.points) as TotalPoints, COUNT(votes.id) as TotalVotes, ricehalla.date_added');
+  $Results = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE votes.table_name=? GROUP BY votes.row_id ORDER BY TotalRank DESC, TotalVotes DESC, TotalPoints DESC", array("ricehalla"), 'ricehalla.url, ricehalla.user_id, ricehalla.id, ricehalla.tags, votes.points, votes.user_id, sum(votes.points) as TotalPoints, COUNT(votes.id) as TotalVotes, (sum(votes.points) / COUNT(votes.id)) as TotalRank, ricehalla.date_added');
 
   $result_list = array();
   foreach ($Results as $result)
