@@ -8,7 +8,7 @@ if(isset($_POST) && $logged_in)
   $filename = rawurldecode($_POST['file']);
   $file_path  = $CONF['upload_dir'] . $filename;
   $thumbnail_path  = $CONF['upload_dir'] . 'thumbnails/150_150_' . $filename;
-  $file_db = $db->select('uploads', "filename=? LIMIT 1", array($filename));
+  $file_db = $db->select('uploads', "url=? LIMIT 1", array($filename));
   $temp_path = sys_get_temp_dir()."\\".$filename;
 
   if (file_exists($file_path) && $file_db)
