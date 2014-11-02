@@ -342,7 +342,7 @@
                     <a href="mumble://mumble.<?php echo $CONF['host']; ?>:64738/?version=1.2.5" target="_blank">Mumble</a>
                   </li>
                   <li class="divider"></li>
-                  <li>
+                  <li class="<?php echo get_active("ricehalla", $CONF); echo get_active("desktops", $CONF); ?>">
                     <a href="<?php echo get_page_url("ricehalla", $CONF); ?>">Ricehalla</a>
                   </li>
                 </ul>
