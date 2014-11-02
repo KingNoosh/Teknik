@@ -114,13 +114,23 @@ if (isset($_GET['id']))
                     tagClass: "btn-primary",
                     afterAddingTag: function(tag){
                       var current_tags = $('#taglist-<?php echo $result['id']; ?>').tags().getTags();
-                      var url = "../edit_tags.php?id=<?php echo $result['id']; ?>&tags="+current_tags;
-                      var response = Get_Server_Response(url);
+                      var url = "../edit_tags.php";
+                      var data = "id="+encodeURIComponent(<?php echo $result['id']; ?>)+"&tags="+encodeURIComponent(current_tags);
+                      $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: data
+                      });
                     },
                     afterDeletingTag: function(tag){
                       var current_tags = $('#taglist-<?php echo $result['id']; ?>').tags().getTags();
-                      var url = "../edit_tags.php?id=<?php echo $result['id']; ?>&tags="+current_tags;
-                      var response = Get_Server_Response(url);
+                      var url = "../edit_tags.php";
+                      var data = "id="+encodeURIComponent(<?php echo $result['id']; ?>)+"&tags="+encodeURIComponent(current_tags);
+                      $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: data
+                      });
                     }
                 });
             });

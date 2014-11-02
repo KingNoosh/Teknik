@@ -2,10 +2,10 @@
 include('../includes/config.php');
  
 $filename = "";
-if(isset($_GET) && $logged_in)
+if(isset($_POST) && $logged_in)
 {
-  $id = rawurldecode($_GET['id']);
-  $tags = rawurldecode($_GET['tags']);
+  $id = rawurldecode($_POST['id']);
+  $tags = rawurldecode($_POST['tags']);
   $user_id = $user->id;
   $desktop = $db->select('ricehalla', 'id=? AND user_id=?', array($id, $user_id));
   if ($desktop)

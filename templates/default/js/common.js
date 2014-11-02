@@ -96,15 +96,6 @@ $(function() {
   $('.dropdown input, .dropdown label').click(function(e) {
     e.stopPropagation();
   });
-
-  function postServerData(url, data)
-  {
-    $.ajax({
-      type: "POST",
-      url: url,
-      data: data
-    });
-  }
 });
 
 function removeAmp(code)
