@@ -135,12 +135,12 @@
                             afterAddingTag: function(tag){
                               var current_tags = $('#taglist-<?php echo $result['id']; ?>').tags().getTags();
                               var url = "../edit_tags.php?id=<?php echo $result['id']; ?>&tags="+current_tags;
-                              var response = Get_Server_Response(url);
+                              postServerData(url);
                             },
                             afterDeletingTag: function(tag){
                               var current_tags = $('#taglist-<?php echo $result['id']; ?>').tags().getTags();
                               var url = "../edit_tags.php?id=<?php echo $result['id']; ?>&tags="+current_tags;
-                              var response = Get_Server_Response(url);
+                              postServerData(url);
                             }
                         });
                     });
