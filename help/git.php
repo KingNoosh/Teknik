@@ -40,6 +40,7 @@
     <br />
     To fork the user's repo you will need to perform the following command:
     <br />
+    <br />
     <code>~$ssh git@teknik.io fork u/[username]/[repository] u/[your username]/[repository]</code>
     <br />
   </p>
@@ -50,6 +51,7 @@
     <br />
     Once you have made your edits and pushed your commits, execute the following command:
     <br />
+    <br />
     <code>~$git request-pull [original_commit] git://teknik.io/u/[your username]/[repository] [branch name]</code>
     <br />
     <br />
@@ -59,10 +61,12 @@
   <h3>Delete a Repository</h3>
   <p>
     To delete a repository, execute the following commands:
-    <pre>
-      ~$ssh git@teknik.io D unlock u/[username]/[repository]
-      ~$ssh git@teknik.io D rm u/[username]/[repository]
-    </pre>
+    <br />
+    <br />
+    <code>~$ssh git@teknik.io D unlock u/[username]/[repository]</code>
+    <br />
+    <code>~$ssh git@teknik.io D rm u/[username]/[repository]</code>
+    <br />
   </p>
   <h3>More Information</h3>
   <p>
