@@ -43,6 +43,10 @@
     <br />
     <code>~$ssh git@teknik.io fork u/[username]/[repository] u/[your username]/[repository]</code>
     <br />
+    <b>or</b>
+    <br />
+    <code>~$ssh git@teknik.io fork [repository] u/[your username]/[repository]</code>
+    <br />
   </p>
   <h3>Submit a Pull Request</h3>
   <p>
