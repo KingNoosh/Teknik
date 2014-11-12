@@ -70,11 +70,12 @@
     Here is a list of the different permissions you can assign users:
     <br />
     <br />
-    <ul class="list-group">
-      <li class="list-group-item">READERS<div class="pull-right">Allows the user to pull from the repo</div></li>
-      <li class="list-group-item">WRITERS<div class="pull-right">Allows the user to push to the repo</div></li>
-    </ul>
-    <br />
+    <div class="col-sm-6">
+      <ul class="list-group">
+        <li class="list-group-item">READERS<div class="pull-right">Allows the user to pull from the repo</div></li>
+        <li class="list-group-item">WRITERS<div class="pull-right">Allows the user to push to the repo</div></li>
+      </ul>
+    </div>
     <br />
     In order to change a repositories permissions, you run the following command, using the <b>+/-</b> mode to add or remove permissions.
     <br />
