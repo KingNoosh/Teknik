@@ -37,7 +37,7 @@ if ($_GET['user'])
 {
   if ($userTools->checkUsernameExists($_GET['user']))
   {
-    if (is_dir("G:\\Repositories\\u\\".$_GET['user']))
+    if (is_dir("G:\\Repositories\\u\\".$_GET['user']) && !is_dir_empty("G:\\Repositories\\u\\".$_GET['user']))
     {
       $_SERVER['HTTP_X_ORIGINAL_URL'] = str_replace("/u/".$_GET['user'], "", $_SERVER['HTTP_X_ORIGINAL_URL']);
       $config->set('git', 'repositories', array('G:\\Repositories\\u\\'.$_GET['user']));
