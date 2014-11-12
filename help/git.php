@@ -76,6 +76,7 @@
         <li class="list-group-item">WRITERS<div class="pull-right">Allows the user to push to the repo</div></li>
       </ul>
     </div>
+    <div class="col-sm-6"></div>
     <br />
     In order to change a repositories permissions, you run the following command, using the <b>+/-</b> mode to add or remove permissions.
     <br />
