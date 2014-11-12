@@ -28,21 +28,24 @@
     You can also view a list of the git repo's a user has by visiting: <code><?php echo get_page_url('git', $CONF); ?>/u/[username]/</code>
     <br />
   </p>
-  <h3>Cloning a user's git repository</h3>
+  <h3>Clone a Repository</h3>
   <p>
-    To clone a users repo to a local copy, perform the following command: <code>~$git clone git://teknik.io/u/[username]/[reponame]</code>
+    To clone another user's repository to a local copy, perform the following command: <code>~$git clone git://teknik.io/u/[username]/[reponame]</code>
     <br />
   </p>
-  <h3>Fork a user's git repository</h3>
+  <h3>Fork a Repository</h3>
   <p>
-    When you fork a user's repository, you can make changes, and then send a pull request to the user to accept your changes.  To fork the user's repo you will need to perform the following command.
+    When you fork a user's repository, you can make changes, and then send a pull request to the user to accept your changes.
+    <br />
+    <br />
+    To fork the user's repo you will need to perform the following command:
     <br />
     <code>~$ssh git@teknik.io fork u/[username]/[repository] u/[your username]/[repository]</code>
     <br />
   </p>
-  <h3>Submit a pull request to the original author</h3>
+  <h3>Submit a Pull Request</h3>
   <p>
-    In order to submit a pull request, you must have a forked repository of the original authors repository already in your remote repositories.
+    In order to submit a pull request, you must have a forked repository of the original authors repository already in your personal repositories.
     <br />
     <br />
     Once you have made your edits and pushed your commits, execute the following command:
@@ -52,6 +55,14 @@
     <br />
     You will be given an output that will describe the pull request.  This must then be emailed to the original author to be considered for being pulled into the original repository.  The original author's email is <code>[username]@teknik.io</code>
     <br />
+  </p>
+  <h3>Delete a Repository</h3>
+  <p>
+    To delete a repository, execute the following commands:
+    <pre>
+      ~$ssh git@teknik.io D unlock u/[username]/[repository]
+      ~$ssh git@teknik.io D rm u/[username]/[repository]
+    </pre>
   </p>
   <h3>More Information</h3>
   <p>
