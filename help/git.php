@@ -62,6 +62,32 @@
     You will be given an output that will describe the pull request.  This must then be emailed to the original author to be considered for being pulled into the original repository.  The original author's email is <code>[username]@teknik.io</code>
     <br />
   </p>
+  <h3>Modify Repository Permissions</h3>
+  <p>
+    By default, all personal repositories are semi-private (downloadable, but not forkable).  As the owner, you can set permissions for your repositories for different users and groups.
+    <br />
+    <br />
+    Here is a list of the different permissions you can assign users:
+    <br />
+    <br />
+    <ul class="list-group">
+      <li class="list-group-item">READERS<div class="pull-right">Allows the user to pull from the repo</div></li>
+      <li class="list-group-item">WRITERS<div class="pull-right">Allows the user to push to the repo</div></li>
+    </ul>
+    <br />
+    <br />
+    In order to change a repositories permissions, you run the following command, using the <b>+/-</b> mode to add or remove permissions.
+    <br />
+    <br />
+    <code>~$ssh git@teknik.io perms u/[username]/[repository] [mode] [rolename] [username]</code>
+    <br />
+    <br />
+    For example: <code>~$ssh git@teknik.io perms u/myUser/myRepo + WRITERS otherUser</code>
+    <br />
+    <br />
+    The above command would give 'otherUser' write access to the repository 'myRepo'.
+    <br />
+  </p>
   <h3>Delete a Repository</h3>
   <p>
     To delete a repository, execute the following commands:
@@ -74,6 +100,13 @@
   </p>
   <h3>More Information</h3>
   <p>
+    <div class="bs-callout bs-callout-warning">
+      <h4>Repository Name</h4>
+      <p>
+        When defining [repository], leave off the trailing .git</b>
+      </p>
+    </div>
+    <br />
     For more information on the commands available to you, just type: `~$ssh git@teknik.io help`
     <br />
   </p>
