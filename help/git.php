@@ -35,14 +35,9 @@
   </p>
   <h3>Fork a user's git repository</h3>
   <p>
-    When you fork a user's repository, you can make changes, and then send a pull request to the user to accept your changes.  To fork the user's repo you will need to perform the following commands.
+    When you fork a user's repository, you can make changes, and then send a pull request to the user to accept your changes.  To fork the user's repo you will need to perform the following command.
     <br />
-    <pre>
-      ~$git clone git://teknik.io/u/[username]/[repository]
-      ~$cd [repository]
-      ~$git remote set-url origin git@teknik.io:u/[your username]/[repository]
-      ~$git push
-    </pre>
+    <code>~$ssh git@teknik.io fork u/[username]/[repository] u/[your username]/[repository]</code>
     <br />
   </p>
   <h3>Submit a pull request to the original author</h3>
