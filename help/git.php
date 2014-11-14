@@ -56,7 +56,7 @@
     Once you have made your edits and pushed your commits, execute the following command:
     <br />
     <br />
-    <code>~$git request-pull [original_commit] git://teknik.io/u/[your username]/[repository] [branch name]</code>
+    <code>~$git request-pull [original_commit] git@teknik.io:u/[your username]/[repository] [branch name]</code>
     <br />
     <br />
     You will be given an output that will describe the pull request.  This must then be emailed to the original author to be considered for being pulled into the original repository.  The original author's email is <code>[username]@teknik.io</code>
