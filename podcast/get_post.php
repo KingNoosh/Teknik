@@ -31,7 +31,7 @@ if(isset($_POST))
       $reply_count = $replies['cnt'];
       if ($reply_count > 0)
       {
-        $reply_msg = " | Replies:".$reply_count;
+        $reply_msg = " | <a href='".get_page_url("podcast", $CONF)."/".$post_id."#replies'>Replies:".$reply_count."</a>";
       }
     ?>
       <script>
