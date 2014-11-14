@@ -161,7 +161,7 @@ if (isset($_GET['post']))
         <?php
         }
         ?>
-	<a name="replies">
+	<a name="replies"></a>
         <div class="post-comments" id="<?php echo $post_id; ?>"></div>
         <script>
           var converter = new Markdown.getSanitizingConverter();
