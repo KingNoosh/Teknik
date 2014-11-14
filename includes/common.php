@@ -191,7 +191,11 @@ function upload($files, $CONF, $db)
         while ($file_used)
         {
           $randomString = rand_string(6);
-          $fileURL = $randomString.".".$ext;
+          if (empty($ext)) {
+            $fileURL = $randomString;
+          } else {
+            $fileURL = $randomString.".".$ext;
+          }
           $result = $db->select("uploads", "url=?", array($fileURL));
           if (!$result)
           {
