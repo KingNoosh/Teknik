@@ -78,8 +78,8 @@ if (isset($_GET['post']))
           <div class="row">
             <div class="col-sm-10 col-sm-offset-1 blog-main">
               <div class="blog-post">
-		<ol class="breadcrumb">
-                  <li><a href="<?php echo get_page_url('blog', $CONF); ?>/<?php echo $author; ?>"><?php echo $author; ?></a></li>
+                <ol class="breadcrumb">
+                  <li><a href="<?php echo get_page_url('blog', $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a></li>
                   <li class="active"><a href="#"><?php echo $title; ?></a></li>
                 </ol>
                 <h2 class="blog-post-title text-center"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
