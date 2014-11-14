@@ -32,6 +32,7 @@ if (isset($_GET['id']))
             <?php if ($Profile_User->blog_title) { ?>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Blog</strong></span> <a href="<?php echo get_page_url('blog', $CONF).'/'.$Profile_User->username; ?>" id="blog_title"><?php echo $Profile_User->blog_title; ?></a></li>
             <?php } ?>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Git</strong></span> <a href="<?php echo get_page_url('git', $CONF).'/u/'.$Profile_User->username; ?>">Public Repos</a></li>
             <?php if ($own_profile) { ?>
             <li class="list-group-item text-center"><button type="button" class="btn btn-danger" id="delete_account">Delete Account</button></li>
             <?php } ?>
