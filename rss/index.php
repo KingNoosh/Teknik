@@ -21,8 +21,8 @@ if ($_GET['content'])
           $rss_user = $userTools->getUser($_GET['author']);
           $rss_id = $rss_user->id;
           $rss_author = $rss_user->username;
-          $rss_title = $rss_user->blog_title;
-          $rss_desc = $rss_user->blog_desc;
+          $rss_title = rawurldecode($rss_user->blog_title);
+          $rss_desc = rawurldecode($rss_user->blog_desc);
         }
       }
       break;
@@ -75,7 +75,7 @@ if ($_GET['content'])
           $author_id = $post['author_id'];
           $author = $userTools->get($author_id);
           $date = $post['date_posted'];
-          $title = $post['title'];
+          $title = rawurldecode($post['title']);
           $tags = $post['tags'];
           
           $Parsedown = new Parsedown();
@@ -112,7 +112,7 @@ if ($_GET['content'])
           $post_id = $pod['id'];
           $user_id = $pod['user_id'];
           $date = $pod['date_posted'];
-          $title = $pod['title'];
+          $title = rawurldecode($pod['title']);
           $tags = $pod['tags'];
           $file = $pod['file_name'];
           $files = explode(',', $file);
