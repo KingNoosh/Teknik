@@ -263,6 +263,7 @@ if (isset($_GET['component']))
                                               'id' => $id,
                                               'url' => get_page_url("ricehalla", $CONF).'/'.$id,
                                               'image_src' => get_page_url("u", $CONF).'/'.$image_src,
+                                              'rank' => $rank,
                                               'votes' => $user_vote,
                                               'owner' => $username,
                                               'date_posted' => $date_posted,

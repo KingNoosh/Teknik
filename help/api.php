@@ -353,6 +353,17 @@
             </tr>
             <tr>
               <td>
+                <code>rank</code>
+              </td>
+              <td>
+                <code>integer</code>
+              </td>
+              <td>
+                The current rank of the image.
+              </td>
+            </tr>
+            <tr>
+              <td>
                 <code>votes</code>
               </td>
               <td>
