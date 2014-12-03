@@ -232,10 +232,26 @@ if (isset($_GET['component']))
                 }
                 array_push($result_list, $result);
               }
+              
+              // Generate Ranking List
+              $rankResults = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE votes.table_name=? GROUP BY votes.row_id ORDER BY TotalRank DESC, TotalVotes DESC, TotalPoints DESC", array("ricehalla"), 'ricehalla.id, sum(votes.points) as TotalPoints, COUNT(votes.id) as TotalVotes, (sum(votes.points) / COUNT(votes.id)) * abs(sum(votes.points)) as TotalRank');
+              $rank_list = array();
+              foreach ($rankResults as $rank_result)
+              {
+                if (!is_array($rank_result))
+                {
+                  $result_list = array($rankResults);
+                  break;
+                }
+                array_push($rank_list, $rank_result);
+              }
+              
               $result_array = array();
+              // Generate object for each result
               foreach ($result_list as $result)
               {
                 $id = $result['id'];
+                $rank = multi_array_search($rank_list, array('id' => $id))[0];
                 $username = $userTools->get($result['user_id'])->username;
                 $image_src = $result['url'];
                 $date_posted = $result['date_added'];
