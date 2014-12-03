@@ -23,7 +23,7 @@ if(isset($_POST) && $logged_in)
         $file_path = $temp_path;
       }
       $file_type = $file_db['type'];
-      $pattern = "/^(image)\/(.*)$/";
+      $pattern = "/^(((image)\/(.*))|((video)\/(webm)))$/";
       if(preg_match($pattern, $file_type))
       {
         $resizeObj = new resize($file_path);
