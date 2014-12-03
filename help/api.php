@@ -308,7 +308,7 @@
           </tbody>
         </table>
       <h5>Response</h5>
-        <pre><code>{"results":{"image":{"id":<var>id_num</var>, "url":"<var>url</var>", "image_src":"<var>url</var>", "owner":"<var>name</var>", "date_posted":"<var>date</var>", "tags":["<var>tag</var>", ..., "<var>tag</var>"]}}}</code></pre>
+        <pre><code>{"results":{"image":{"id":<var>id_num</var>, "url":"<var>url</var>", "image_src":"<var>url</var>", "rank":"<var>rank_num</var>", "votes":"<var>vote_num</var>", "owner":"<var>name</var>", "date_posted":"<var>date</var>", "tags":["<var>tag</var>", ..., "<var>tag</var>"]}}}</code></pre>
         <table>
           <thead>
             <tr>
