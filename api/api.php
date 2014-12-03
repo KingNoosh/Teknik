@@ -251,7 +251,7 @@ if (isset($_GET['component']))
               foreach ($result_list as $result)
               {
                 $id = $result['id'];
-                $rank = multi_array_search($rank_list, array('id' => $id))[0];
+                $rank = multi_array_search($rank_list, array('id' => $id))[0] + 1;
                 $username = $userTools->get($result['user_id'])->username;
                 $image_src = $result['url'];
                 $date_posted = $result['date_added'];
