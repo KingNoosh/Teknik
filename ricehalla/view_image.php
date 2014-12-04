@@ -17,8 +17,22 @@ if (isset($_GET['id']))
   $result = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE votes.table_name=? AND ricehalla.id=? GROUP BY votes.row_id ORDER BY TotalPoints DESC", array("ricehalla", $desktop_id), 'ricehalla.url, ricehalla.user_id, ricehalla.id, ricehalla.tags, votes.points, votes.user_id, sum(votes.points) TotalPoints, ricehalla.date_added');
   
   if ($result)
-  {
+  {              
+    // Generate Ranking List
+    $rankResults = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE votes.table_name=? GROUP BY votes.row_id ORDER BY TotalRank DESC, TotalVotes DESC, TotalPoints DESC", array("ricehalla"), 'ricehalla.id, sum(votes.points) as TotalPoints, COUNT(votes.id) as TotalVotes, (sum(votes.points) / COUNT(votes.id)) * abs(sum(votes.points)) as TotalRank');
+    $rank_list = array();
+    foreach ($rankResults as $rank_result)
+    {
+      if (!is_array($rank_result))
+      {
+        $result_list = array($rankResults);
+        break;
+      }
+      array_push($rank_list, $rank_result);
+    }
+    
     $username = $userTools->get($result['user_id'])->username;
+    $rank = multi_array_search($rank_list, array('id' => $desktop_id))[0] + 1;
     $image_src = get_page_url("u", $CONF).'/'.$result['url'];
     $user_vote = $db->select('votes', 'table_name=? AND row_id=? AND user_id=? ORDER BY id DESC LIMIT 1', array('ricehalla', $result['id'], $user->id));
     $thumb_up = "btn-hover";
@@ -39,7 +53,8 @@ if (isset($_GET['id']))
   <div class="panel panel-primary">
     <div class="panel-heading">
       <div class="row">
-        <div class="col-sm-<?php if ($logged_in) { echo '3'; } else { echo '2'; } ?>">Points</div>
+        <div class="col-sm-1">Rank</div>
+        <div class="col-sm-<?php if ($logged_in) { echo '2'; } else { echo '1'; } ?>">Points</div>
         <div class="col-sm-2">Owner</div>
         <div class="col-sm-2">Date Posted</div>
         <div class="col-sm-5">Tags</div>
@@ -47,7 +62,10 @@ if (isset($_GET['id']))
     </div>
     <div class="panel-body">
       <div class="row">
-        <div class="col-sm-<?php if ($logged_in) { echo '3'; } else { echo '2'; } ?>">
+        <div class="col-sm-1">
+          <?php echo $rank; ?>
+        </div>
+        <div class="col-sm-<?php if ($logged_in) { echo '2'; } else { echo '1'; } ?>">
           <div class="row">
             <div class="col-sm-2" id="points_<?php echo $result['id']; ?>">
               (<?php echo $result['TotalPoints']; ?>)
