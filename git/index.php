@@ -37,10 +37,10 @@ if ($_GET['user'])
 {
   if ($userTools->checkUsernameExists($_GET['user']))
   {
-    if (is_dir("G:\\Repositories\\u\\".$_GET['user']) && !is_dir_empty("G:\\Repositories\\u\\".$_GET['user']))
+    if (is_dir($CONF['git_repo_path'][0]."\\u\\".$_GET['user']) && !is_dir_empty($CONF['git_repo_path'][0]."\\u\\".$_GET['user']))
     {
       $_SERVER['HTTP_X_ORIGINAL_URL'] = str_replace("/u/".$_GET['user'], "", $_SERVER['HTTP_X_ORIGINAL_URL']);
-      $config->set('git', 'repositories', array('G:\\Repositories\\u\\'.$_GET['user']));
+      $config->set('git', 'repositories', array($CONF['git_repo_path'][0].'\\u\\'.$_GET['user']));
       $config->set('git', 'hidden', array(''));
       $config->set('app', 'path_prefix', '/u/'.$_GET['user']);
       $config->set('app', 'clone_url', 'git://teknik.io/u/'.$_GET['user'].'/');
