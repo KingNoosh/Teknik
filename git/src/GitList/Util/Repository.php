@@ -17,7 +17,7 @@ class Repository
         'mm'       => 'clike',
         'ino'      => 'clike',
         'cs'       => 'text/x-csharp',
-        'csproj'   => 'text/x-csharp',
+        'csproj'   => 'xml',
         'java'     => 'text/x-java',
         'clj'      => 'clojure',
         'coffee'   => 'coffeescript',
@@ -55,6 +55,7 @@ class Repository
         'ss'       => 'scheme',
         'scala'    => 'text/x-scala',
         'scm'      => 'scheme',
+        'sln'      => 'xml',
         'sls'      => 'scheme',
         'sps'      => 'scheme',
         'rs'       => 'rust',
@@ -90,8 +91,7 @@ class Repository
         'jpg'      => 'image',
         'gif'      => 'image',
         'jpeg'     => 'image',
-        'bmp'      => 'image',
-        'csproj'   => 'xml',
+        'bmp'      => 'image'
     );
 
     protected static $binaryTypes = array(
