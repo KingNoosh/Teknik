@@ -174,7 +174,7 @@ if (isset($_GET['component']))
           case "get":
             $filter = "votes.table_name=?";
             $filter_content = array("ricehalla");
-            $order_by = "TotalPoints";
+            $order_by = "TotalRank";
             $order = "DESC";
             $limit = "";
             if (isset($_POST['id']))
@@ -219,7 +219,7 @@ if (isset($_GET['component']))
                 $limit = " LIMIT ".$_POST['limit'];
               }
             }
-            $Results = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE ".$filter." GROUP BY votes.row_id ORDER BY ".$order_by." ".$order.$limit, $filter_content, 'ricehalla.url, ricehalla.user_id, ricehalla.id, ricehalla.tags, votes.points, votes.user_id, sum(votes.points) TotalPoints, ricehalla.date_added');
+            $Results = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE ".$filter." GROUP BY votes.row_id ORDER BY ".$order_by." ".$order.$limit, $filter_content, 'ricehalla.url, ricehalla.user_id, ricehalla.id, ricehalla.tags, votes.points, votes.user_id, sum(votes.points) TotalPoints, COUNT(votes.id) as TotalVotes, (sum(votes.points) / COUNT(votes.id)) * abs(sum(votes.points)) as TotalRank, ricehalla.date_added');
             if ($Results)
             {
               $result_list = array();
