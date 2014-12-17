@@ -39,7 +39,7 @@ if(isset($_POST))
   $user->delete($db);
   
   //log the user out
-  $userTools->logout();
+  $userTools->logout($CONF);
   echo "true";
 }
 else
