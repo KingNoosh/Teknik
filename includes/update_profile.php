@@ -125,6 +125,17 @@ if(isset($_POST))
         if ($change_password)
         {
           $user->hashedPassword = hashPassword($password, $CONF); //encrypt the password for storage
+          if (!$CONF['dev_env'])
+          {
+            $obBaseApp = new COM("hMailServer.Application");
+            $obBaseApp->Connect();
+            $obBaseApp->Authenticate($CONF['mail_admin_user'], $CONF['mail_admin_pass']);
+            $domain = $obBaseApp->Domains->ItemByName($CONF['host']);
+            
+            $account = $domain->Accounts->ItemByAddress($user->username . "@" . $CONF['host']);
+            $account->Password = $password;
+            $account->Save();
+          }
         }
         
         // Add the user's keys to his git account
