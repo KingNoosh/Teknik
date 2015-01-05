@@ -93,6 +93,7 @@ chmod -R 750 /var/Repositories/gitolite-admin/*
 
 ## Authors and contributors
   * [Chris Woodward](https://www.teknik.io) (Creator, developer)
+  * dronedaddy (Logo Designer)
 
 ## License
 [BSD 3-Clause license](http://opensource.org/licenses/BSD-3-Clause)
