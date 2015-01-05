@@ -308,7 +308,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo get_page_url("home", $CONF); ?>"><img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/logo-black.svg" class="img-responsive" alt="Teknik"></a>
+            <a class="navbar-brand" href="<?php echo get_page_url("home", $CONF); ?>"><img src="<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/logo-black.svg" height="50px" class="img-responsive" alt="Teknik"></a>
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
