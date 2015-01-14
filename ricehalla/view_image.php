@@ -14,7 +14,7 @@ include('../templates/'.$CONF['template'].'/header.php');
 if (isset($_GET['id']))
 {
   $desktop_id = $_GET['id'];
-  $result = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE votes.table_name=? AND ricehalla.id=? GROUP BY votes.row_id ORDER BY TotalPoints DESC", array("ricehalla", $desktop_id), 'ricehalla.url, ricehalla.user_id, ricehalla.id, ricehalla.tags, votes.points, votes.user_id, sum(votes.points) TotalPoints, ricehalla.date_added');
+  $result = $db->select_raw('ricehalla', "INNER JOIN votes ON ricehalla.id=votes.row_id WHERE votes.table_name=? AND ricehalla.id=? GROUP BY votes.row_id ORDER BY TotalPoints DESC", array("ricehalla", $desktop_id), 'ricehalla.url, ricehalla.user_id, ricehalla.id, ricehalla.tags, votes.points, sum(votes.points) TotalPoints, ricehalla.date_added');
   
   if ($result)
   {              
