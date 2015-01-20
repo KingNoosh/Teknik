@@ -41,7 +41,7 @@ if(isset($_POST))
         $("#post_<?php echo $post_id; ?>").html(new_post);
       </script>
       <div class="row">
-        <div class="col-sm-10 col-sm-offset-1 podcast-main">
+        <div class="col-sm-10 col-sm-offset-1">
           <div class="podcast-post">
             <h2 class="podcast-post-title text-center"><a href="<?php echo get_page_url("podcast", $CONF); ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
             <p class="podcast-post-meta text-center text-muted">
