@@ -36,7 +36,7 @@
   <br />
   <div class="well text-center">Each file is encrypted on upload using an AES-256-CBC cipher.  If you wish to view the file decrypted, you must use the direct Teknik link.</div>
   <div class="text-center">
-    Useful Tools: <a href="<?php echo get_page_url('git', $CONF); ?>/Tools.git/blob/master/Upload/upload.sh">Bash Upload Script</a>
+    Useful Tools: <a href="<?php echo get_page_url('git', $CONF); ?>/Tools.git/blob/master/Upload/upload.sh">Bash Upload Script</a> | <a href="https://github.com/jschx/poomf">Poomf Uploader</a>
     <br />
     <br />
     You can now upload your screenshots automatically using <a href="https://github.com/KittyKatt/screenFetch">Screenfetch</a>!
