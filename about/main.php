@@ -15,11 +15,6 @@
     }
     array_push($history, $history_event);
   }
-  
-  $irc_info = $db->select('irc', "1=? ORDER BY id DESC LIMIT 1", array("1"));
-  $max_count = $irc_info['max_nicks'];
-  $count = $irc_info['cur_nicks'];
-  $topic = $irc_info['topic'];
 ?>
 
 <div class="container">
@@ -120,42 +115,6 @@
                 </script>
               </div>
             </div>
-        </div>
-        <div class="tab-pane" id="stats">
-          <div class="row">
-            <div class="col-sm-12 text-center">
-              <h2>#/g/technology's current channel information</h2>
-            </div>
-          </div>
-          <br />
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="hero-widget well well-sm">
-                <?php echo $topic; ?>
-                <div class="text">
-                    <label class="text-muted">Current Topic</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-3 col-sm-offset-3">
-              <div class="hero-widget well well-sm">
-                <div class="text">
-                    <var><?php echo $count; ?></var>
-                    <label class="text-muted">Current Nick Count</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-3">
-              <div class="hero-widget well well-sm">
-                <div class="text">
-                    <var><?php echo $max_count; ?></var>
-                    <label class="text-muted">Max Nick Count</label>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
         <div class="tab-pane" id="staff">
           <?php

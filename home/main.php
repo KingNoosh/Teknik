@@ -13,9 +13,7 @@ $topic = $irc_info['topic'];
   <br />
   <div class="row text-center">
     <h2>
-      Teknik is the website for the #/g/technology IRC channel on Rizon.
-      <br />
-      We host various channels services for our IRC community and by extension, 4chan's Technology board.
+      Teknik is dedicated to the advancement of technology and ideas, and we provide these services to help those who try to innovate.
     </h2>
   </div>
 </div>

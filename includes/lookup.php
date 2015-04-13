@@ -36,8 +36,6 @@ THE SOFTWARE.
 	/*
 		you should server side cache this response, especially if your site is active
 	*/
-try
-{
 	$data = isset($_GET['data'])?$_GET['data']:'';
 	if (!empty($data)) {
 		$data = explode("|", $data);
@@ -61,11 +59,6 @@ try
 		}
 		echo 'var COINWIDGETCOM_DATA = '.json_encode($responses).';';
 	}
-}
-catch (Exception $e)
-{
-    echo 'Caught Exception: ', $e->getMessage();
-}
 
 	function get_bitcoin($address) {
 		$return = array();
