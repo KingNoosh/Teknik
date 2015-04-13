@@ -37,7 +37,7 @@
         break;
       case "about":
         array_push($cssFiles, 'jquery.cointipper.min.css');
-        array_push($jsFiles, 'jquery/jquery.cointipper-pack.js');
+        array_push($jsFiles, 'jquery/jquery.cointipper.js');
         break;
       case "blog":
         array_push($cssFiles, 'bootstrap-markdown.min.css');
