@@ -36,8 +36,8 @@
         array_push($jsFiles, 'admin.js');
         break;
       case "about":
-        array_push($cssFiles, 'coin.css');
-        array_push($jsFiles, 'coin/coin.js');
+        array_push($cssFiles, 'jquery.cointipper.min.css');
+        array_push($jsFiles, 'jquery/jquery.cointipper-pack.js');
         break;
       case "blog":
         array_push($cssFiles, 'bootstrap-markdown.min.css');

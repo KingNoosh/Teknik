@@ -22,7 +22,6 @@
     <div class="col-ms-12">
       <ul class="nav nav-tabs" id="myTab">
         <li class="active"><a href="#about_us" data-toggle="tab">About Us</a></li>
-        <li><a href="#stats" data-toggle="tab">Stats</a></li>
         <?php if ($FounderUsers || $AdminUsers || $ModUsers) { ?>
         <li><a href="#staff" data-toggle="tab">Staff</a></li>
         <?php } ?>
@@ -76,42 +75,20 @@
                   While we provide these services for free, sadly that doesn't make the cost magically go away.  If you think we are doing a great job and would like to say thanks, we would greatly appreciate a small donation so that we can pay the bills!  (Or buy some beer)
                 </p>
                 <script>
-                  CoinWidgetCom.go({
-                    wallet_address		: '<?php echo $CONF['bitcoin_address']; ?>',
-                    currency 		: 'bitcoin',
-                    counter			: 'count',
-                    lbl_button 		: 'Donate',	
-                    lbl_count		: 'donations',
-                    lbl_amount 		: 'BTC',
-                    lbl_address		: 'Please send bitcoin donations to:',
-                    alignment     : "ac",
-                    qrcode			: false,
-                    auto_show    : false,
-                    decimals		: 6,
-                    imgSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
-                    cssSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
-                    jsSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
-                    phpSource   : '<?php echo get_page_url($CONF['page'], $CONF); ?>/includes/'
-                  });
-                </script>
-                <script>
-                  CoinWidgetCom.go({
-                    wallet_address		: '<?php echo $CONF['dogecoin_address']; ?>',
-                    currency 		: 'dogecoin',
-                    counter			: 'count',
-                    lbl_button 		: 'Donate',	
-                    lbl_count		: 'donations',
-                    lbl_amount 		: 'DOGE',
-                    lbl_address		: 'Please send dogecoin donations to:',
-                    alignment     : "ac",
-                    qrcode			: false,
-                    auto_show    : false,
-                    decimals		: 6,
-                    imgSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/img/',
-                    cssSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/css/',
-                    jsSource   : '<?php echo get_page_url("cdn", $CONF); ?>/<?php echo $CONF['template']; ?>/js/coin/',
-                    phpSource   : '<?php echo get_page_url($CONF['page'], $CONF); ?>/includes/'
-                  });
+                    $('#donate-bitcoin').coinTipper({
+                        type: 'tip',
+                        currency: 'bitcoin',
+                        iso: 'BTC',
+                        address: '<?php echo $CONF['bitcoin_address']; ?>',
+                        label: 'Teknik Donations'
+                    });
+                    $('#donate-dogecoin').coinTipper({
+                        type: 'tip',
+                        currency: 'dogecoin',
+                        iso: 'DOGE',
+                        address: '<?php echo $CONF['dogecoin_address']; ?>',
+                        label: 'Teknik Donations'
+                    });
                 </script>
               </div>
             </div>
