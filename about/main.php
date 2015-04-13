@@ -75,7 +75,7 @@
                   While we provide these services for free, sadly that doesn't make the cost magically go away.  If you think we are doing a great job and would like to say thanks, we would greatly appreciate a small donation so that we can pay the bills!  (Or buy some beer)
                 </p>
                 <p>
-                    <div class="input-group col-sm-4 col-sm-offset-2">
+                    <div class="input-group col-sm-6 col-sm-offset-3">
                         <span class="input-group-addon" id="basic-addon1">Bitcoin Address</span>
                         <input type="text" class="form-control" name="bitcoin_address" value="<?php echo $CONF['bitcoin_address']; ?>" readonly>
                     </div>
