@@ -94,7 +94,7 @@
                             address: '<?php echo $CONF['dogecoin_address']; ?>',
                             label: 'Teknik Donations'
                         });
-                    }
+                    });
                 </script>
               </div>
             </div>
