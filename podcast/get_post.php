@@ -58,7 +58,7 @@ if(isset($_POST))
               ?>
             </p>
             <div class="text-center">
-              <audio preload="auto" controls>
+              <audio preload="none" controls>
                 <?php
                 foreach ($files as $filename)
                 {
