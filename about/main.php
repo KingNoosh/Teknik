@@ -75,7 +75,7 @@
                   While we provide these services for free, sadly that doesn't make the cost magically go away.  If you think we are doing a great job and would like to say thanks, we would greatly appreciate a small donation so that we can pay the bills!  (Or buy some beer)
                 </p>
                 <p>
-                    Bitcoin can be sent to <input type="text" class="form-control" name="bitcoin_address" value="<?php echo $$CONF['']; ?>" readonly>
+                    Bitcoin can be sent to <input type="text" class="form-control" name="bitcoin_address" value="<?php echo $CONF['bitcoin_address']; ?>" readonly>
                     <br />
                     PayPal Address: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MBG93VKQ343P4">admin@teknik.io</a>
                 </p>
