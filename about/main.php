@@ -74,23 +74,27 @@
                 <p>
                   While we provide these services for free, sadly that doesn't make the cost magically go away.  If you think we are doing a great job and would like to say thanks, we would greatly appreciate a small donation so that we can pay the bills!  (Or buy some beer)
                 </p>
-                <span id="donate-bitcoin"></span>
-                <span id="donate-dogecoin"></span>
+                <p>
+                    <span id="donate-bitcoin"></span>
+                    <span id="donate-dogecoin"></span>
+                </p>
                 <script>
-                    $('#donate-bitcoin').coinTipper({
-                        type: 'tip',
-                        currency: 'bitcoin',
-                        iso: 'BTC',
-                        address: '<?php echo $CONF['bitcoin_address']; ?>',
-                        label: 'Teknik Donations'
-                    });
-                    $('#donate-dogecoin').coinTipper({
-                        type: 'tip',
-                        currency: 'dogecoin',
-                        iso: 'DOGE',
-                        address: '<?php echo $CONF['dogecoin_address']; ?>',
-                        label: 'Teknik Donations'
-                    });
+                    $(function() {
+                        $('#donate-bitcoin').coinTipper({
+                            type: 'tip',
+                            currency: 'bitcoin',
+                            iso: 'BTC',
+                            address: '<?php echo $CONF['bitcoin_address']; ?>',
+                            label: 'Teknik Donations'
+                        });
+                        $('#donate-dogecoin').coinTipper({
+                            type: 'tip',
+                            currency: 'dogecoin',
+                            iso: 'DOGE',
+                            address: '<?php echo $CONF['dogecoin_address']; ?>',
+                            label: 'Teknik Donations'
+                        });
+                    }
                 </script>
               </div>
             </div>
