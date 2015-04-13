@@ -62,7 +62,7 @@ THE SOFTWARE.
 
 	function get_bitcoin($address) {
 		$return = array();
-		$data = get_request('http://blockchain.info/address/'.$address.'?format=json&limit=0');
+		$data = get_request('https://blockchain.info/address/'.$address.'?format=json');
 		if (!empty($data)) {
 			$data = json_decode($data);
 			$return += array(
