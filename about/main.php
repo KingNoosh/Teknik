@@ -29,11 +29,6 @@
       </ul>
       <div class="tab-content">
         <div class="tab-pane active" id="about_us">
-          <h2 class="text-center">What is Teknik</h2>
-            <hr>
-            <p>
-              Teknik is the website for the #/g/technology IRC channel on Rizon.  We host various channels services for our IRC community and by extension, 4chan's Technology board.
-            </p>
           <h2 class="text-center">What we are About</h2>
             <hr>
             <p>
