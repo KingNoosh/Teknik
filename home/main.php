@@ -13,7 +13,60 @@
 </div>
 <br />
 <div class="container"> 
-  <div class="col-sm-8">
+  <div class="col-sm-4">
+  </div>
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title text-center">Recent Podcasts</h3>
+      </div>
+      <div class="panel-body">
+        <p>
+          <ul class="list-group">
+          <?php
+            $new_posts = $db->select('podcast', "1=? ORDER BY date_posted DESC LIMIT 5", array(1));
+            $posts = array();
+            foreach ($new_posts as $post)
+            {
+              if (!is_array($post))
+              {
+                $posts = array($new_posts);
+                break;
+              }
+              array_push($posts, $post);
+            }
+            foreach ($posts as $post)
+            {
+              $post_id = $post['id'];
+              $date = $post['date_posted'];
+              $title = $post['title'];
+            ?>
+            <script>
+              var converter = new Markdown.getSanitizingConverter();
+              // Title Conversion
+              var old_post = $("#podcast_title_<?php echo $post_id; ?>").text();
+              var new_post = converter.makeHtml(old_post);
+              $("#podcast_title_<?php echo $post_id; ?>").html(new_post);
+            </script>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="podcast-post-sm">
+                    <h2 class="podcast-post-title-sm text-left"><a href="<?php echo get_page_url("podcast", $CONF); ?>/<?php echo $post_id; ?>" id="podcast_title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+                    <p class="podcast-post-meta-sm text-left text-muted">
+                      Posted on <?php echo date("F d, Y",strtotime($date)); ?>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </li>
+          <?php
+            }
+          ?>
+          </ul>
+        </p>
+      </div>
+    </div>
   </div>
   <div class="col-sm-4">
     <div class="panel panel-default">
@@ -21,56 +74,54 @@
         <h3 class="panel-title text-center">Recent Blog Posts</h3>
       </div>
       <div class="panel-body">
-      <?php
-        $new_posts = $db->select('blog', "1=? ORDER BY date_posted DESC LIMIT 10", array(1));
-        $posts = array();
-        foreach ($new_posts as $post)
-        {
-          if (!is_array($post))
-          {
-            $posts = array($new_posts);
-            break;
-          }
-          array_push($posts, $post);
-        }
-        foreach ($posts as $post)
-        {
-          $post_id = $post['id'];
-          $author_id = $post['author_id'];
-          $author = $userTools->get($author_id);
-          $date = $post['date_posted'];
-          $title = $post['title'];
-          $tags = $post['tags'];
-          $post = $post['post'];
-          $reply_msg = "";
-
-          $replies = $db->select('comments', "reply_id=? AND service=?", array($post_id, 'blog'), 'count(*) cnt');
-          $reply_count = $replies['cnt'];
-          if ($reply_count > 0)
-          {
-            $reply_msg = " | <a href='".get_page_url("blog", $CONF)."/".$author->username."/".$post_id."#replies'>Replies:".$reply_count."</a>";
-          }
-        ?>
-          <script>
-            var converter = new Markdown.getSanitizingConverter();
-            // Title Conversion
-            var old_post = $("#title_<?php echo $post_id; ?>").text();
-            var new_post = converter.makeHtml(old_post);
-            $("#title_<?php echo $post_id; ?>").html(new_post);
-          </script>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="blog-post-sm">
-                <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
-                <p class="blog-post-meta-sm text-left text-muted">
-                  Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a><?php echo $reply_msg; ?>
-                </p>
+        <p>
+          <ul class="list-group">
+          <?php
+            $new_posts = $db->select('blog', "1=? ORDER BY date_posted DESC LIMIT 5", array(1));
+            $posts = array();
+            foreach ($new_posts as $post)
+            {
+              if (!is_array($post))
+              {
+                $posts = array($new_posts);
+                break;
+              }
+              array_push($posts, $post);
+            }
+            foreach ($posts as $post)
+            {
+              $post_id = $post['id'];
+              $author_id = $post['author_id'];
+              $author = $userTools->get($author_id);
+              $date = $post['date_posted'];
+              $title = $post['title'];
+              $tags = $post['tags'];
+              $post = $post['post'];
+            ?>
+            <script>
+              var converter = new Markdown.getSanitizingConverter();
+              // Title Conversion
+              var old_post = $("#title_<?php echo $post_id; ?>").text();
+              var new_post = converter.makeHtml(old_post);
+              $("#title_<?php echo $post_id; ?>").html(new_post);
+            </script>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="blog-post-sm">
+                    <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+                    <p class="blog-post-meta-sm text-left text-muted">
+                      Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a>
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        <?php
-          }
-        ?>
+            </li>
+          <?php
+            }
+          ?>
+          </ul>
+        </p>
       </div>
     </div>
   </div>
