@@ -684,7 +684,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 }
 .blog-post-title-sm {
   margin-bottom: 5px;
-  font-size: 25px;
+  font-size: 20px;
+  line-height: 1;
 }
 /*.blog-post-title  a {
   color: rgb(51, 51, 51);
@@ -694,6 +695,8 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 }
 .blog-post-meta-sm {
   margin-bottom: 5px;
+  font-size: 15px;
+  line-height: 1;
 }
 
 /*
