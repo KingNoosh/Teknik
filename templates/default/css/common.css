@@ -668,7 +668,6 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
   font-size: 18px;
   line-height: 1.5;
 }
-
 /*
  * Blog posts
  */
@@ -676,14 +675,24 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 .blog-post {
   margin-bottom: 60px;
 }
+.blog-post-sm {
+  margin-bottom: 60px;
+}
 .blog-post-title {
   margin-bottom: 5px;
   font-size: 40px;
+}
+.blog-post-title-sm {
+  margin-bottom: 5px;
+  font-size: 25px;
 }
 /*.blog-post-title  a {
   color: rgb(51, 51, 51);
 }*/
 .blog-post-meta {
+  margin-bottom: 20px;
+}
+.blog-post-meta-sm {
   margin-bottom: 20px;
 }
 

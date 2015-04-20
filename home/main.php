@@ -18,7 +18,7 @@
   <div class="col-sm-4">
     <div class="panel panel-default">
       <div class="panel-heading">
-        <h3 class="panel-title">Recent Blog Posts</h3>
+        <h3 class="panel-title text-center">Recent Blog Posts</h3>
       </div>
       <div class="panel-body">
       <?php
@@ -61,8 +61,8 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="blog-post">
-                <h2 class="blog-post-title text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
-                <p class="blog-post-meta text-center text-muted">
+                <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+                <p class="blog-post-meta text-left text-muted">
                   Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a><?php echo $reply_msg; ?>
                 </p>
               </div>
