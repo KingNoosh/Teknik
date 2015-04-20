@@ -1,9 +1,3 @@
-<?php
-$irc_info = $db->select('irc', "1=? ORDER BY id DESC LIMIT 1", array("1"));
-$max_count = $irc_info['max_nicks'];
-$count = $irc_info['cur_nicks'];
-$topic = $irc_info['topic'];
-?>
 <div class="container">
   <div class="row">
     <center>
@@ -19,6 +13,70 @@ $topic = $irc_info['topic'];
 </div>
 <br />
 <div class="container"> 
+  <div class="col-sm-8">
+  </div>
+  <div class="col-sm-4">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Recent Blog Posts</h3>
+      </div>
+      <div class="panel-body">
+      <?php
+        $new_posts = $db->select('blog', "1=? ORDER BY date_posted DESC LIMIT 10", array(1));
+        $posts = array();
+        foreach ($new_posts as $post)
+        {
+          if (!is_array($post))
+          {
+            $posts = array($new_posts);
+            break;
+          }
+          array_push($posts, $post);
+        }
+        foreach ($posts as $post)
+        {
+          $post_id = $post['id'];
+          $author_id = $post['author_id'];
+          $author = $userTools->get($author_id);
+          $date = $post['date_posted'];
+          $title = $post['title'];
+          $tags = $post['tags'];
+          $post = $post['post'];
+          $reply_msg = "";
+
+          $replies = $db->select('comments', "reply_id=? AND service=?", array($post_id, 'blog'), 'count(*) cnt');
+          $reply_count = $replies['cnt'];
+          if ($reply_count > 0)
+          {
+            $reply_msg = " | <a href='".get_page_url("blog", $CONF)."/".$author->username."/".$post_id."#replies'>Replies:".$reply_count."</a>";
+          }
+        ?>
+          <script>
+            var converter = new Markdown.getSanitizingConverter();
+            // Title Conversion
+            var old_post = $("#title_<?php echo $post_id; ?>").text();
+            var new_post = converter.makeHtml(old_post);
+            $("#title_<?php echo $post_id; ?>").html(new_post);
+          </script>
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="blog-post">
+                <h2 class="blog-post-title text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+                <p class="blog-post-meta text-center text-muted">
+                  Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a><?php echo $reply_msg; ?>
+                </p>
+              </div>
+            </div>
+          </div>
+        <?php
+          }
+        ?>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<div class="container">
   <div class="row">
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
       <div class="col-md-3 text-center">
