@@ -676,7 +676,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
   margin-bottom: 60px;
 }
 .blog-post-sm {
-  margin-bottom: 60px;
+  margin-bottom: 5px;
 }
 .blog-post-title {
   margin-bottom: 5px;
@@ -693,7 +693,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
   margin-bottom: 20px;
 }
 .blog-post-meta-sm {
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 /*

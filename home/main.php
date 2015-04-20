@@ -62,7 +62,7 @@
             <div class="col-sm-12">
               <div class="blog-post">
                 <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
-                <p class="blog-post-meta text-left text-muted">
+                <p class="blog-post-meta-sm text-left text-muted">
                   Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a><?php echo $reply_msg; ?>
                 </p>
               </div>
