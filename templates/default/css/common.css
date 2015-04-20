@@ -684,7 +684,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 }
 .blog-post-title-sm {
   margin-bottom: 5px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }
 /*.blog-post-title  a {
@@ -695,7 +695,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 }
 .blog-post-meta-sm {
   margin-bottom: 5px;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1;
 }
 
@@ -742,7 +742,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 }
 .podcast-post-title-sm {
   margin-bottom: 5px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
 }
 .podcast-post-meta {
@@ -750,7 +750,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket{color:#f22;}
 }
 .podcast-post-meta-sm {
   margin-bottom: 5;
-  font-size: 15px;
+  font-size: 12px;
   line-height: 1;
 }
 
