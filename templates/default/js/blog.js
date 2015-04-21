@@ -6,7 +6,7 @@ $(document).ready(function() {
       post=encodeURIComponent($("#blog_post").val());
       $.ajax({
         type: "POST",
-        url: "../../../publish_blog.php",
+        url: "../../../add_post.php",
         data: "userID="+userID+"&title="+title+"&post="+post,
         success: function(html)
         {
@@ -62,7 +62,7 @@ $(document).ready(function() {
       post=encodeURIComponent($("#edit_blog_post").val());
       $.ajax({
         type: "POST",
-        url: "../../../edit_blog.php",
+        url: "../../../edit_post.php",
         data: "userID="+userID+"&postID="+postID+"&title="+title+"&post="+post,
         success: function(html)
         {
@@ -182,6 +182,8 @@ function loadMorePosts(start, count)
       {
         $(".blog-main").append(html);
         linkPostDelete('.delete_post');
+        linkPostPublish('.post_publish');
+        linkPostUnpublish('.post_unpublish');
         $(window).bind('scroll', bindScrollPosts);
       }
     }
@@ -227,6 +229,56 @@ function bindScrollComments()
    }
 }
 
+function linkPostUnpublish(selector)
+{
+  $(selector).click(function() {
+    var object = $(this);
+    post_id=encodeURIComponent(object.attr("id"));
+    $.ajax({
+      type: "POST",
+      url: "../../../publish_post.php",
+      data: "publish=FALSE&id="+post_id,
+      success: function(html)
+      {
+        if(html=='true')
+        {
+          window.location.reload();
+        }
+        else
+        {
+          $("#top_msg").css('display', 'inline', 'important');
+          $("#top_msg").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+html+'</div>');
+        }
+      }
+    });
+  });
+}
+
+function linkPostPublish(selector)
+{
+  $(selector).click(function() {
+    var object = $(this);
+    post_id=encodeURIComponent(object.attr("id"));
+    $.ajax({
+      type: "POST",
+      url: "../../../publish_post.php",
+      data: "publish=TRUE&id="+post_id,
+      success: function(html)
+      {
+        if(html=='true')
+        {
+          window.location.reload();
+        }
+        else
+        {
+          $("#top_msg").css('display', 'inline', 'important');
+          $("#top_msg").html('<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>'+html+'</div>');
+        }
+      }
+    });
+  });
+}
+
 function linkPostDelete(selector)
 {
   $(selector).click(function() {
@@ -237,7 +289,7 @@ function linkPostDelete(selector)
       {
         $.ajax({
           type: "POST",
-          url: "../../../delete_blog.php",
+          url: "../../../delete_post.php",
           data: "id="+post_id,
           success: function(html)
           {
