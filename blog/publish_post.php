@@ -24,7 +24,8 @@ if(isset($_POST) && $logged_in)
     if ($success)
     {
       $data = array(
-          "publish" => $publish
+          "publish" => $publish,
+          "date_published" => date("Y-m-d H:i:s",time())
       );
 
       $post_id = $db->update($data, 'blog', 'id=?', array($id));
