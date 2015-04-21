@@ -93,7 +93,7 @@
       <div class="col-md-3 text-center">
         <div class="thumbnail">
           <br />
-          <i class="fa fa-rss fa-5x"></i>
+          <i class="fa fa-book fa-5x"></i>
           <div class="caption">
             <h3>Personal Blog</h3>
           </div>
