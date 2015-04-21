@@ -12,6 +12,112 @@
   </div>
 </div>
 <br />
+<div class="container">
+  <div class="row text-center">
+    <h1>Enjoy any of our free services!</h1>
+  </div>
+  <br />
+  <div class="row">
+    <a href="<?php echo get_page_url("upload", $CONF); ?>">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-lock fa-5x"></i>
+          <div class="caption">
+            <h3>Encrypted File Uploads</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("paste", $CONF); ?>">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-code fa-5x"></i>
+          <div class="caption">
+            <h3>Clean Pastebin</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("podcast", $CONF); ?>">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-microphone fa-5x"></i>
+          <div class="caption">
+            <h3>Technical Podcasts</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("help", $CONF); ?>/#Mumble">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-comments fa-5x"></i>
+          <div class="caption">
+            <h3>Mumble Server</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+<br />
+<div class="container">
+  <div class="row text-center">
+    <h1>Or Sign Up for free and get access to individualized features!</h1>
+  </div>
+  <br />
+  <div class="row">
+    <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-at fa-5x"></i>
+          <div class="caption">
+            <h3>Free Email</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("help", $CONF); ?>/#Git">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-git fa-5x"></i>
+          <div class="caption">
+            <h3>Unlimited Git Repositories</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("blog", $CONF); ?>">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-rss fa-5x"></i>
+          <div class="caption">
+            <h3>Personal Blog</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+    <a href="<?php echo get_page_url("help", $CONF); ?>/#IRC">
+      <div class="col-md-3 text-center">
+        <div class="thumbnail">
+          <br />
+          <i class="fa fa-tag fa-5x"></i>
+          <div class="caption">
+            <h3>IRC Nickname</h3>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+<br />
 <div class="container"> 
   <div class="col-sm-4">
     <div class="panel panel-default">
@@ -179,111 +285,5 @@
         </p>
       </div>
     </div>
-  </div>
-</div>
-<br />
-<div class="container">
-  <div class="row text-center">
-    <h1>Enjoy any of our free services!</h1>
-  </div>
-  <br />
-  <div class="row">
-    <a href="<?php echo get_page_url("upload", $CONF); ?>">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-lock fa-5x"></i>
-          <div class="caption">
-            <h3>Encrypted File Uploads</h3>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="<?php echo get_page_url("paste", $CONF); ?>">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-code fa-5x"></i>
-          <div class="caption">
-            <h3>Clean Pastebin</h3>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="<?php echo get_page_url("podcast", $CONF); ?>">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-microphone fa-5x"></i>
-          <div class="caption">
-            <h3>Technical Podcasts</h3>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="<?php echo get_page_url("help", $CONF); ?>/#Mumble">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-comments fa-5x"></i>
-          <div class="caption">
-            <h3>Mumble Server</h3>
-          </div>
-        </div>
-      </div>
-    </a>
-  </div>
-</div>
-<br />
-<div class="container">
-  <div class="row text-center">
-    <h1>Or Sign Up for free and get access to individualized features!</h1>
-  </div>
-  <br />
-  <div class="row">
-    <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-at fa-5x"></i>
-          <div class="caption">
-            <h3>Free Email</h3>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="<?php echo get_page_url("help", $CONF); ?>/#Git">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-git fa-5x"></i>
-          <div class="caption">
-            <h3>Unlimited Git Repositories</h3>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="<?php echo get_page_url("blog", $CONF); ?>">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-rss fa-5x"></i>
-          <div class="caption">
-            <h3>Personal Blog</h3>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="<?php echo get_page_url("help", $CONF); ?>/#IRC">
-      <div class="col-md-3 text-center">
-        <div class="thumbnail">
-          <br />
-          <i class="fa fa-tag fa-5x"></i>
-          <div class="caption">
-            <h3>IRC Nickname</h3>
-          </div>
-        </div>
-      </div>
-    </a>
   </div>
 </div>
