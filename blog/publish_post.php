@@ -6,11 +6,11 @@ $id = 0;
 if(isset($_POST) && $logged_in)
 {
   $id = rawurldecode($_POST['id']);
+  $publish = rawurldecode($_POST['publish']);
   $post = $db->select('blog', "id=? LIMIT 1", array($id));
   if ($post)
   {
     $success = true;
-    $publish = $post['publish'];
     if ($success && !$user->admin && $post_select['author_id'] != $user->id)
     {
       $error = "You are not allowed to publish this post.";
@@ -24,7 +24,7 @@ if(isset($_POST) && $logged_in)
     if ($success)
     {
       $data = array(
-          "publish" => $publish,
+          "published" => $publish,
           "date_published" => date("Y-m-d H:i:s",time())
       );
 

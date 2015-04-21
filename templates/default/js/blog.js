@@ -237,7 +237,7 @@ function linkPostUnpublish(selector)
     $.ajax({
       type: "POST",
       url: "../../../publish_post.php",
-      data: "publish=FALSE&id="+post_id,
+      data: "publish=0&id="+post_id,
       success: function(html)
       {
         if(html=='true')
@@ -262,7 +262,7 @@ function linkPostPublish(selector)
     $.ajax({
       type: "POST",
       url: "../../../publish_post.php",
-      data: "publish=TRUE&id="+post_id,
+      data: "publish=1&id="+post_id,
       success: function(html)
       {
         if(html=='true')
