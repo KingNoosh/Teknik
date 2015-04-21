@@ -107,7 +107,7 @@ set_page_title($title_bar);
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-            <button type="button" class="btn btn-primary" id="blog_submit">Publish</button>
+            <button type="button" class="btn btn-primary" id="blog_submit">Create</button>
           </div>
         </form>
       </div>
