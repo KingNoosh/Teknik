@@ -186,6 +186,7 @@
   <div class="row text-center">
     <h1>Enjoy any of our free services!</h1>
   </div>
+  <br />
   <div class="row">
     <a href="<?php echo get_page_url("upload", $CONF); ?>">
       <div class="col-md-3 text-center">
@@ -238,6 +239,7 @@
   <div class="row text-center">
     <h1>Or Sign Up for free and get access to individualized features!</h1>
   </div>
+  <br />
   <div class="row">
     <a href="<?php echo get_page_url("help", $CONF); ?>/#Mail">
       <div class="col-md-3 text-center">
