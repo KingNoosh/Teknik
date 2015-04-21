@@ -278,7 +278,7 @@
       <div class="col-md-3 text-center">
         <div class="thumbnail">
           <br />
-          <i class="fa fa-comments fa-5x"></i>
+          <i class="fa fa-tag fa-5x"></i>
           <div class="caption">
             <h3>IRC Nickname</h3>
           </div>
