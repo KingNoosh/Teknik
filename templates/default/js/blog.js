@@ -182,8 +182,8 @@ function loadMorePosts(start, count)
       {
         $(".blog-main").append(html);
         linkPostDelete('.delete_post');
-        linkPostPublish('.post_publish');
-        linkPostUnpublish('.post_unpublish');
+        linkPostPublish('.publish_post');
+        linkPostUnpublish('.unpublish_post');
         $(window).bind('scroll', bindScrollPosts);
       }
     }
