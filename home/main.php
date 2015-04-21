@@ -124,7 +124,7 @@
         <p>
           <ul class="list-group">
           <?php
-            $new_posts = $db->select('blog', "user_id=? ORDER BY date_posted DESC LIMIT 5", array(0));
+            $new_posts = $db->select('blog', "user_id=? AND published=? ORDER BY date_posted DESC LIMIT 5", array(0,1));
             $posts = array();
             foreach ($new_posts as $post)
             {
@@ -141,35 +141,30 @@
               $author_id = $post['author_id'];
               $author = $userTools->get($author_id);
               $date = $post['date_posted'];
-              $published = $post['published'];
               $title = $post['title'];
               $tags = $post['tags'];
               $post = $post['post'];
-
-              if ($published)
-              {
-                ?>
-                <script>
-                  var converter = new Markdown.getSanitizingConverter();
-                  // Title Conversion
-                  var old_post = $("#title_<?php echo $post_id; ?>").text();
-                  var new_post = converter.makeHtml(old_post);
-                  $("#title_<?php echo $post_id; ?>").html(new_post);
-                </script>
-                <li class="list-group-item">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="blog-post-sm">
-                        <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
-                        <p class="blog-post-meta-sm text-left text-muted">
-                          Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a>
-                        </p>
-                      </div>
+              ?>
+              <script>
+                var converter = new Markdown.getSanitizingConverter();
+                // Title Conversion
+                var old_post = $("#title_<?php echo $post_id; ?>").text();
+                var new_post = converter.makeHtml(old_post);
+                $("#title_<?php echo $post_id; ?>").html(new_post);
+              </script>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="blog-post-sm">
+                      <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+                      <p class="blog-post-meta-sm text-left text-muted">
+                        Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a>
+                      </p>
                     </div>
                   </div>
-                </li>
-              <?php
-              }
+                </div>
+              </li>
+            <?php
             }
           ?>
           </ul>
@@ -239,7 +234,7 @@
         <p>
           <ul class="list-group">
           <?php
-            $new_posts = $db->select('blog', "user_id!=? ORDER BY date_posted DESC LIMIT 5", array(0));
+            $new_posts = $db->select('blog', "user_id!=? AND published=? ORDER BY date_posted DESC LIMIT 5", array(0,1));
             $posts = array();
             foreach ($new_posts as $post)
             {
@@ -260,31 +255,27 @@
               $title = $post['title'];
               $tags = $post['tags'];
               $post = $post['post'];
-
-              if ($published)
-              {
-                ?>
-                <script>
-                  var converter = new Markdown.getSanitizingConverter();
-                  // Title Conversion
-                  var old_post = $("#title_<?php echo $post_id; ?>").text();
-                  var new_post = converter.makeHtml(old_post);
-                  $("#title_<?php echo $post_id; ?>").html(new_post);
-                </script>
-                <li class="list-group-item">
-                  <div class="row">
-                    <div class="col-sm-12">
-                      <div class="blog-post-sm">
-                        <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
-                        <p class="blog-post-meta-sm text-left text-muted">
-                          Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a>
-                        </p>
-                      </div>
+              ?>
+              <script>
+                var converter = new Markdown.getSanitizingConverter();
+                // Title Conversion
+                var old_post = $("#title_<?php echo $post_id; ?>").text();
+                var new_post = converter.makeHtml(old_post);
+                $("#title_<?php echo $post_id; ?>").html(new_post);
+              </script>
+              <li class="list-group-item">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="blog-post-sm">
+                      <h2 class="blog-post-title-sm text-left"><a href="<?php echo get_page_url("blog", $CONF); ?>/<?php echo $author->username; ?>/<?php echo $post_id; ?>" id="title_<?php echo $post_id; ?>"><?php echo $title; ?></a></h2>
+                      <p class="blog-post-meta-sm text-left text-muted">
+                        Posted on <?php echo date("F d, Y",strtotime($date)); ?> by <a href="<?php echo get_page_url("home", $CONF); ?>/<?php echo $author->username; ?>"><?php echo $author->username; ?></a>
+                      </p>
                     </div>
                   </div>
-                </li>
-              <?php
-              }
+                </div>
+              </li>
+            <?php
             }
           ?>
           </ul>

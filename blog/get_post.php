@@ -28,6 +28,7 @@ if(isset($_POST))
   
   if ($posts)
   {
+    $viewablePosts = 0;
     foreach ($posts as $post)
     {
       $post_id = $post['id'];
@@ -97,7 +98,18 @@ if(isset($_POST))
           </div>
         </div>
     <?php
+        $viewablePosts++;
       }
+    }
+    if ($viewablePosts == 0)
+    {
+      ?>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <h2>There are currently no articles.</h2>
+        </div>
+      </div>
+      <?php
     }
   }
 }
