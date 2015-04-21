@@ -196,6 +196,10 @@ if (isset($_GET['post']))
             var new_post = converter.makeHtml(old_post);
             $("#post_<?php echo $post_id; ?>").html(new_post);
 
+            linkPostDelete('.delete_post');
+            linkPostPublish('.publish_post');
+            linkPostUnpublish('.unpublish_post');
+
             var posts = <?php echo $comments_per_load; ?>;
             var start_post = 0;
             var view_post_id = <?php echo $post_num; ?>;
