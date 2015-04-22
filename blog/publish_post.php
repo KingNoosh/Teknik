@@ -11,7 +11,7 @@ if(isset($_POST) && $logged_in)
   if ($post)
   {
     $success = true;
-    if ($success && !$user->admin && $post_select['author_id'] != $user->id)
+    if ($success && !$user->admin && $post['author_id'] != $user->id)
     {
       $error = "You are not allowed to publish this post.";
       if (!$publish)
