@@ -222,7 +222,7 @@
         ?>
         <h3>Bills</h3>
           <?php
-            $current_month = date("F",time())+1;
+            $current_month = null;
             $first_event = true;
             foreach ($transaction_bill_list as $transaction)
             {
@@ -287,7 +287,7 @@
         ?>
         <h3>One-Time Payments</h3>
           <?php
-            $current_month = date("F",time())+1;
+            $current_month = null;
             $first_event = true;
             foreach ($transaction_one_time_list as $transaction)
             {
@@ -352,7 +352,7 @@
         ?>
         <h3>Donations</h3>
           <?php
-            $current_month = date("F",time())+1;
+            $current_month = null;
             $first_event = true;
             foreach ($transaction_donation_list as $transaction)
             {
