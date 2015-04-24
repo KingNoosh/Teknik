@@ -110,7 +110,7 @@
     array_push($upload_list, $upload);
   }
   
-  $pastes = $db->select('paste', "1=?", array("1"));
+  $pastes = $db->select('paste', "1=? LIMIT 1 ORDER BY `id` DESC", array("1"));
   
   $paste_list = array();
   foreach ($pastes as $paste)
@@ -161,7 +161,7 @@
           </div>
           <div class="col-sm-6">
             <h3>Pastes</h3>
-              <p>Number of Pastes: <?php echo count($paste_list); ?></p>
+              <p>Number of Pastes: <?php echo $paste_list['id']; ?></p>
           </div>
         </div>
         <div class="row">
