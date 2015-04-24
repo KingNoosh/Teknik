@@ -232,7 +232,7 @@
               $transaction_currency = (isset($transaction['currency'])) ? $transaction['currency'] : "";
               
               $new_month_tag = false;
-              if ($current_month != date("F",strtotime($transaction_date)))
+              if ($current_month != date("F",strtotime($transaction_date)) || $current_year != date("Y",strtotime($transaction_date)))
               {
                 $new_month_tag = true;
               }
@@ -297,7 +297,7 @@
               $transaction_currency = (isset($transaction['currency'])) ? $transaction['currency'] : "";
               
               $new_month_tag = false;
-              if ($current_month != date("F",strtotime($transaction_date)))
+              if ($current_month != date("F",strtotime($transaction_date)) || $current_year != date("Y",strtotime($transaction_date)))
               {
                 $new_month_tag = true;
               }
@@ -362,7 +362,7 @@
               $transaction_currency = (isset($transaction['currency'])) ? $transaction['currency'] : "";
               
               $new_month_tag = false;
-              if ($current_month != date("F",strtotime($transaction_date)))
+              if ($current_month != date("F",strtotime($transaction_date)) || $current_year != date("Y",strtotime($transaction_date)))
               {
                 $new_month_tag = true;
               }
