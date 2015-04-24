@@ -110,7 +110,7 @@
     array_push($upload_list, $upload);
   }
   
-  $pastes = $db->select('paste', "1=? ORDER BY id DESC LIMIT 1", array("1"));
+  $pastes = $db->select('paste', "1=? ORDER BY pid DESC LIMIT 1", array("1"));
   
   $paste_list = array();
   foreach ($pastes as $paste)
