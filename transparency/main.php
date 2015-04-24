@@ -161,7 +161,7 @@
           </div>
           <div class="col-sm-6">
             <h3>Pastes</h3>
-              <p>Number of Pastes: <?php echo $paste_list[0]['id']; ?></p>
+              <p>Number of Pastes: <?php echo $paste_list[0]['pid']; ?></p>
           </div>
         </div>
         <div class="row">
