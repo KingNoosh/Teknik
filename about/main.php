@@ -75,14 +75,10 @@
                         <input type="text" class="form-control" name="bitcoin_address" value="<?php echo $CONF['bitcoin_address']; ?>" readonly>
                     </div>
                     <br />
-                    <div class="input-group col-sm-6 col-sm-offset-3">
-                        <span class="input-group-addon" id="basic-addon1">Paypal Email</span>
-                        <span class="input-group-btn">
-                          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MBG93VKQ343P4">
-                            <button type="button" class="btn btn-default">admin@teknik.io</button>
-                          </a>
-                        </span>
-                    </div>
+                    Paypal Email
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MBG93VKQ343P4">
+                      <button type="button" class="btn btn-default">admin@teknik.io</button>
+                    </a>
                 </p>
                 </p>
               </div>
