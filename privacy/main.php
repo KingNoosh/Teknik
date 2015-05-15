@@ -7,9 +7,10 @@
         </p>
         <ul>
           <li>Email Address (username@teknik.io)</li>
-          <li>Blog Posts</li>
+          <li>Published Blog Posts</li>
+          <li>Comments</li>
           <li>Uploads (Only accessible by direct link)</li>
-          <li>Git commits</li>
+          <li>Git Repositories</li>
           <li>Pastes without passwords</li>
           <li>User Profile</li>
             <ul>
@@ -42,6 +43,7 @@
         <ul>
           <li><var>PHPSESSION</var> - Used by PHP for the server-side code that is ran.</li>
           <li><var>auth</var> - Used to authenticate a persistent login (activated when you choose 'remember me' at login).</li>
+          <li><var>_ga, _pk_id, _pk_ref, piwik_auth</var> - Used as an identifier for site statistics.  This can be disabled through the user profile.</li>
         </ul>
     </div>
   </div>
