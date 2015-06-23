@@ -75,7 +75,9 @@
                         <input type="text" class="form-control" name="bitcoin_address" value="<?php echo $CONF['bitcoin_address']; ?>" readonly>
                     </div>
                     <br />
-                    PayPal Address: <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MBG93VKQ343P4">admin@teknik.io</a>
+                    <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=MBG93VKQ343P4">
+                      <button type="button" class="btn btn-default">Paypal Donation</button>
+                    </a>
                 </p>
                 </p>
               </div>
